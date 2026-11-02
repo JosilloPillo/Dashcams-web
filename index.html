@@ -323,7 +323,33 @@ var ASIN = {
 "DDPAI Z60 Pro":"B0FFRL9WQ7","BlackVue DR970X-2CH LTE Plus":"B0DJFVP1P7","BlackVue DR770X-2CH II":"B0FGQDJJ1G","BlackVue DR590X-1CH":"B08KJ8H3FD","Nextbase 222X":"B0F8W7YG68","Redtiger F77":"B0DPQC5YTH","AZDOME M550 Max 3CH":"B0FNS2FS57","WOLFBOX G840S":"B0811Q28N6"
 };
 /* Enlaces de afiliado de AliExpress: "Nombre exacto":"enlace s.click.aliexpress.com". Si el modelo también está en Amazon salen los dos botones; si no, solo el de AliExpress. */
-var AE = {"70mai Dash Cam A400":"https://es.aliexpress.com/item/1005012285557191.html"};
+var AE = {
+"70mai Dash Cam M300":"https://s.click.aliexpress.com/e/_c4FUvuPN",
+"70mai A810S 4K":"https://s.click.aliexpress.com/e/_c4ezttIr",
+"70mai Dash Cam A400":"https://s.click.aliexpress.com/e/_c35NR10L",
+"70mai Dash Cam A500S":"https://s.click.aliexpress.com/e/_c2RrTOq3",
+"70mai A800SE":"https://s.click.aliexpress.com/e/_c30sg04R",
+"70mai A810 Lite":"https://s.click.aliexpress.com/e/_c4KtDHBD",
+"70mai Omni X800":"https://s.click.aliexpress.com/e/_c3GlecMP",
+"70mai T800 3CH":"https://s.click.aliexpress.com/e/_c4c4izTv",
+"AZDOME M300S 4K+1080P":"https://s.click.aliexpress.com/e/_c4Mu5bEB",
+"AZDOME M550 Max 3CH":"https://s.click.aliexpress.com/e/_c3bjgbzH",
+"VANTRUE N5":"https://s.click.aliexpress.com/e/_c4qP6J4b",
+"Vantrue N4S 3CH":"https://s.click.aliexpress.com/e/_c4KE4xld",
+"Vantrue N5S 4CH":"https://s.click.aliexpress.com/e/_c3mgSvFt",
+"Vantrue E1 Pro 4K Mini":"https://s.click.aliexpress.com/e/_c3JLtvZz",
+"Vantrue S1 Pro Max":"https://s.click.aliexpress.com/e/_c4LMhIKL",
+"DDPAI Z50 Pro":"https://s.click.aliexpress.com/e/_c34Qr983",
+"DDPAI Z60 Pro":"https://s.click.aliexpress.com/e/_c3dAxa1Z",
+"DDPAI N5 Dual":"https://s.click.aliexpress.com/e/_c3kZIXIB",
+"DDPAI N4T Pro 3CH":"https://s.click.aliexpress.com/e/_c3cZxe39",
+"DDPAI N2 Dual":"https://s.click.aliexpress.com/e/_c4e5RtdV",
+"DDPAI Mini Pro":"https://s.click.aliexpress.com/e/_c4dxB3N9",
+"Redtiger F7N Touch 4K":"https://s.click.aliexpress.com/e/_c45Irc63",
+"Redtiger F77":"https://s.click.aliexpress.com/e/_c3z7wUaF",
+"WOLFBOX G840S":"https://s.click.aliexpress.com/e/_c3U1RCcX"
+};
+/* Pendiente: 70mai A410 Neo (versión nueva de la A400) https://s.click.aliexpress.com/e/_c31VJyaj */
 function amz(n){if(!ASIN[n]&&AE[n])return AE[n];return ASIN[n]?"https://www.amazon.es/dp/"+ASIN[n]+"?tag="+TAG:"https://www.amazon.es/s?k="+encodeURIComponent(n)+"&tag="+TAG;}
 
 /* ===== PRECIOS orientativos en euros (redondeados; el precio real es siempre el de Amazon) ===== */
