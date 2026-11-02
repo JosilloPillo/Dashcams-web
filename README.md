@@ -1,6 +1,6 @@
 # Dashcams España — web
 
-Web de comparativa de dashcams de [Dashcams España](https://www.youtube.com/@DashcamsEsp): comparador de 49 modelos, recomendador guiado, blog con análisis, descargas, formularios y páginas legales.
+Web de comparativa de dashcams de [Dashcams España](https://www.youtube.com/@DashcamsEsp): comparador de más de 70 modelos, recomendador guiado, blog con análisis, descargas, formularios y páginas legales.
 
 Archivos:
 - `index.html`: toda la web (HTML, CSS y JavaScript dentro).
