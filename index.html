@@ -177,6 +177,15 @@ h3.sub{margin:1.5rem 0 .75rem;}
 .vtxt{position:absolute;bottom:1.2rem;font-weight:600;}
 .yt{position:relative;aspect-ratio:16/9;max-width:46rem;margin:1rem 0 1.75rem;border-radius:6px;overflow:hidden;background:#000;}
 .yt iframe{position:absolute;inset:0;width:100%;height:100%;border:0;}
+.post .pimg{display:block;margin:-1.25rem -1.25rem 1rem;}
+.post .pimg img{display:block;width:100%;height:auto;aspect-ratio:16/9;object-fit:cover;border-radius:6px 6px 0 0;}
+.portada{display:block;width:100%;height:auto;border-radius:6px;margin:.75rem 0 1.5rem;}
+.galeria{display:grid;grid-template-columns:1fr 1fr;gap:.75rem;margin:1rem 0 1.5rem;}
+.galeria figure{margin:0;}
+.galeria a{display:block;}
+.galeria img{display:block;width:100%;height:auto;aspect-ratio:16/9;object-fit:cover;border-radius:4px;}
+.galeria figcaption{font-size:.85rem;color:var(--muted);margin-top:.3rem;}
+@media(max-width:30rem){.galeria{grid-template-columns:1fr;}}
 .hueco{background:#ffe58a;color:#1d2730;padding:0 .3rem;border-radius:3px;font-weight:600;}
 .theme{display:inline-grid;place-items:center;width:2.6rem;height:2.6rem;padding:0;font-size:1.25rem;line-height:1;background:var(--surface);border:1px solid var(--line);border-radius:50%;cursor:pointer;}
 .theme:hover{border-color:var(--accent);}
@@ -296,7 +305,7 @@ function btn(u){return "<a class='buy' href='"+u+"' target='_blank' rel='sponsor
 
 /* ===== BLOG: cada artículo es un bloque de esta lista (el primero sale el primero en el blog) =====
    Para añadir un artículo, copia esta PLANTILLA al principio de POSTS y rellénala:
-{id:"mi-articulo", video:"", titulo:"Título del artículo", tipo:"Análisis", fecha:"1 nov 2026", lectura:"3 min", nota:"", amazon:"",
+{id:"mi-articulo", video:"", portada:"", portadaAlt:"", titulo:"Título del artículo", tipo:"Análisis", fecha:"1 nov 2026", lectura:"3 min", nota:"", amazon:"",
  resumen:"Una o dos frases para la tarjeta del blog.",
  cuerpo:`
 <p>Primer párrafo.</p>
@@ -305,6 +314,8 @@ function btn(u){return "<a class='buy' href='"+u+"' target='_blank' rel='sponsor
 `},
    - id: sin espacios ni tildes; será la dirección del artículo (#mi-articulo).
    - video: el código de 11 caracteres del vídeo de YouTube (lo que va después de watch?v= o youtu.be/), o "" si no tiene.
+   - portada: ruta de la imagen de portada (p. ej. "img/blog/mi-articulo/portada.webp") y portadaAlt: qué se ve en ella. Vacías si no tiene.
+   - galería de fotos dentro del cuerpo: <div class="galeria"><figure><a href="FOTO-GRANDE"><img src="FOTO-PEQUEÑA" alt="..."></a><figcaption>Texto</figcaption></figure>...</div>
    - nota: déjala vacía ("") si no es un análisis con puntuación.
    - amazon: un enlace amzn.to, amz("Nombre del modelo") o "" si no lleva botón.
    - cuerpo: va entre comillas invertidas ` `; usa <p>, <h3>, <h4> y <ul><li>.
@@ -318,7 +329,7 @@ function vid(id, t){
   return "<a class='vcard' href='https://www.youtube.com/watch?v="+id+"' target='_blank' rel='noopener'><span class='vosd'><span class='rec'><i></i>REC</span><span>YouTube · Dashcams ESP</span></span><span class='vplay' aria-hidden='true'>▶</span><span class='vtxt'>Ver el vídeo en YouTube</span></a>";
 }
 var POSTS = [
-{id:"a329", video:"eFf-2xmAF4M", titulo:"Viofo A329: esto sí es calidad", tipo:"Análisis", fecha:"1 jun 2025", lectura:"3 min", nota:"9,2", amazon:"https://amzn.to/4krPWgq",
+{id:"a329", video:"eFf-2xmAF4M", portada:"img/blog/viofo-a329/portada.webp", portadaAlt:"Viofo A329 instalada en el parabrisas con el texto «Necesitas una»", titulo:"Viofo A329: esto sí es calidad", tipo:"Análisis", fecha:"1 jun 2025", lectura:"3 min", nota:"9,2", amazon:"https://amzn.to/4krPWgq",
  resumen:"La dashcam de doble cámara de Viofo graba en 4K a 60 fps delante, con GPS, control por voz, modo aparcado y filtro polarizador incluido. Es para quien quiere la máxima calidad, no para quien busca algo básico y económico.",
  cuerpo:`
 <p>La gente de Viofo ha vuelto a confiar en mí para que pruebe su último modelo, la A329, y os lo cuente con sus cosas buenas, y también las malas si las hay. Ya de entrada os digo que estamos ante una dashcam que juega en otra liga.</p>
@@ -326,6 +337,7 @@ var POSTS = [
 <p>Nada más abrir la caja ya me di cuenta de que esta dashcam venía cargada de extras.</p>
 <ul><li>La cámara frontal, bastante grande, con pantalla, botones y varios puertos (incluido el de la trasera).</li><li>La trasera, más compacta, sin pantalla, pero con un diseño que transmite calidad. Al tacto parece de aluminio y pesa lo suyo.</li><li>Cable de fibra óptica para conectar ambas cámaras.</li><li>Cargador de coche, cableado para la instalación y transferencia directa a SSD.</li><li>Filtro polarizador para la cámara delantera: reduce brillos y reflejos del parabrisas.</li><li>Herramienta para esconder cables, manuales y las pegatinas típicas.</li></ul>
 <p>Además, la marca me envió una tarjeta SD de 64GB y un control remoto.</p>
+<div class="galeria"><figure><a href='img/blog/viofo-a329/caja.webp' target='_blank' rel='noopener'><img src='img/blog/viofo-a329/caja-mini.webp' alt='Caja de la Viofo A329 2CH con la cámara delantera y la trasera en la portada' width='720' height='405' loading='lazy'></a><figcaption>La caja de la A329 2CH</figcaption></figure><figure><a href='img/blog/viofo-a329/camara.webp' target='_blank' rel='noopener'><img src='img/blog/viofo-a329/camara-mini.webp' alt='Cámara delantera Viofo A329 recién sacada de la caja' width='720' height='405' loading='lazy'></a><figcaption>La cámara delantera, con pantalla</figcaption></figure><figure><a href='img/blog/viofo-a329/cargador.webp' target='_blank' rel='noopener'><img src='img/blog/viofo-a329/cargador-mini.webp' alt='Cargador de mechero con dos puertos USB incluido con la Viofo A329' width='720' height='405' loading='lazy'></a><figcaption>Cargador de mechero con dos USB</figcaption></figure><figure><a href='img/blog/viofo-a329/filtro-cpl.webp' target='_blank' rel='noopener'><img src='img/blog/viofo-a329/filtro-cpl-mini.webp' alt='Filtro polarizador CPL de la Viofo A329 sostenido con dos dedos' width='720' height='405' loading='lazy'></a><figcaption>Filtro polarizador (CPL)</figcaption></figure></div>
 <h3>Calidad de vídeo: probablemente lo mejor que he probado</h3>
 <p>Esta es de las dashcams con mejor calidad que he visto hasta la fecha. El 4K a 60 fps en la cámara delantera permite captar matrículas incluso de coches que pasan rápido, y la fluidez de los 60 fotogramas por segundo se nota muchísimo.</p>
 <p>La cámara trasera, aunque no llega a 60 fps, rinde de maravilla. En casi cualquier situación, incluso con poca luz, graba con buena nitidez. De noche, como es habitual, la visibilidad de matrículas depende de las luces externas, pero está por encima de la media.</p>
@@ -446,8 +458,8 @@ var POSTS = [
 (function(){
   var ul=document.getElementById("posts"),box=document.getElementById("articulos"),l="",a="";
   POSTS.forEach(function(p){
-    l+="<li class='post'><h3><a href='#"+p.id+"'>"+p.titulo+"</a></h3><p class='meta'>"+p.tipo+", "+p.fecha+", "+p.lectura+" de lectura"+(p.nota?". Nota final: "+p.nota:"")+"</p><p>"+p.resumen+"</p></li>";
-    a+="<section id='"+p.id+"' data-view='"+p.id+"'><div class='wrap art'><p><a href='#blog'>Volver al blog</a></p><h2>"+p.titulo+"</h2><p class='meta'>"+p.tipo+", por "+(p.autor||"Jose Barranco")+", "+p.fecha+", "+p.lectura+" de lectura</p>"+vid(p.video,p.titulo)+p.cuerpo+(p.amazon?"<p>"+btn(p.amazon)+"</p>":"")+"</div></section>";
+    l+="<li class='post'>"+(p.portada?"<a class='pimg' href='#"+p.id+"' tabindex='-1' aria-hidden='true'><img src='"+p.portada+"' alt='' loading='lazy'></a>":"")+"<h3><a href='#"+p.id+"'>"+p.titulo+"</a></h3><p class='meta'>"+p.tipo+", "+p.fecha+", "+p.lectura+" de lectura"+(p.nota?". Nota final: "+p.nota:"")+"</p><p>"+p.resumen+"</p></li>";
+    a+="<section id='"+p.id+"' data-view='"+p.id+"'><div class='wrap art'><p><a href='#blog'>Volver al blog</a></p><h2>"+p.titulo+"</h2><p class='meta'>"+p.tipo+", por "+(p.autor||"Jose Barranco")+", "+p.fecha+", "+p.lectura+" de lectura</p>"+(p.portada?"<img class='portada' src='"+p.portada+"' alt='"+(p.portadaAlt||"").replace(/'/g,"&#39;")+"'>":"")+p.cuerpo+(p.video?"<h3>El vídeo del análisis</h3>"+vid(p.video,p.titulo):"")+(p.amazon?"<p>"+btn(p.amazon)+"</p>":"")+"</div></section>";
   });
   ul.innerHTML=l; box.outerHTML=a;
 })();
