@@ -54,7 +54,7 @@ En el JavaScript del final del archivo:
 1. **Activar GitHub Pages** (Settings → Pages → rama `main`, carpeta raíz) para ver la web en https://josillopillo.github.io/Dashcams-web/.
 2. **Pasar a dashcams.es:** hPanel → web → Advanced → Git → Continue with GitHub → repositorio `Dashcams-web`, rama `main`, carpeta `public_html`. Si la web actual es del creador de webs, crear una web vacía con el dominio. El buzón info@dashcams.es debe existir para los formularios.
 3. **Vídeo de «¿Qué es una dashcam?»:** el texto habla de un vídeo, pero ni dashcams.es lo tiene. Falta el enlace.
-4. **Imágenes:** fotos de las dashcams y miniaturas de los fondos de Descargas. En el repositorio ya pueden ir como archivos (carpeta `img/`).
+4. **Fotos de las dashcams:** las tiene que pasar Jose (propias o de prensa de las marcas). Los fondos de Descargas ya están en `img/fondos/` (originales optimizados) y `img/fondos/mini/` (miniaturas WebP).
 5. Huecos «—» que quedan en modelos sin ficha en Amazon.es o con fichas incompletas.
 6. «Opinión del canal»: solo hay nota en 3 modelos.
 7. Opcional: alojar las fuentes en la propia web en vez de Google Fonts.
