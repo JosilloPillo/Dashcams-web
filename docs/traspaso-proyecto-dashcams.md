@@ -48,7 +48,8 @@ En el JavaScript del final del archivo:
 - Formularios: en dashcams.es se envían solos con `enviar.php` (PHP `mail()` de Hostinger, remitente info@dashcams.es, campo trampa anti-robots y límite de 5 envíos cada 10 min por IP). En otros sitios preparan el correo.
 - `og-image.png` (1200×630) para compartir en redes.
 - 14 modelos con huecos completados desde sus fichas de Amazon.es (GPS, WiFi, voz, pantalla, aparcado, ángulo, tarjeta).
-- Decisiones: los 17 modelos sin ficha en Amazon.es se quedan con búsqueda; sin suscripción por correo de momento; Hostinger tiene plan de alojamiento web.
+- Limpieza del comparador (2 nov 2026): quedan 66 modelos. Descatalogados cambiados por su versión actual: BlackVue DR970X Plus → DR970X-2CH LTE Plus, DR770X → DR770X-2CH II, DR590X 2CH → DR590X-1CH (la de dos cámaras ya no está en Amazon.es), Nextbase 222 → 222X, AZDOME M550 → M550 Max 3CH, WolfBox espejo → WOLFBOX G840S. Quitados por descatalogados (su sucesora ya estaba en la lista) o por no venderse en Amazon.es ni AliExpress: Thinkware U1000 Plus, Thinkware Q1000, 70mai Dash Cam Lite, Miofive 4K, Rexing V1GW-4K y NEXPOW 3 canales. La 70mai A400 solo está en AliExpress: enlace en la lista `AE` (botón «Ver en AliExpress»). La DDPAI Z60 Pro ya tiene ficha en Amazon.es (B0FFRL9WQ7). La Viofo VS1 no está en Amazon.es ni AliExpress (sí en Powerplanet), pero se mantiene por tener reseña propia.
+- Decisiones: los modelos sin ficha en Amazon.es se quedan con búsqueda; sin suscripción por correo de momento; Hostinger tiene plan de alojamiento web.
 
 ## Pendiente
 1. **Activar GitHub Pages** (Settings → Pages → rama `main`, carpeta raíz) para ver la web en https://josillopillo.github.io/Dashcams-web/.
