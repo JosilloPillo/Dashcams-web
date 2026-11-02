@@ -336,6 +336,7 @@ function btn(u){return "<a class='buy' href='"+u+"' target='_blank' rel='sponsor
    - galería de fotos dentro del cuerpo: <div class="galeria"><figure><a href="FOTO-GRANDE"><img src="FOTO-PEQUEÑA" alt="..."></a><figcaption>Texto</figcaption></figure>...</div>
    - nota: déjala vacía ("") si no es un análisis con puntuación.
    - amazon: un enlace amzn.to, amz("Nombre del modelo") o "" si no lleva botón.
+   - compra y tienda (opcionales): enlace a otra tienda y su nombre, p. ej. compra:"https://bit.ly/...", tienda:"AliExpress".
    - cuerpo: va entre comillas invertidas ` `; usa <p>, <h3>, <h4> y <ul><li>.
 */
 /* ===== VÍDEOS: en tu dominio se incrustan con el reproductor de YouTube; aquí, como tarjeta con enlace =====
@@ -347,6 +348,42 @@ function vid(id, t){
   return "<a class='vcard' href='https://www.youtube.com/watch?v="+id+"' target='_blank' rel='noopener'><span class='vosd'><span class='rec'><i></i>REC</span><span>YouTube · Dashcams ESP</span></span><span class='vplay' aria-hidden='true'>▶</span><span class='vtxt'>Ver el vídeo en YouTube</span></a>";
 }
 var POSTS = [
+{id:"ddpai-z60-pro", video:"HiVIGk5xuWQ", portada:"", portadaAlt:"", titulo:"DDPAI Z60 Pro: tres cámaras y módulo LTE para tener el coche bajo control", tipo:"Análisis", fecha:"2 nov 2026", lectura:"5 min", nota:"", amazon:"", compra:"https://bit.ly/4rH50JL", tienda:"AliExpress",
+ resumen:"Un sistema completo de tres cámaras: delantera 4K con doble sensor Sony STARVIS 2, interior 2K y trasera 1080p, más un módulo LTE para ver el coche en directo desde el móvil. Muy buena de día, con uno de los mejores controles por voz que he probado, aunque el reparto de resoluciones entre cámaras es mejorable.",
+ cuerpo:`
+<p>¡Hola, gente! Esta vez os traigo algo diferente: ni una, ni dos, sino tres cámaras. Es la DDPAI Z60 Pro, un set con cámara delantera, cámara trasera, cámara interior y módulo LTE para tener el coche bajo control en todo momento. Os cuento qué trae, cómo la he instalado y qué tal graba, tanto de día como de noche.</p>
+<h3>Unboxing: todo lo que incluye la caja</h3>
+<p>Esta vez me han enviado un montón de cosas (sin duda, la mejor parte de ser el admin). El set se compone de:</p>
+<ul><li>El pack principal, que creo que también se vende por separado: la dashcam delantera 4K, con una pantalla bastante grande, y la cámara trasera, que se conecta a la principal con su cable rojo.</li><li>Una cámara interior 2K, pensada para grabar la cabina. Se pega al cristal y se puede orientar, y con esa resolución podría venderse tranquilamente como una dashcam independiente.</li><li>El módulo LTE, que conecta la dashcam a internet. Con él venía una tarjeta SIM con, si no me equivoco, 90 días de prueba gratuita; después se pueden comprar más datos desde la propia app.</li><li>Todo el cableado, una caja de conexiones para alimentar las cámaras y el módulo, el enchufe y el típico palito para empujar los cables.</li></ul>
+<p>Los materiales me han gustado mucho: es un plástico duro y resistente que no cruje nada, ni siquiera acercándolo al micro.</p>
+<h3>Características principales</h3>
+<ul><li>Cámara delantera 4K a 30 fps o 3K a 60 fps, con doble sensor Sony STARVIS 2.</li><li>Visión nocturna 2.0, muy útil para el modo aparcamiento.</li><li>Cámara interior 2K y cámara trasera 1080p.</li><li>Pantalla grande con salvapantallas para la conducción: una sonrisa, la hora en digital o incluso un reloj analógico.</li><li>GPS, velocímetro, control por voz y asistentes a la conducción (ADAS).</li><li>Módulo LTE con vista en directo, localización en tiempo real y copia de los clips en la nube.</li></ul>
+<h3>Instalación</h3>
+<p>La cámara principal la he instalado debajo del retrovisor. Es más por la normativa española que por otra cosa: si la cámara tapa la visibilidad, podríamos llevarnos una multa. Es una pena, porque tiene un pedazo de pantalla.</p>
+<p>Con la cámara trasera, leed bien el manual para no ponerla al revés, como me pasó a mí. Estaría bien que la app permitiera girar la imagen, como ya hacen muchas dashcams.</p>
+<p>La cámara interior la he colocado en la zona del disipador de calor del parabrisas; espero que en verano no me dé problemas. Eso sí, apuntando hacia dentro te vas a grabar a ti más que a nadie, salvo que lleves pasajeros a menudo.</p>
+<p>Para alimentarlo todo hay una caja de conexiones con varias salidas para las dos cámaras y el módulo. Puede parecer un lío y, ciertamente, esconder tantos cables es bastante rollo, aunque se pueden ocultar sin problema detrás de las molduras del coche. Yo, de momento, los he dejado a la vista porque en unos días me cambian el techo del coche.</p>
+<h3>Calidad de vídeo</h3>
+<h4>Cámara delantera</h4>
+<p>De día, la resolución es exquisita y la calidad de imagen, brutal. Se distinguen bien las matrículas a unos 10 o 15 metros, incluso 20 si apuramos, dependiendo del ángulo. En las cuatro situaciones de día que probé, solo 2 de cada 10 matrículas resultaban ilegibles. Muy buen resultado.</p>
+<p>De noche tenemos el problema de siempre: la imagen sigue siendo buena, pero aparece algo más de ruido y a la cámara le cuesta captar las matrículas por los destellos. Las matrículas son reflectantes y, al iluminarlas los faros, devuelven demasiada luz y queman parte de la imagen. Aun así, siempre que no reciban un foco directo, rescata varias matrículas a una distancia bastante buena. En el fotograma que analicé, 6 de cada 10 no eran legibles: una bajada considerable respecto al día.</p>
+<h4>Cámara trasera</h4>
+<p>El salto de resolución respecto a la delantera se nota a simple vista: captura matrículas a unos 5 u 8 metros y pierde definición en lo que está lejos. De día se leían con claridad las cuatro matrículas de la prueba; de noche, con lluvia, poca luz y los cristales empañados, ninguna. Aun así, creo que la trasera tiene un punto muy positivo: aporta contexto ante cualquier accidente.</p>
+<h3>Funcionalidades</h3>
+<ul><li>GPS integrado: puedes ver la ubicación desde la aplicación.</li><li>Velocímetro en tiempo real, que se puede desactivar si no quieres que aparezca en el vídeo.</li><li>Control por voz: no tiene botón físico para guardar clips de emergencia, pero el comando de voz funciona el 99% de las veces. Es de los mejores que he probado.</li><li>Clips de emergencia automáticos ante un frenazo brusco, un golpe o un volantazo, con la sensibilidad ajustable desde la app.</li><li>ADAS (sistemas avanzados de asistencia al conductor): alertas en tiempo real, como el aviso de arranque del vehículo de delante o la alerta de fatiga.</li></ul>
+<h3>Módulo LTE: el coche controlado desde casa</h3>
+<p>Si instalas el módulo LTE se desbloquean funciones muy interesantes:</p>
+<ul><li>Ver el coche en directo desde casa.</li><li>Consultar la ubicación del vehículo en tiempo real.</li><li>Álbum en la nube con los vídeos de emergencia: en caso de robo, tendrías las pruebas aunque se lleven el coche y la dashcam.</li><li>Cerca digital: marcas una zona en el mapa y, si el coche sale de ella, recibes una notificación. Muy útil si prestas el coche, te preocupa que te lo roben o lo usan tus hijos.</li></ul>
+<p>Eso sí, cuidado con el acceso remoto y la ley de protección de datos en España.</p>
+<h3>Conclusiones y opinión personal</h3>
+<p>Después de una temporada probándola, me ha dejado muy buen sabor de boca, aunque con matices. No es una dashcam normal, sino un sistema completo: frontal 4K, interior 2K y trasera 1080p, con cobertura total alrededor del coche. De día graba muy bien, con matrículas visibles a distancias razonables, que al final es lo que buscamos. De noche baja el rendimiento, como prácticamente a todas, pero sigue rescatando información útil en muchas situaciones.</p>
+<p>Mi pero más importante es el reparto de resoluciones. La interior es 2K, lo cual está muy bien, pero me parece excesivo para una cámara que solo apunta al habitáculo; en cambio, la trasera se queda corta con 1080p cuando quieres leer matrículas a distancia. Habría preferido menos resolución en la interior y más en la trasera, porque creo que es más importante lo que podemos rescatar de detrás del coche que del interior.</p>
+<p>La cámara interior y el módulo LTE me han encantado, pero los veo más prácticos para empresas que para el uso habitual. Un particular también los aprovechará, aunque difícilmente les sacará todo el partido. Aun así, todo el ecosistema de funciones (GPS, velocidad, control por voz, ADAS y LTE) es muy top.</p>
+<h4>¿La recomendaría?</h4>
+<ul><li>Sí, si quieres tres canales y tener el coche totalmente bajo control, con muchas funciones y conectividad.</li><li>Sí, para empresas, flotas o si prestas el coche a menudo: ahí el módulo LTE y la cámara interior brillan.</li><li>Quizás no, si solo quieres grabar la carretera: no le sacarás todo el partido.</li></ul>
+<h4>Aspectos a mejorar</h4>
+<ul><li>Reparto de resoluciones: la trasera se queda corta con 1080p y la interior a 2K es excesiva.</li><li>No tiene botón físico para guardar clips a mano. El control por voz funciona muy bien y se puede comprar un botón aparte, pero podrían usar cualquiera de sus cuatro botones para esto.</li><li>La app no permite girar la imagen de la cámara trasera, algo que facilitaría mucho la instalación y que seguramente se arreglaría con una actualización.</li></ul>
+`},
 {id:"a329", video:"eFf-2xmAF4M", portada:"img/blog/viofo-a329/portada.webp", portadaAlt:"Viofo A329 instalada en el parabrisas con el texto «Necesitas una»", titulo:"Viofo A329: esto sí es calidad", tipo:"Análisis", fecha:"1 jun 2025", lectura:"3 min", nota:"9,2", amazon:"https://amzn.to/4krPWgq",
  resumen:"La dashcam de doble cámara de Viofo graba en 4K a 60 fps delante, con GPS, control por voz, modo aparcado y filtro polarizador incluido. Es para quien quiere la máxima calidad, no para quien busca algo básico y económico.",
  cuerpo:`
@@ -482,7 +519,7 @@ var POSTS = [
   var ul=document.getElementById("posts"),box=document.getElementById("articulos"),l="",a="";
   POSTS.forEach(function(p){
     l+="<li class='post'>"+(p.portada?"<a class='pimg' href='#"+p.id+"' tabindex='-1' aria-hidden='true'><img src='"+p.portada+"' alt='' loading='lazy'></a>":"")+"<h3><a href='#"+p.id+"'>"+p.titulo+"</a></h3><p class='meta'>"+p.tipo+", "+p.fecha+", "+p.lectura+" de lectura"+(p.nota?". Nota final: "+p.nota:"")+"</p><p>"+p.resumen+"</p></li>";
-    a+="<section id='"+p.id+"' data-view='"+p.id+"'><div class='wrap art'><p><a href='#blog'>Volver al blog</a></p><h2>"+p.titulo+"</h2><p class='meta'>"+p.tipo+", por "+(p.autor||"Jose Barranco")+", "+p.fecha+", "+p.lectura+" de lectura</p>"+(p.portada?"<img class='portada' src='"+p.portada+"' alt='"+(p.portadaAlt||"").replace(/'/g,"&#39;")+"'>":"")+p.cuerpo+(p.video?"<h3>"+(p.tipo==="Análisis"?"El vídeo del análisis":"El vídeo paso a paso")+"</h3>"+vid(p.video,p.titulo):"")+(p.amazon?"<p>"+btn(p.amazon)+"</p>":"")+"</div></section>";
+    a+="<section id='"+p.id+"' data-view='"+p.id+"'><div class='wrap art'><p><a href='#blog'>Volver al blog</a></p><h2>"+p.titulo+"</h2><p class='meta'>"+p.tipo+", por "+(p.autor||"Jose Barranco")+", "+p.fecha+", "+p.lectura+" de lectura</p>"+(p.portada?"<img class='portada' src='"+p.portada+"' alt='"+(p.portadaAlt||"").replace(/'/g,"&#39;")+"'>":"")+p.cuerpo+(p.video?"<h3>"+(p.tipo==="Análisis"?"El vídeo del análisis":"El vídeo paso a paso")+"</h3>"+vid(p.video,p.titulo):"")+(p.amazon?"<p>"+btn(p.amazon)+"</p>":"")+(p.compra?"<p><a class='buy' href='"+p.compra+"' target='_blank' rel='sponsored noopener'>Ver en "+(p.tienda||"la tienda")+"</a></p>":"")+"</div></section>";
   });
   ul.innerHTML=l; box.outerHTML=a;
 })();
