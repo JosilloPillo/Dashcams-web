@@ -2,7 +2,10 @@
 
 Web de comparativa de dashcams de [Dashcams España](https://www.youtube.com/@DashcamsEsp): comparador de 49 modelos, recomendador guiado, blog con análisis, descargas, formularios y páginas legales.
 
-Toda la web es un solo archivo: `index.html` (HTML, CSS y JavaScript dentro).
+Archivos:
+- `index.html`: toda la web (HTML, CSS y JavaScript dentro).
+- `enviar.php`: envía los formularios a info@dashcams.es cuando la web está en Hostinger. En GitHub Pages no se usa: allí el formulario prepara el correo en la app del visitante.
+- `og-image.png`: imagen que se ve al compartir la web en redes y WhatsApp.
 
 ## Dónde se edita cada cosa
 
@@ -30,6 +33,9 @@ Requiere un plan de alojamiento web (Premium, Business o Cloud). No funciona con
 2. Pulsa **Continue with GitHub**, autoriza la app de Hostinger y elige este repositorio.
 3. Rama `main`; carpeta de destino `public_html`.
 4. Desde entonces, cada cambio que se suba a `main` se publica solo en dashcams.es.
+5. Para que los formularios lleguen al correo, el buzón **info@dashcams.es** tiene que existir en **Emails** de hPanel (es el remitente que usa `enviar.php`).
+
+Si dashcams.es está creada ahora con el creador de webs, Git no aparecerá en esa web: en hPanel crea una web nueva vacía (sin plantilla ni creador) con el dominio dashcams.es y conecta Git en esa web. Haz antes una copia de lo que tengas en la web actual.
 
 ### Opción C: dominio de Hostinger apuntando a GitHub Pages
 Si solo tienes el dominio (o el plan del creador de webs):

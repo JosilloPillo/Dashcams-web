@@ -43,15 +43,21 @@ En el JavaScript del final del archivo:
 - SEO: descripción, Open Graph, URL canónica dashcams.es e icono (el logo).
 - Carpeta del repositorio preparada (`index.html`, `README.md` con pasos para GitHub Pages y Hostinger, `.nojekyll`, `docs/`).
 
+- Repositorio en GitHub: `JosilloPillo/Dashcams-web` (rama `main`). Aviso legal completado con los datos del titular.
+- Análisis de la N5 corregido a 2,7K.
+- Formularios: en dashcams.es se envían solos con `enviar.php` (PHP `mail()` de Hostinger, remitente info@dashcams.es, campo trampa anti-robots y límite de 5 envíos cada 10 min por IP). En otros sitios preparan el correo.
+- `og-image.png` (1200×630) para compartir en redes.
+- 14 modelos con huecos completados desde sus fichas de Amazon.es (GPS, WiFi, voz, pantalla, aparcado, ángulo, tarjeta).
+- Decisiones: los 17 modelos sin ficha en Amazon.es se quedan con búsqueda; sin suscripción por correo de momento; Hostinger tiene plan de alojamiento web.
+
 ## Pendiente
-1. **Publicar:** el código está en GitHub (repositorio `JosilloPillo/Dashcams-web`, rama `main`). Falta activar GitHub Pages y, al final, conectar Hostinger o el dominio (ver README).
+1. **Activar GitHub Pages** (Settings → Pages → rama `main`, carpeta raíz) para ver la web en https://josillopillo.github.io/Dashcams-web/.
+2. **Pasar a dashcams.es:** hPanel → web → Advanced → Git → Continue with GitHub → repositorio `Dashcams-web`, rama `main`, carpeta `public_html`. Si la web actual es del creador de webs, crear una web vacía con el dominio. El buzón info@dashcams.es debe existir para los formularios.
 3. **Vídeo de «¿Qué es una dashcam?»:** el texto habla de un vídeo, pero ni dashcams.es lo tiene. Falta el enlace.
-4. **Imágenes:** fotos de las dashcams y miniaturas de los fondos de Descargas (hacen falta los archivos).
-5. **Comprobar el plan de Hostinger:** Git solo funciona con alojamiento web, no con el creador de webs.
-6. Sin ficha en Amazon.es: Thinkware U1000 Plus y Q1000, BlackVue DR970X Plus, DR770X y DR590X 2CH, Nextbase 222, 70mai A400 y Lite, DDPAI Z50, Miofive 4K, Rexing V1GW-4K, Redtiger F77, AZDOME M550 3CH, NEXPOW, WolfBox y Viofo VS1.
-7. Huecos «—» que quedan en modelos poco conocidos; análisis de la N5 dice 4K (Amazon: 2,7K).
-8. Opcional: suscripción por correo y formularios que lleguen solos al correo (posible al estar en Hostinger).
-9. Opcional: alojar las fuentes en la propia web en vez de Google Fonts (más privacidad).
+4. **Imágenes:** fotos de las dashcams y miniaturas de los fondos de Descargas. En el repositorio ya pueden ir como archivos (carpeta `img/`).
+5. Huecos «—» que quedan en modelos sin ficha en Amazon.es o con fichas incompletas.
+6. «Opinión del canal»: solo hay nota en 3 modelos.
+7. Opcional: alojar las fuentes en la propia web en vez de Google Fonts.
 
 ## Decisiones tomadas
 - Las gamas (económica/media/alta/premium) son estimaciones por rango de precio, no precios exactos.
