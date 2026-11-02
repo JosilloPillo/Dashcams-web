@@ -39,13 +39,12 @@ En el JavaScript del final del archivo:
 - Recomendador sin «Ver fotos». Botón de modo oscuro/claro (solo icono 🌙/☀️) que recuerda la elección en el navegador.
 - Vídeos: tarjeta «Ver el vídeo en YouTube» en A329 (eFf-2xmAF4M), N5 (Yx7RTv3QhK0), VS1 (3Qisdn7hP0w) e Instalar (ljR2ncPnakI), sacados de dashcams.es. En dashcams.es o *.github.io se incrustan solos con youtube-nocookie (variable `INCRUSTAR`).
 - Añadidas las preguntas frecuentes de «¿Qué es una dashcam?», que faltaban.
-- Aviso legal y política de cookies, con huecos amarillos `[...]` para los datos del titular y la fecha.
+- Aviso legal (con los datos del titular) y política de cookies, fechados el 2 nov 2026.
 - SEO: descripción, Open Graph, URL canónica dashcams.es e icono (el logo).
 - Carpeta del repositorio preparada (`index.html`, `README.md` con pasos para GitHub Pages y Hostinger, `.nojekyll`, `docs/`).
 
 ## Pendiente
 1. **Publicar:** el código está en GitHub (repositorio `JosilloPillo/Dashcams-web`, rama `main`). Falta activar GitHub Pages y, al final, conectar Hostinger o el dominio (ver README).
-2. **Rellenar el aviso legal y la política de cookies:** titular, NIF, domicilio y fecha.
 3. **Vídeo de «¿Qué es una dashcam?»:** el texto habla de un vídeo, pero ni dashcams.es lo tiene. Falta el enlace.
 4. **Imágenes:** fotos de las dashcams y miniaturas de los fondos de Descargas (hacen falta los archivos).
 5. **Comprobar el plan de Hostinger:** Git solo funciona con alojamiento web, no con el creador de webs.
