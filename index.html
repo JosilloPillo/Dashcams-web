@@ -359,6 +359,72 @@ var PR={"70mai Dash Cam M300":"40–80 €","70mai A810S 4K":"unos 260 €","AZD
 "70mai A510":"unos 140 €","70mai A800SE":"unos 140 €","70mai A810 Lite":"unos 105 €","70mai A410":"unos 55 € (AliExpress)","YI Smart Dash Camera":"unos 45 € (AliExpress)","GKU D600 Pro":"unos 80 €","GKU E200 4K+4K":"unos 130 €","Botslab G980H 2CH 4K":"unos 140 €","Botslab G980H 4CH 3K":"unos 230 €","KAWA Mini 3 Pro 2K":"unos 50 €","KAWA Mini 3X 4K":"unos 70 €","iZEEKER 2.5K":"unos 40 €","iZEEKER 3 canales 4K":"unos 70 €","70mai M310 Plus 4K":"unos 70 €","70mai Omni X800":"unos 400 €","70mai T800 3CH":"unos 450 €",
 "Garmin Dash Cam Mini 3":"unos 130 €","Garmin Dash Cam X110":"unos 180 €","Garmin Dash Cam X210":"unos 240 €","Garmin Dash Cam Tandem":"unos 350 €","Miofive S1 Pro Dual":"unos 170 € (vendedor externo)","Redtiger F7N Touch 4K":"unos 120 €",
 "Thinkware ARC 700":"unos 305 € (vendedor externo)","Transcend DrivePro 550":"unos 155 €","Vantrue E2":"unos 220 €","Vantrue S1 Pro Max":"unos 300 €","Viofo A139 3CH":"unos 280 €","BlackVue Elite 10 2CH":"unos 700 €","AZDOME M550 Max 3CH":"unos 150 €","WOLFBOX G840S":"unos 170 €","Redtiger F77":"unos 240 €"};
+/* ===== VALORACIONES para el recomendador: [nota media, nº de opiniones, "A" Amazon.es o "AE" AliExpress, supercondensador, sensor STARVIS 2, 4G]
+   1 = sí, 0 = no, 0.5 = compatible con módulo aparte, null = sin datos (no penaliza). Revisadas el 3 nov 2026. ===== */
+var VAL={
+"70mai Dash Cam M300":[4.6,235,"AE",null,null,0],
+"70mai A810S 4K":[4.5,778,"A",1,1,0.5],
+"70mai A410":[4.9,2000,"AE",null,null,0],
+"70mai Dash Cam A500S":[4.4,367,"A",null,null,0],
+"70mai A510":[4.5,763,"A",null,1,0],
+"70mai A800SE":[4.3,118,"A",1,null,0],
+"70mai A810 Lite":[4.5,560,"A",1,null,0.5],
+"70mai M310 Plus 4K":[4.2,360,"A",null,null,0],
+"70mai Omni X800":[4.4,448,"A",1,1,0.5],
+"70mai T800 3CH":[4.4,195,"A",1,1,0.5],
+"AZDOME M300S 4K+1080P":[4.1,1342,"A",null,null,0],
+"AZDOME M550 Max 3CH":[4.5,2000,"AE",1,null,0],
+"Garmin Dash Cam Mini 3":[4.2,436,"A",null,null,0],
+"Garmin Dash Cam 57":[4.3,358,"A",null,null,0],
+"Garmin Dash Cam 67W":[4.2,1228,"A",null,null,0],
+"Garmin Dash Cam X310":[4.3,99,"A",null,null,0],
+"Garmin Dash Cam X110":[4.2,97,"A",null,null,0],
+"Garmin Dash Cam X210":[4.3,57,"A",null,null,0],
+"VANTRUE N4 Pro":[4.4,720,"A",1,1,0],
+"VANTRUE N5":[4.2,1373,"A",1,1,0],
+"Vantrue N4S 3CH":[4.2,1193,"A",1,1,0.5],
+"Vantrue N5S 4CH":[4.3,830,"A",1,1,0.5],
+"Vantrue E1 Pro 4K Mini":[4.1,1507,"A",1,1,0.5],
+"Vantrue S1 Pro":[4.4,122,"A",1,1,0.5],
+"Vantrue E2":[4.3,939,"A",1,1,0],
+"Vantrue S1 Pro Max":[4,337,"A",1,1,0.5],
+"VIOFO A229 Plus 2K":[4.6,431,"A",1,1,0],
+"VIOFO A329 2CH":[4.2,41,"A",1,1,0],
+"VIOFO VS1":[null,0,"",1,null,0],
+"Viofo A119 Mini 2":[4.5,798,"A",1,1,0],
+"Viofo A119M Pro 4K":[4.3,66,"A",1,1,0],
+"Viofo A129 Pro Duo":[4.3,434,"A",1,0,0],
+"Viofo A229 Pro 2CH":[4.5,496,"A",1,1,0],
+"Viofo A229 Pro 3CH":[4.1,38,"A",1,1,0],
+"Viofo A229 Ultra 4K 2CH":[4.4,20,"A",1,1,0],
+"Viofo A329S 3CH 4K":[4.4,50,"A",1,1,0],
+"Viofo A139 3CH":[4.2,453,"A",1,0,0],
+"Thinkware Q200":[4,45,"A",1,null,0],
+"Thinkware F70 Pro":[4.1,395,"A",1,null,0],
+"Nextbase 522GW":[4.2,3114,"A",0,null,0],
+"Nextbase 422GW":[4.2,1487,"A",0,null,0],
+"Nextbase 322GW":[4.3,2195,"A",0,null,0],
+"DDPAI Z50 Pro":[4.4,432,"A",1,null,0.5],
+"DDPAI Z60 Pro":[4.2,591,"A",1,1,0.5],
+"DDPAI N5 Dual":[4.2,659,"A",null,null,0.5],
+"DDPAI N4T Pro 3CH":[4.2,659,"A",1,null,0.5],
+"DDPAI N2 Dual":[4.2,659,"A",null,null,0],
+"DDPAI Mini Pro":[4.3,597,"A",1,null,0],
+"Miofive S1 Pro Dual":[4.4,39,"A",1,null,0],
+"Redtiger F7N Touch 4K":[4.4,7121,"A",1,1,0],
+"Redtiger F77":[4.4,76,"A",1,1,0],
+"Transcend DrivePro 550":[4,220,"A",null,null,0],
+"WOLFBOX G840S":[4.2,14354,"A",null,null,0],
+"GKU D600 Pro":[4.3,11288,"A",1,null,0],
+"GKU E200 4K+4K":[4.5,490,"A",null,1,0],
+"Botslab G980H 2CH 4K":[4.4,607,"A",1,0,0],
+"Botslab G980H 4CH 3K":[4.3,280,"A",null,null,0],
+"KAWA Mini 3 Pro 2K":[4.3,268,"A",1,null,0],
+"KAWA Mini 3X 4K":[4.4,156,"A",null,null,0],
+"iZEEKER 2.5K":[4.3,3981,"A",null,null,0],
+"iZEEKER 3 canales 4K":[4.2,478,"A",null,null,0],
+"YI Smart Dash Camera":[4.6,404,"AE",0,null,0]
+};
 function compra(n,u){u=u||amz(n);var h=btn(u);if(AE[n]&&u.indexOf("aliexpress.")<0)h+=" "+btn(AE[n]);return h;}
 function btn(u){return "<a class='buy' href='"+u+"' target='_blank' rel='sponsored noopener'>"+(u.indexOf("aliexpress.")>-1?"Ver en AliExpress":u.indexOf("/s?k=")>-1?"Buscar en Amazon":"Ver en Amazon")+"</a>";}
 
@@ -900,7 +966,7 @@ var DASHCAMS = [
   var NEW=[
 ["Viofo A119 Mini 2",2,2,1,1,1,1,1,1,1,"140°","","",""],
 ["Viofo A119M Pro 4K",2,3,1,1,1,1,1,1,1,"","Hasta 512 GB","",""],
-["Viofo A129 Pro Duo",2,3,2,1,1,1,null,1,0,"140° delantera","","",""," (trasera 1080p)"],
+["Viofo A129 Pro Duo",2,3,2,1,1,1,null,1,0,"140° delantera","",""," (trasera 1080p)"],
 ["Viofo A229 Pro 2CH",3,3,2,1,1,1,1,null,0,"140° delantera, 160° trasera","Hasta 512 GB",""," (trasera 2K)"],
 ["Viofo A229 Pro 3CH",3,3,3,1,1,1,1,null,0,"140° / 160° / 150° interior","Hasta 512 GB",""," (trasera 2K, interior Full HD)"],
 ["Viofo A229 Ultra 4K 2CH",4,3,2,1,1,1,1,null,0,"","Hasta 512 GB",""," (trasera también 4K)"],
@@ -954,10 +1020,11 @@ var DASHCAMS = [
   ];
   (function(){
     var R=["","1080p","2K","4K"],Y=function(v){return v===1?"Sí":v===.5?"Opcional o según modelo":v===0?"No":"";};
+    var z=function(x){return x===null||x===undefined?null:+x;};
     NEW.forEach(function(n){
       var rr=n[12]||(n[3]===1?"No":n[3]===2?"Sí (trasera)":"Sí (trasera e interior)");
       CMP.push([n[0],R[n[2]]+(n[13]||""),rr,n[10],Y(n[4]),Y(n[5]),Y(n[7]),Y(n[6]),n[8]===1?"Sí":n[8]===0?"Sin pantalla":"",n[11],"",n[14]||"",amz(n[0])]);
-      RA.push([n[1],n[2],n[3],+n[4]||0,+n[5]||0,+n[6]||0,+n[7]||0,+n[8]||0,+n[9]||0]);
+      RA.push([n[1],n[2],n[3],z(n[4]),z(n[5]),z(n[6]),z(n[7]),z(n[8]),z(n[9])]);
     });
   })();
   function pr(m){return PR[m[0]]||"—";}
@@ -982,62 +1049,96 @@ var DASHCAMS = [
   }
   s1.onchange=s2.onchange=draw; draw();
 
-  /* Recomendador guiado: usa los atributos RA definidos arriba (mismo orden que CMP) */
+  /* Recomendador guiado: usa los atributos RA (mismo orden que CMP) y las valoraciones de VAL */
   var GN=["","económica","media","alta","premium"],RN=["","1080p","2K","4K"],CN=["","Solo delantera","Delantera y trasera","Delantera, trasera e interior"];
-  var EX={gps:[3,"GPS"],wifi:[4,"WiFi y app"],park:[5,"Modo aparcado"],voz:[6,"Control por voz"],scr:[7,"Pantalla integrada"],disc:[8,"Discreta y compacta"]};
+  var EX={gps:[3,"GPS"],wifi:[4,"WiFi y app"],voz:[6,"Control por voz"]};
+  function precio(n){var t=(PR[n]||"").replace(/\./g,"").match(/\d+/g);if(!t)return 0;t=t.slice(0,2).map(Number);return t.length>1?(t[0]+t[1])/2:t[0];}
   var QS=[
-   {k:"uso",t:"¿Para qué vas a usar la dashcam?",h:"El uso principal pesa en la recomendación final.",o:[["diario","Uso diario","Grabar tus trayectos de siempre sin complicaciones."],["viajes","Viajes largos","Rutas y carretera, con datos de ubicación."],["pasajeros","Taxi, VTC o pasajeros","Conviene grabar también el interior."],["aparcado","Vigilar el coche aparcado","Golpes y movimiento con el coche parado."]]},
-   {k:"gama",t:"¿Qué gama buscas?",h:"Gamas orientativas, no son precios: confirma siempre el precio en Amazon.",o:[["1","Económica","Lo básico, a buen precio."],["2","Media","Equilibrio entre precio y prestaciones."],["3","Alta","Más calidad y más funciones."],["4","Sin límite","Priorizar prestaciones."]]},
-   {k:"cams",t:"¿Qué cámaras necesitas?",h:"",o:[["1","Solo delantera","Lo esencial."],["2","Delantera y trasera","También los alcances por detrás."],["3","Delantera, trasera e interior","Cobertura completa."],["0","No lo sé","Que decida el recomendador."]]},
-   {k:"res",t:"¿Qué calidad de imagen quieres?",h:"Más resolución ayuda a leer matrículas, pero no es lo único que importa.",o:[["1","1080p es suficiente","Sin exigir más."],["2","2K como mínimo","Más detalle."],["3","4K","Máxima nitidez."],["0","No lo sé","Que decida el recomendador."]]},
-   {k:"ext",multi:true,t:"¿Qué extras te importan?",h:"Elige hasta 3. Son opcionales.",o:[["gps","GPS","Ubicación y velocidad en el vídeo."],["wifi","WiFi y app","Ver y descargar vídeos en el móvil."],["park","Modo aparcado","Graba con el coche apagado."],["voz","Control por voz","Manos libres al conducir."],["scr","Pantalla integrada","Ver el vídeo en la propia cámara."],["disc","Discreta y compacta","Que casi no se vea."]]}
+   {k:"uso",t:"¿Para qué vas a usar la dashcam?",h:"El uso principal pesa en la recomendación final.",o:[["diario","Uso diario","Grabar tus trayectos de siempre sin complicaciones."],["viajes","Viajes largos","Rutas y carretera, con datos de ubicación."],["pasajeros","Taxi, VTC o pasajeros","Graba también el interior del coche."],["aparcado","Vigilar el coche aparcado","Golpes y movimiento con el coche parado."]]},
+   {k:"pres",t:"¿Cuánto quieres gastar?",h:"Precios orientativos: confirma siempre el precio en la tienda.",o:[["60","Hasta 60 €","Lo básico, a buen precio."],["120","De 60 a 120 €","Equilibrio entre precio y prestaciones."],["250","De 120 a 250 €","Más calidad y más funciones."],["999","Más de 250 €","Lo mejor del mercado."],["0","No lo sé","Que decida el recomendador."]]},
+   {k:"cams",t:"¿Qué cámaras necesitas?",h:"",skip:function(){return ans.uso==="pasajeros";},o:[["1","Solo delantera","Lo esencial."],["2","Delantera y trasera","También los alcances por detrás."],["3","Delantera, trasera e interior","Cobertura completa."],["0","No lo sé","Que decida el recomendador."]]},
+   {k:"res",t:"¿Qué calidad de imagen quieres?",h:"Más resolución ayuda a leer matrículas, pero el sensor y la visión nocturna importan igual o más.",o:[["1","1080p es suficiente","Sin exigir más."],["2","2K como mínimo","Más detalle."],["3","4K","Máxima nitidez."],["0","No lo sé","Que decida el recomendador."]]},
+   {k:"sol",t:"¿Dónde sueles dejar el coche?",h:"Con calor, las dashcams con supercondensador aguantan mucho mejor que las de batería, que se pueden hinchar.",o:[["sol","En la calle, al sol","Sobre todo en verano."],["sombra","En garaje o a la sombra","Sin calor extremo."],["0","No lo sé","Que decida el recomendador."]]},
+   {k:"forma",t:"¿La prefieres con pantalla o discreta?",h:"",o:[["scr","Con pantalla","Para ver el vídeo en la propia cámara."],["disc","Discreta","Pequeña y casi invisible; se maneja desde el móvil."],["0","Me da igual","Que decida el recomendador."]]},
+   {k:"ext",multi:true,t:"¿Qué extras te importan?",h:"Elige hasta 3. Son opcionales.",o:[["gps","GPS","Ubicación y velocidad en el vídeo."],["wifi","WiFi y app","Ver y descargar vídeos en el móvil."],["voz","Control por voz","Manos libres al conducir."],["lte","4G","Ver el coche en directo desde el móvil, estés donde estés."]]}
   ];
-  var step=0,ans={uso:"",gama:"",cams:"",res:"",ext:[]},gq=document.getElementById("gq"),gs=document.getElementById("gs");
+  function vacio(){return {uso:"",pres:"",cams:"",res:"",sol:"",forma:"",ext:[]};}
+  var step=0,ans=vacio(),gq=document.getElementById("gq"),gs=document.getElementById("gs");
+  function activo(i){return !(QS[i].skip&&QS[i].skip());}
+  function sig(i){i++;while(i<QS.length&&!activo(i))i++;return i;}
+  function ant(i){i--;while(i>0&&!activo(i))i--;return Math.max(0,i);}
   function lab(q,v){var r=q.o.filter(function(o){return o[0]===v;})[0];return r?r[1]:"";}
-  function pick(){
-    var out=[];
+  function valora(n){var v=VAL[n];if(!v||!v[0])return "";return "Valoración: "+String(v[0]).replace(".",",")+" de 5"+(v[1]?" ("+v[1].toLocaleString("es-ES")+" opiniones en "+(v[2]==="AE"?"AliExpress":"Amazon")+")":"");}
+  var relajado=false;
+  function pick(sinTope){
+    var out=[],tope=sinTope?0:{"60":66,"120":132,"250":275}[ans.pres],suelo={"120":60,"250":120,"999":250}[ans.pres]||0,c=ans.uso==="pasajeros"?3:+ans.cams;
     CMP.forEach(function(m,i){
-      var a=RA[i],s=0,u=ans.uso,w=[];
-      if(ans.gama&&a[0]>+ans.gama)return;
-      if(+ans.cams>1&&a[2]<+ans.cams)return;
+      var a=RA[i],v=VAL[m[0]]||[],s=0,u=ans.uso,w=[],sc=v[3],st=v[4],lt=v[5];
+      if(tope&&precio(m[0])>tope)return;
+      if(c>1&&a[2]<c)return;
       if(+ans.res>1&&a[1]<+ans.res)return;
-      if(u==="aparcado")s+=a[5]*20;
-      if(u==="pasajeros")s+=(a[2]>=3?25:0)+a[6]*5;
-      if(u==="viajes")s+=a[3]*15+a[1]*4;
-      if(u==="diario")s+=(a[8]?10:0)+(4-a[0])*3;
-      if(ans.res==="0")s+=a[1]*4;
-      if(ans.cams==="0")s+=a[2]*3;
+      /* Calidad: nota media y número de opiniones (así desempatan los mejor valorados) */
+      s+=((v[0]||4.2)-4)*40+Math.min(Math.log(1+(v[1]||0))/Math.LN10,4)*4;
+      if(m[11])s+=6;
+      if(st===1)s+=8;
+      if(u==="aparcado")s+=(a[5]===1?20:a[5]?10:0)+(sc===1?10:0)+(lt?6:0);
+      if(u==="pasajeros")s+=(a[6]===1?5:0);
+      if(u==="viajes")s+=(a[3]===1?15:a[3]?7:0)+a[1]*4;
+      if(u==="diario")s+=(4-a[0])*3;
+      if(ans.pres==="999")s+=a[0]*4;
+      if(ans.res==="0")s+=a[1]*3;
+      if(ans.cams==="0"&&u!=="pasajeros")s+=a[2]*3;
+      if(ans.cams==="1")s+=a[2]===1?10:-10;
+      if(ans.cams==="2")s+=a[2]===2?6:0;
+      if(suelo&&precio(m[0])>=suelo)s+=8;
+      if(ans.sol==="sol")s+=sc===1?20:sc===0?-20:0;
+      if(ans.forma==="scr")s+=a[7]===1?12:a[7]===0?-12:0;
+      if(ans.forma==="disc")s+=a[8]===1?12:(a[7]===1?-6:0);
       w.push("Resolución máxima: "+RN[a[1]]);
       w.push(CN[a[2]]);
-      ans.ext.forEach(function(e){var v=a[EX[e][0]];s+=20*v;if(v===1)w.push(EX[e][1]);else if(v>0)w.push(EX[e][1]+" (opcional o según modelo)");});
-      if(u==="pasajeros"&&a[2]>=3)w.push("Incluye cámara interior para pasajeros");
+      if(st===1)w.push("Sensor Sony STARVIS 2: buena imagen de noche");
+      if(sc===1)w.push("Supercondensador: aguanta bien el calor");
+      if(u==="aparcado"&&a[5])w.push(a[5]===1?"Modo aparcado":"Modo aparcado (opcional o según modelo)");
+      ans.ext.forEach(function(e){
+        if(e==="lte"){s+=lt===1?20:lt?14:0;if(lt)w.push(lt===1?"4G para verla en directo":"Compatible con 4G (módulo aparte)");return;}
+        var x=a[EX[e][0]];s+=x===1?20:x>0?10:x===null?8:0;
+        if(x===1)w.push(EX[e][1]);else if(x>0)w.push(EX[e][1]+" (opcional o según modelo)");
+      });
+      if(u==="pasajeros")w.push("Incluye cámara interior para pasajeros");
       if(m[10])w.push("Nota Dashcams ESP: "+m[10]);
       out.push({i:i,s:s,w:w});
     });
+    if(!out.length&&tope)return pick(true);
+    relajado=!!sinTope;
     out.sort(function(x,y){return y.s-x.s;});
-    return out.slice(0,3);
+    /* Como mucho dos modelos de la misma marca */
+    var r=[],mk={};
+    out.forEach(function(x){var b=CMP[x.i][0].split(" ")[0].toUpperCase();if(r.length<3&&(mk[b]||0)<2){r.push(x);mk[b]=(mk[b]||0)+1;}});
+    return r;
   }
   function drawG(){
-    var h="";
+    var h="",vis=QS.filter(function(q,i){return activo(i);}).length;
     if(step<QS.length){
-      var q=QS[step];
-      h="<p class='note'>Paso "+(step+1)+" de "+QS.length+"</p><h3>"+q.t+"</h3>"+(q.h?"<p class='note'>"+q.h+"</p>":"")+"<div class='opts'>";
+      var q=QS[step],num=QS.slice(0,step+1).filter(function(x,i){return activo(i);}).length;
+      h="<p class='note'>Paso "+num+" de "+vis+"</p><h3>"+q.t+"</h3>"+(q.h?"<p class='note'>"+q.h+"</p>":"")+"<div class='opts'>";
       q.o.forEach(function(o){var on=q.multi?ans.ext.indexOf(o[0])>-1:ans[q.k]===o[0];h+="<button type='button' class='opt' data-v='"+o[0]+"' aria-pressed='"+on+"'><strong>"+o[1]+"</strong><span>"+o[2]+"</span></button>";});
       h+="</div><div class='nav2'>"+(step?"<button type='button' class='btn2' data-a='back'>Atrás</button>":"")+(q.multi?"<button type='button' class='buy' data-a='next'>Ver recomendaciones</button>":"")+"</div>";
     }else{
-      var r=pick();
+      relajado=false;var r=pick();
       h="<h3>Dashcams para ti</h3>";
-      if(!r.length)h+="<p>Ninguna dashcam de la lista cumple todos esos filtros. Prueba a subir la gama o a relajar la resolución o las cámaras.</p>";
+      if(relajado&&r.length)h+="<p class='note'>Con ese presupuesto no hay ninguna que cumpla todo lo que pides. Estas son las más ajustadas, aunque cuestan algo más.</p>";
+      if(!r.length)h+="<p>Ninguna dashcam de la lista cumple todos esos filtros. Prueba a subir el presupuesto o a relajar la resolución o las cámaras.</p>";
       r.forEach(function(x,n){
-        var m=CMP[x.i];
-        h+="<article class='post'><h3>"+(n+1)+". "+m[0]+"</h3><p class='meta'>Gama "+GN[RA[x.i][0]]+". Precio aproximado: "+(PR[m[0]]||"sin datos")+"</p><ul>"+x.w.map(function(t){return "<li>"+t+"</li>";}).join("")+"</ul><p>"+compra(m[0],m[12])+" "+(m[11]?"<a href='"+m[11]+"'>Leer reseña</a>":"")+"</p></article>";
+        var m=CMP[x.i],vl=valora(m[0]);
+        h+="<article class='post'><h3>"+(n+1)+". "+m[0]+"</h3><p class='meta'>Gama "+GN[RA[x.i][0]]+". Precio aproximado: "+(PR[m[0]]||"sin datos")+(vl?"<br>"+vl:"")+"</p><ul>"+x.w.map(function(t){return "<li>"+t+"</li>";}).join("")+"</ul><p>"+compra(m[0],m[12])+" "+(m[11]?"<a href='"+m[11]+"'>Leer reseña</a>":"")+"</p></article>";
       });
+      h+="<p class='note'>Las valoraciones son las medias de Amazon.es o AliExpress revisadas el 3 de noviembre de 2026.</p>";
       h+="<div class='nav2'><button type='button' class='btn2' data-a='back'>Cambiar respuestas</button><button type='button' class='btn2' data-a='reset'>Empezar de nuevo</button></div>";
     }
     gq.innerHTML=h;
     var d="<h3>Tu búsqueda</h3><dl>";
-    QS.forEach(function(q){
-      var v=q.multi?ans.ext.map(function(e){return lab(q,e);}).join(", "):lab(q,ans[q.k]);
+    QS.forEach(function(q,i){
+      var v=q.multi?ans.ext.map(function(e){return lab(q,e);}).join(", "):(activo(i)?lab(q,ans[q.k]):"Delantera, trasera e interior (por el uso)");
       d+="<dt>"+q.t.replace(/^¿|\?$/g,"")+"</dt><dd>"+(v||"Sin elegir")+"</dd>";
     });
     gs.innerHTML=d+"</dl><button type='button' class='btn2' data-a='reset'>Reiniciar</button>";
@@ -1045,13 +1146,13 @@ var DASHCAMS = [
   document.querySelector(".guide").addEventListener("click",function(ev){
     var b=ev.target.closest("button");if(!b)return;
     var a=b.getAttribute("data-a"),v=b.getAttribute("data-v");
-    if(a==="reset"){step=0;ans={uso:"",gama:"",cams:"",res:"",ext:[]};}
-    else if(a==="back"){step=Math.max(0,step-1);}
+    if(a==="reset"){step=0;ans=vacio();}
+    else if(a==="back"){step=ant(step);}
     else if(a==="next"){step=QS.length;}
     else if(v!==null){
       var q=QS[step];
       if(q.multi){var k=ans.ext.indexOf(v);if(k>-1)ans.ext.splice(k,1);else if(ans.ext.length<3)ans.ext.push(v);}
-      else{ans[q.k]=v;step++;}
+      else{ans[q.k]=v;step=sig(step);}
     }
     drawG();
   });
