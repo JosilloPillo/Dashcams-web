@@ -320,6 +320,7 @@ var ASIN = {
 "70mai A510":"B0D6B1SBMH","70mai A800SE":"B0G8HNXGC5","70mai A810 Lite":"B0GTLD65SS","70mai M310 Plus 4K":"B0GKGSBWWH","70mai Omni X800":"B0DSDV3CZ3","70mai T800 3CH":"B0FC6DZL63",
 "Garmin Dash Cam Mini 3":"B0DDTCNLG7","Garmin Dash Cam X110":"B0DDT9N1TH","Garmin Dash Cam X210":"B0DDTCW6VG","Garmin Dash Cam Tandem":"B082JHTSGT","Miofive S1 Pro Dual":"B0GKD5M87D","Redtiger F7N Touch 4K":"B0HFMQRG39",
 "Thinkware ARC 700":"B0GF8T2SD5","Transcend DrivePro 550":"B08VFCRG6V","Vantrue E2":"B0B68MTZJP","Vantrue S1 Pro Max":"B0F8BW5HTS","Viofo A139 3CH":"B08XB8DVGL","BlackVue Elite 10 2CH":"B0GCSH37Z5","Garmin Dash Cam 67W":"B093244D1J","Garmin Dash Cam X310":"B0DDTCZT4L","70mai Dash Cam A500S":"B07J35BF35",
+"GKU D600 Pro":"B0D49GGJ85","GKU E200 4K+4K":"B0H4QSMQJS","Botslab G980H 2CH 4K":"B0DSZRL2W9","Botslab G980H 4CH 3K":"B0F999VPVC","KAWA Mini 3 Pro 2K":"B0FK4C319M","KAWA Mini 3X 4K":"B0H9QMXK3C","iZEEKER 2.5K":"B09YQ6N6HJ","iZEEKER 3 canales 4K":"B0D58HZF7P",
 "DDPAI Z60 Pro":"B0FFRL9WQ7","BlackVue DR970X-2CH LTE Plus":"B0DJFVP1P7","BlackVue DR770X-2CH II":"B0FGQDJJ1G","BlackVue DR590X-1CH":"B08KJ8H3FD","Nextbase 222X":"B0F8W7YG68","Redtiger F77":"B0DPQC5YTH","AZDOME M550 Max 3CH":"B0FNS2FS57","WOLFBOX G840S":"B0811Q28N6"
 };
 /* Enlaces de afiliado de AliExpress: "Nombre exacto":"enlace s.click.aliexpress.com". Si el modelo también está en Amazon salen los dos botones; si no, solo el de AliExpress. */
@@ -361,7 +362,7 @@ var PR={"70mai Dash Cam M300":"40–80 €","70mai A810S 4K":"unos 260 €","AZD
 "Nextbase 622GW":"unos 255 €","Nextbase 522GW":"unos 205 €","Nextbase 422GW":"115–170 €","Nextbase 322GW":"unos 140 €","Nextbase 222X":"unos 175 €","Nextbase Piqo 2K":"unos 125 €","Nextbase iQ":"450–650 €",
 "Garmin Dash Cam 57":"unos 180 €","Garmin Dash Cam 67W":"unos 340 € (vendedor externo)","Garmin Dash Cam X310":"unos 300 €","70mai Dash Cam A500S":"unos 105 € (vendedor externo)",
 "DDPAI Z50 Pro":"unos 95 €","DDPAI Z60 Pro":"unos 170 €","DDPAI N5 Dual":"unos 150 €","DDPAI N4T Pro 3CH":"unos 130 €","DDPAI N2 Dual":"unos 80 €","DDPAI Mini Pro":"unos 55 €",
-"70mai A510":"unos 140 €","70mai A800SE":"unos 140 €","70mai A810 Lite":"unos 105 €","70mai A410":"unos 55 € (AliExpress)","YI Smart Dash Camera":"unos 45 € (AliExpress)","70mai M310 Plus 4K":"unos 70 €","70mai Omni X800":"unos 400 €","70mai T800 3CH":"unos 450 €",
+"70mai A510":"unos 140 €","70mai A800SE":"unos 140 €","70mai A810 Lite":"unos 105 €","70mai A410":"unos 55 € (AliExpress)","YI Smart Dash Camera":"unos 45 € (AliExpress)","GKU D600 Pro":"unos 80 €","GKU E200 4K+4K":"unos 130 €","Botslab G980H 2CH 4K":"unos 140 €","Botslab G980H 4CH 3K":"unos 230 €","KAWA Mini 3 Pro 2K":"unos 50 €","KAWA Mini 3X 4K":"unos 70 €","iZEEKER 2.5K":"unos 40 €","iZEEKER 3 canales 4K":"unos 70 €","70mai M310 Plus 4K":"unos 70 €","70mai Omni X800":"unos 400 €","70mai T800 3CH":"unos 450 €",
 "Garmin Dash Cam Mini 3":"unos 130 €","Garmin Dash Cam X110":"unos 180 €","Garmin Dash Cam X210":"unos 240 €","Garmin Dash Cam Tandem":"unos 350 €","Miofive S1 Pro Dual":"unos 170 € (vendedor externo)","Redtiger F7N Touch 4K":"unos 120 €",
 "Thinkware ARC 700":"unos 305 € (vendedor externo)","Transcend DrivePro 550":"unos 155 €","Vantrue E2":"unos 220 €","Vantrue S1 Pro Max":"unos 300 €","Viofo A139 3CH":"unos 280 €","BlackVue Elite 10 2CH":"unos 700 €","AZDOME M550 Max 3CH":"unos 150 €","WOLFBOX G840S":"unos 170 €","Redtiger F77":"unos 240 €"};
 function compra(n,u){u=u||amz(n);var h=btn(u);if(AE[n]&&u.indexOf("aliexpress.")<0)h+=" "+btn(AE[n]);return h;}
@@ -945,6 +946,14 @@ var DASHCAMS = [
 ["Redtiger F77",3,3,2,1,1,null,1,null,0,"","",""," (trasera también 4K)"],
 ["AZDOME M550 Max 3CH",2,3,3,1,1,1,null,1,0,"","",""," (interior 1080p, trasera 2,5K)"],
 ["WOLFBOX G840S",2,3,2,1,1,null,null,1,0,"","",""," (espejo retrovisor de 12\")"],
+["GKU D600 Pro",1,3,2,1,1,1,null,1,0,"170°","Incluye 64 GB",""," (trasera 1080p)"],
+["GKU E200 4K+4K",2,3,2,1,1,1,1,null,0,"170° delantera, 140° trasera","",""," (trasera también 4K; sensor STARVIS 2)"],
+["Botslab G980H 2CH 4K",2,3,2,1,1,1,null,null,0,"170°","Incluye 64 GB",""," (trasera Full HD giratoria)"],
+["Botslab G980H 4CH 3K",3,2,3,1,1,1,1,1,0,"","Incluye 128 GB","Sí (trasera y dos laterales a 1080p)"," (3K delantera; 4 cámaras)"],
+["KAWA Mini 3 Pro 2K",1,2,1,null,1,null,1,1,1,"","","",""],
+["KAWA Mini 3X 4K",1,3,1,null,1,null,1,null,1,"","Incluye 64 GB","",""],
+["iZEEKER 2.5K",1,2,1,null,null,1,null,1,0,"170°","Incluye 32 GB",""," (2,5K; pantalla de 3\")"],
+["iZEEKER 3 canales 4K",1,3,3,null,1,1,null,null,0,"170° delantera, 150° trasera","Incluye 32 GB",""," (trasera e interior 1080p; interior con infrarrojos)"],
 ["YI Smart Dash Camera",1,1,1,0,1,0,null,1,0,"165°","Hasta 64 GB",""," (Full HD a 60 fps; con ADAS)"]
   ];
   (function(){
