@@ -5,7 +5,7 @@
  * sin pasar por Hostinger. Este archivo solo:
  *   1. firma las subidas (sin dar nunca la clave secreta al navegador),
  *   2. cierra cada subida cuando termina,
- *   3. guarda los datos del envío junto a los vídeos y avisa por correo a info@dashcams.es.
+ *   3. guarda los datos del envío junto a los vídeos y avisa por correo a dashcams.esp@gmail.com.
  *
  * Necesita el archivo de configuración «clips-config.php» FUERA de public_html
  * (una carpeta por encima), con este contenido:
@@ -16,7 +16,7 @@
  *     'secreto'   => 'Secret Access Key del token de R2',
  *     'bucket'    => 'clips-dashcams',
  *     'firma'     => 'una frase larga e inventada cualquiera',
- *     (los avisos llegan a tuclip@dashcams.es)
+ *     (los avisos llegan a dashcams.esp@gmail.com)
  *     'ue'        => true,   // si el bucket se creó con jurisdicción UE (recomendado)
  *   ];
  */
@@ -50,7 +50,7 @@ if (!is_array($CFG) || empty($CFG['clave']) || empty($CFG['secreto']) || empty($
 }
 $ENDPOINT  = rtrim($CFG['endpoint'] ?? ('https://' . $CFG['cuenta'] . (!empty($CFG['ue']) ? '.eu' : '') . '.r2.cloudflarestorage.com'), '/');
 $REGION    = $CFG['region'] ?? 'auto';
-$DESTINO   = $CFG['correo_clips'] ?? 'tuclip@dashcams.es';   // los avisos de clips llegan aquí
+$DESTINO   = $CFG['correo_clips'] ?? 'dashcams.esp@gmail.com';   // los avisos de clips llegan aquí
 $REMITENTE = $CFG['remitente_clips'] ?? 'tuclip@dashcams.es'; // debe ser un buzón del dominio
 $u = parse_url($ENDPOINT);
 $HOST = $u['host'] . (isset($u['port']) ? ':' . $u['port'] : '');

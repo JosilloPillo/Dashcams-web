@@ -224,6 +224,15 @@ html.lb-on{overflow:hidden;}
 .theme:hover{border-color:var(--accent);}
 @media(prefers-reduced-motion:reduce){.rec i{animation:none;}}
 </style>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@graph":[
+ {"@type":"Organization","@id":"https://dashcams.es/#org","name":"Dashcams España","url":"https://dashcams.es/","logo":"https://dashcams.es/og-image.png",
+  "sameAs":["https://www.youtube.com/@DashcamsEsp","https://www.instagram.com/dashcams.esp/"]},
+ {"@type":"WebSite","@id":"https://dashcams.es/#web","url":"https://dashcams.es/","name":"Dashcams España","inLanguage":"es-ES","publisher":{"@id":"https://dashcams.es/#org"}},
+ {"@type":"WebApplication","name":"Recomendador de dashcams: ¿qué dashcam comprar?","url":"https://dashcams.es/recomendador","applicationCategory":"UtilitiesApplication","operatingSystem":"Cualquiera (navegador web)","inLanguage":"es-ES",
+  "description":"Responde 7 preguntas y descubre qué dashcam comprar para tu coche entre más de 60 modelos con buenas reseñas.","offers":{"@type":"Offer","price":"0","priceCurrency":"EUR"},"publisher":{"@id":"https://dashcams.es/#org"}}
+]}
+</script>
 </head>
 <body>
 <nav class="top" aria-label="Principal"><div class="wrap navrow"><a class="logo" href="#inicio" aria-label="Dashcams ESP, inicio"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEQAAABUCAMAAAAMG2EbAAAAP1BMVEX9/f0AAACsGBsiJEf5vAP///9VFA8RFDqbl6JnThr9xAL///////9UVG/OYRVzdIsAAAAAAAAAAAAAAAAAAADeTl5mAAAAEHRSTlP9AP///wr//////55k////YFWNCwAAArhJREFUeNrt2G2P2yAMAGAoRyAFlv//b4/waoydhOqmadP4Ul2VPDJ2esEWEi+tdf7wzom6nPP1az3dIQUlnICYV4RoR8wCCYwQcsSKwDmiEg8F0hGVeC6MTkESwQv22jnvFpIj7BGUUsaY17k4JzFCk8QhzttVWq+26HBiJNpPIQRV70cI7Tgt3LWAEcpBxDEJBMJnKAVBCDTCOVaRAovENRU/cASPbGYbmZkwptaYReIa9oKQ+Gc4bNziHWI5xKhg4SbXkbiFA32/ioAgPkWMwkVbR8wxPzzrkYj/yN+H/GKWWEHezBL7vj9Gvuj1exDxbyF/NrHTxeZHEPsh4n4cOZaQL4C4VmIT1pAdI/mN8SHihf8Qec9IUGRm75B8VTz45SMSnZQrRExIeY+uIrYgEmTW2IXE9uLEwzDI7LQfHoF5PU/UPSnTfi4QkJJ4GNbgPwp+aJ8h57EcPm7qIfKGKUlne3hEOR4ioDYRkHU/VCgZId45PZC4m9SqeJDasUDca1S82vHTy4wMoRj75F3cz7A6IbKmtlRZPUC64aQu7dsYSlhBdG7feijlBwQqxCD9UJECyUgNpXQJPS00Ag71uavNLW0pUC1zU0hk24bStOa6hlK7japQyDYFUpFaZjsqHGJ7eWGbXzdU65yzOyMwjrIZOCtwYwuWKj0h0HBSj0ivUFdiu4ARaIg+t+ijD4mVmJhjREZD6nkI09LS8qJQDzgYXmpqktPSglpCSLSDKzQGBCiwSYYGFQeeKTUF9smdCLQxTreg0oOZtoINNCLTPbtnMCWx405mY56zAaUwidgvDIzA56UOMkYCPh8sItF8KKgNDZG0vEfOizw3Y/FS3s8ea2LokdkZBmGQCBcMHQaLpGAQ45kweETiGV6aynHXskgZSLYo2DAukTbXdDfENdJvvSSk/AZyNTXYDJ9y7QAAAABJRU5ErkJggg==" alt="Dashcams ESP" width="34" height="42"></a><ul>
@@ -257,7 +266,7 @@ html.lb-on{overflow:hidden;}
 <main>
 <section id="recomendador" data-view="recomendaciones">
   <div class="wrap">
-    <h2>Recomendador guiado</h2>
+    <h2>¿Qué dashcam comprar? Recomendador guiado</h2>
     <p>Responde unas preguntas y te sugiero las dashcams de la lista que mejor encajan con lo que buscas.</p>
     <div class="guide"><div class="panel" id="gq" aria-live="polite"></div><aside class="panel" id="gs" aria-label="Tu búsqueda"></aside></div>
   </div>
@@ -351,10 +360,12 @@ var AE = {
 "KAWA Mini 3 Pro 2K":"https://s.click.aliexpress.com/e/_c3YQPS8X",
 "KAWA Mini 3X 4K":"https://s.click.aliexpress.com/e/_c3CkGizp"
 };
-function amz(n){if(!ASIN[n]&&AE[n])return AE[n];return ASIN[n]?"https://www.amazon.es/dp/"+ASIN[n]+"?tag="+TAG:"https://www.amazon.es/s?k="+encodeURIComponent(n)+"&tag="+TAG;}
+/* Modelos que solo se venden en la web oficial de la marca: "Nombre exacto":"enlace" */
+var WEB = {"VIOFO VS1":"https://viofo.com/products/viofo-vs1-mini-2k-hdr-with-sony-starvis-2-imx675-sensor-5ghz-wi-fi-voice-control-gps-dash-cam-with-free-32gb-microsd-card"};
+function amz(n){if(!ASIN[n]&&AE[n])return AE[n];if(!ASIN[n]&&WEB[n])return WEB[n];return ASIN[n]?"https://www.amazon.es/dp/"+ASIN[n]+"?tag="+TAG:"https://www.amazon.es/s?k="+encodeURIComponent(n)+"&tag="+TAG;}
 
 /* ===== PRECIOS orientativos en euros (redondeados; el precio real es siempre el de Amazon) ===== */
-var PR={"70mai Dash Cam M300":"40–80 €","70mai A810S 4K":"unos 260 €","AZDOME M300S 4K+1080P":"unos 120 €","VANTRUE N4 Pro":"unos 340 €","VIOFO A229 Plus 2K":"unos 240 €","VIOFO A329 2CH":"unos 400 €","VANTRUE N5":"unos 350 €","VIOFO VS1":"unos 100 €",
+var PR={"70mai Dash Cam M300":"40–80 €","70mai A810S 4K":"unos 260 €","AZDOME M300S 4K+1080P":"unos 120 €","VANTRUE N4 Pro":"unos 340 €","VIOFO A229 Plus 2K":"unos 240 €","VIOFO A329 2CH":"unos 400 €","VANTRUE N5":"unos 350 €","VIOFO VS1":"unos 120 € (web oficial)",
 "Viofo A119 Mini 2":"unos 170 €","Viofo A119M Pro 4K":"unos 200 €","Viofo A129 Pro Duo":"unos 220 €","Viofo A229 Pro 2CH":"unos 300 €","Viofo A229 Pro 3CH":"unos 330 €","Viofo A229 Ultra 4K 2CH":"unos 440 €","Viofo A329S 3CH 4K":"unos 500 €",
 "Vantrue N4S 3CH":"unos 260 €","Vantrue N5S 4CH":"unos 400 €","Vantrue E1 Pro 4K Mini":"unos 170 €","Vantrue S1 Pro":"unos 120 €",
 "Thinkware U3000 Pro 4K":"unos 600 €","Thinkware Q200":"unos 140 €","Thinkware F70 Pro":"unos 105 €",
@@ -432,7 +443,7 @@ var VAL={
 "YI Smart Dash Camera":[4.6,404,"AE",0,null,0]
 };
 function compra(n,u){u=u||amz(n);var h=btn(u);if(AE[n]&&u.indexOf("aliexpress.")<0)h+=" "+btn(AE[n]);return h;}
-function btn(u){return "<a class='buy' href='"+u+"' target='_blank' rel='sponsored noopener'>"+(u.indexOf("aliexpress.")>-1?"Ver en AliExpress":u.indexOf("/s?k=")>-1?"Buscar en Amazon":"Ver en Amazon")+"</a>";}
+function btn(u){var t=/amazon\.|amzn\.to/.test(u)?(u.indexOf("/s?k=")>-1?"Buscar en Amazon":"Ver en Amazon"):u.indexOf("aliexpress.")>-1?"Ver en AliExpress":/viofo\.com/.test(u)?"Ver en la web de VIOFO":"Ver en la tienda";return "<a class='buy' href='"+u+"' target='_blank' rel='"+(/amazon\.|amzn\.to|aliexpress\./.test(u)?"sponsored noopener":"noopener")+"'>"+t+"</a>";}
 
 /* ===== BLOG: cada artículo es un bloque de esta lista (el primero sale el primero en el blog) =====
    Para añadir un artículo, copia esta PLANTILLA al principio de POSTS y rellénala:
@@ -554,6 +565,7 @@ var POSTS = [
 {id:"que-comprar", portada:"img/blog/que-dashcam-comprar/portada.webp", portadaAlt:"Varias dashcams de distintos modelos montadas en el parabrisas de un coche, con una carretera de otoño al fondo", titulo:"¿Qué dashcam comprar? Precio, calidad y funcionalidades", tipo:"Recomendaciones", fecha:"12 feb 2025", lectura:"4 min", nota:"", amazon:"",
  resumen:"Repaso por marcas, de las económicas (Xiaomi Yi, 70mai, Kawa y Azdome) a las de gama alta (Viofo, Vantrue, Garmin y BlackVue), con precios orientativos y una sección sobre qué no comprar.",
  cuerpo:`
+<p class="note">¿Prefieres ir al grano? Usa nuestro <a href="#recomendaciones">recomendador</a>: respondes 7 preguntas y te decimos qué dashcam comprar entre más de 60 modelos con buenas reseñas.</p>
 <h3>Comparativa de marcas</h3>
 <p>Mi nombre es José, soy el dueño de las cuentas de Dashcams España, y he tenido la oportunidad de probar diferentes dashcams durante este tiempo. Además, he recibido cantidad de vídeos y opiniones de seguidores, que voy a compartir aquí. Para que no perdáis el tiempo, empezamos por las marcas más baratas y con buena fiabilidad.</p>
 <h4>Xiaomi Yi</h4>
@@ -1030,13 +1042,42 @@ var DASHCAMS = [
   function tick(){var n=new Date();c.textContent=[n.getHours(),n.getMinutes(),n.getSeconds()].map(function(x){return String(x).padStart(2,"0");}).join(":");}
   tick(); setInterval(tick,1000);
   var views=[].slice.call(document.querySelectorAll("[data-view]"));
+  /* Direcciones propias para Google (dashcams.es/recomendador, /blog, /a329…). En dashcams.es y Hostinger la web cambia
+     la dirección de la barra; en las copias de prueba sigue usando #. */
+  var RUTAS=/(^|\.)dashcams\.es$|\.hostingersite\.com$/.test(location.hostname);
+  var ALIAS={"recomendador":"recomendaciones","que-dashcam-comprar":"que-comprar","envia-tu-clip":"enviar-clip"},RUTA={};
+  for(var al in ALIAS)RUTA[ALIAS[al]]=al;
+  var SEO={
+    inicio:["Dashcams España: comparativa de cámaras para coche",document.querySelector('meta[name="description"]').getAttribute("content")],
+    recomendaciones:["¿Qué dashcam comprar? Recomendador y comparador de dashcams | Dashcams España","Responde 7 preguntas y descubre qué dashcam comprar para tu coche: más de 60 modelos con buenas reseñas, precios orientativos y un comparador cara a cara."],
+    blog:["Blog de dashcams: análisis y guías | Dashcams España","Análisis de dashcams probadas en España, guías de instalación y consejos para elegir la cámara de tu coche."],
+    descargas:["Fondos de pantalla gratis | Dashcams España","Descarga gratis los fondos de pantalla de Dashcams España para el móvil y el ordenador."],
+    "enviar-clip":["Envía tu clip de dashcam | Dashcams España","¿Has grabado algo con tu dashcam? Envía tu vídeo y podría salir en el canal de YouTube de Dashcams España."],
+    contacto:["Contacto | Dashcams España","Escríbenos para colaboraciones, dudas sobre dashcams o cualquier consulta."]
+  };
+  (window.POSTS||[]).forEach(function(p){SEO[p.id]=[p.titulo+" | Dashcams España",p.resumen];});
+  function existe(v){return views.some(function(e){return e.getAttribute("data-view")===v;});}
+  function ruta(v){return v==="inicio"?"/":"/"+(RUTA[v]||v);}
+  function pon(sel,val){var e=document.querySelector(sel);if(e)e.setAttribute(e.tagName==="LINK"?"href":"content",val);}
+  function seo(v,perdida){
+    var h2=document.querySelector("[data-view='"+v+"'] h2"),s=SEO[v]||[(h2?h2.textContent:"Dashcams España")+" | Dashcams España",SEO.inicio[1]],url="https://dashcams.es"+ruta(v);
+    document.title=s[0];pon('meta[name="description"]',s[1]);pon('link[rel="canonical"]',url);
+    pon('meta[property="og:title"]',s[0]);pon('meta[property="og:description"]',s[1]);pon('meta[property="og:url"]',url);
+    var nr=document.querySelector('meta[name="robots"]');
+    if(perdida&&!nr){nr=document.createElement("meta");nr.name="robots";nr.content="noindex";document.head.appendChild(nr);}else if(!perdida&&nr)nr.remove();
+  }
   function route(){
-    var h=decodeURIComponent(location.hash.slice(1)),v="inicio",t=h?document.getElementById(h):null;
-    if(h&&views.some(function(e){return e.getAttribute("data-view")===h;})){v=h;t=null;}
+    var h=decodeURIComponent(location.hash.slice(1)),v="inicio",t=h?document.getElementById(h):null,perdida=false;
+    var seg=location.pathname.replace(/^\/+|\/+$/g,"").replace(/^index\.html$/,"");
+    if(h&&existe(h)){v=h;t=null;}
     else if(t&&t.closest("[data-view]")){v=t.closest("[data-view]").getAttribute("data-view");}
+    else if(!h&&seg&&RUTAS){var c=ALIAS[seg]||seg;if(existe(c))v=c;else perdida=true;}
     views.forEach(function(e){e.hidden=e.getAttribute("data-view")!==v;});
     if(t){t.scrollIntoView();}else{window.scrollTo(0,0);}
+    seo(v,perdida);
+    if(RUTAS&&h&&!t&&history.replaceState)history.replaceState(null,"",ruta(v));
   }
+  window.addEventListener("popstate",route);
   var CMP=[
 ["70mai Dash Cam M300","2K (2304x1296)","No","140°","","Sí","No","Sí","","","","","https://amzn.to/4k9LoeM"],
 ["70mai A810S 4K","4K (sensor STARVIS 2)","No (versión solo delantera)","146°","Sí","Sí","","Sí (vigilancia 24 h)","Sí (3 pulgadas)","","","","https://amzn.to/4k9Lsv2"],
@@ -1265,7 +1306,7 @@ var DASHCAMS = [
   }
   [].forEach.call(document.querySelectorAll("form.form:not(#clipform)"),function(f){
     var hp=document.createElement("input");hp.type="text";hp.name="web";hp.tabIndex=-1;hp.autocomplete="off";hp.className="sr";hp.setAttribute("aria-hidden","true");f.appendChild(hp);
-    if(DIRECTO){var n=f.querySelector(".note");if(n)n.textContent="Tu mensaje llegará directamente a info@dashcams.es. Te responderemos lo antes posible.";}
+    if(DIRECTO){var n=f.querySelector(".note");if(n)n.textContent="Tu mensaje nos llegará directamente. Te responderemos lo antes posible.";}
     f.addEventListener("submit",function(e){
       e.preventDefault();
       var err=f.querySelector(".ferr"),bad=null,btnE=f.querySelector("button[type=submit]");
@@ -1290,7 +1331,7 @@ var DASHCAMS = [
       fetch("enviar.php",{method:"POST",body:fd}).then(function(r){return r.json();}).then(function(j){
         if(!j.ok)throw 0;
         var box=f.querySelector(".sent");if(!box){box=document.createElement("div");box.className="sent";f.appendChild(box);}
-        box.innerHTML="<p><strong>¡Mensaje enviado!</strong> Gracias, "+nombre.replace(/</g,"&lt;")+". Lo hemos recibido en "+DEST+".</p>";
+        box.innerHTML="<p><strong>¡Mensaje enviado!</strong> Gracias, "+nombre.replace(/</g,"&lt;")+". Lo hemos recibido y te responderemos lo antes posible.</p>";
         f.reset();[].forEach.call(f.querySelectorAll("[aria-invalid]"),function(i){i.removeAttribute("aria-invalid");});
         box.scrollIntoView({block:"nearest"});
       }).catch(function(){

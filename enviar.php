@@ -1,13 +1,13 @@
 <?php
 /*
  * Recibe los formularios de la web (Contacto, Llavero e Instagram)
- * y los envía por correo a info@dashcams.es.
+ * y los envía por correo a dashcams.esp@gmail.com.
  * Funciona en el alojamiento de Hostinger (PHP con mail()).
  * En GitHub Pages no se ejecuta: allí la web prepara el correo en la app del visitante.
  */
 
-$DESTINO   = 'info@dashcams.es';
-$REMITENTE = 'info@dashcams.es';   // debe ser un buzón del dominio
+$DESTINO   = 'dashcams.esp@gmail.com';
+$REMITENTE = 'tuclip@dashcams.es'; // debe ser un buzón que exista en el dominio
 $TIPOS     = ['Contacto', 'Llavero', 'Mejores Amigos de Instagram'];
 
 header('Content-Type: application/json; charset=utf-8');

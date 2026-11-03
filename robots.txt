@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+Disallow: /docs/
+Disallow: /clips.php
+Disallow: /enviar.php
+
+Sitemap: https://dashcams.es/sitemap.xml

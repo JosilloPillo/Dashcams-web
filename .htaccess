@@ -1,0 +1,23 @@
+# Dashcams España
+Options -MultiViews
+RewriteEngine On
+
+# Sin «www» (el https lo fuerza Hostinger desde hPanel)
+RewriteCond %{HTTP_HOST} ^www\.dashcams\.es$ [NC]
+RewriteRule ^(.*)$ https://dashcams.es/$1 [R=301,L]
+
+# Documentación interna: no pública
+RewriteRule ^docs(/|$) - [F,L]
+
+# Quitar la barra final: /recomendador/ -> /recomendador
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^([a-z0-9-]+)/$ /$1 [R=301,L]
+
+# Páginas de la web (/recomendador, /blog, /a329…): las sirve index.html
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^[a-z0-9-]+$ index.html [L]
+
+<Files "clips-config.php">
+  Require all denied
+</Files>
