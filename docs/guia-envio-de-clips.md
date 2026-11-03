@@ -1,6 +1,6 @@
 # Envío de clips: cómo activarlo
 
-La página **Envía tu clip** (`#enviar-clip`) sube los vídeos directamente desde el navegador del visitante a **Cloudflare R2**. No pasan por Hostinger, así que no gastan espacio ni tienen el límite de subida del hosting. Cuando termina un envío, te llega un correo a tuclip@dashcams.es con los datos y los enlaces de descarga.
+La página **Envía tu clip** (`#enviar-clip`) sube los vídeos directamente desde el navegador del visitante a **Cloudflare R2**. No pasan por Hostinger, así que no gastan espacio ni tienen el límite de subida del hosting. Cuando termina un envío, te llega un correo a tuclip@dashcams.es con los datos y un enlace por vídeo para verlo o descargarlo (vale 10 días).
 
 Solo funciona en el alojamiento PHP/HTML de Hostinger (dashcams.es o la dirección provisional `lime-emu-605845.hostingersite.com`), porque necesita `clips.php`. La web hecha con el Creador de Hostinger no ejecuta PHP. En GitHub Pages o en la vista previa sale un aviso y el botón queda desactivado.
 
@@ -72,7 +72,7 @@ Entra en https://dashcams.es/#enviar-clip, envía un vídeo corto y comprueba qu
 
 ## Dónde ver los clips
 
-- En el **correo**: cada clip trae un enlace de descarga que vale 7 días.
+- En el **correo**: cada clip trae un enlace para verlo o descargarlo que vale 10 días (pasa por clips.php, que pide a Cloudflare un acceso nuevo cada vez que se abre).
 - En **Cloudflare → R2 → clips-dashcams → clips/**: una carpeta por envío, con los vídeos y `envio.json` (correo, cómo quiere aparecer, lugar, carretera, descripción y lo que aceptó).
 
 ## Límites que tiene configurados

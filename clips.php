@@ -30,7 +30,7 @@ const MAX_ARCHIVOS = 3;               // vídeos por envío
 const PARTE        = 16777216;        // 16 MB por parte (4 GB = 256 partes)
 const EXTENSIONES  = ['mp4', 'mov', 'avi', 'mkv', 'ts', 'mts', 'm2ts', 'm4v', '3gp', 'webm'];
 const CADUCIDAD    = 43200;           // las firmas de subida valen 12 horas
-const ENLACE_DIAS  = 7;               // los enlaces de descarga del correo valen 7 días
+const ENLACE_DIAS  = 10;              // los enlaces del correo para ver o descargar el vídeo valen 10 días
 
 function salir(array $datos, int $codigo = 200): void {
     http_response_code($codigo);
@@ -154,6 +154,24 @@ function limite(string $tipo, int $max, int $segundos): void {
 }
 function mb_tam(int $b): string { return $b >= 1073741824 ? number_format($b / 1073741824, 2, ',', '.') . ' GB' : number_format($b / 1048576, 1, ',', '.') . ' MB'; }
 
+/* ---------- Enlace del correo: ?ver=<vídeo>&hasta=<fecha>&f=<firma> ---------- */
+if (($_SERVER['REQUEST_METHOD'] ?? '') === 'GET' && isset($_GET['ver'])) {
+    $clave = (string) $_GET['ver'];
+    $hasta = (int) ($_GET['hasta'] ?? 0);
+    $valido = preg_match('#^clips/\d{8}-\d{6}-[0-9a-f]{6}/\d-[A-Za-z0-9._-]+$#', $clave)
+        && hash_equals(ficha('ver|' . $clave . '|' . $hasta), (string) ($_GET['f'] ?? ''));
+    if ($valido && $hasta >= time()) {
+        header('Location: ' . prefirmar('GET', $clave, [], 3600), true, 302);
+        exit;
+    }
+    header('Content-Type: text/html; charset=utf-8');
+    http_response_code($valido ? 410 : 404);
+    echo '<!doctype html><meta charset="utf-8"><title>Enlace no disponible</title><p style="font:16px system-ui;margin:2rem">'
+       . ($valido ? 'Este enlace ha caducado. El vídeo sigue en Cloudflare R2 (bucket clips-dashcams, carpeta ' . htmlspecialchars(dirname($clave)) . ') hasta que se cumplan los 90 días.' : 'Enlace no válido.')
+       . '</p>';
+    exit;
+}
+
 /* ---------- Entrada ---------- */
 if (($_SERVER['REQUEST_METHOD'] ?? '') !== 'POST') fallo('Método no permitido.', 405);
 $E = json_decode((string) file_get_contents('php://input'), true);
@@ -243,9 +261,12 @@ if ($accion === 'terminar') {
     $limpio = function ($t) { return trim(preg_replace('/[\r\n]+/', ' ', $t)); };
     $cuerpo = "Nuevo clip enviado desde dashcams.es\n\n";
     foreach ($d as $k => $v) if ($v !== '') $cuerpo .= "$k: $v\n";
-    $cuerpo .= "\nVídeos (los enlaces de descarga caducan en " . ENLACE_DIAS . " días; los archivos siguen en Cloudflare R2, carpeta clips/$envio/):\n";
+    $https = (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off') || (($_SERVER['HTTP_X_FORWARDED_PROTO'] ?? '') === 'https');
+    $base = ($https ? 'https' : 'http') . '://' . preg_replace('/[^A-Za-z0-9.:-]/', '', $_SERVER['HTTP_HOST'] ?? 'dashcams.es') . strtok($_SERVER['REQUEST_URI'] ?? '/clips.php', '?');
+    $cuerpo .= "\nVídeos (cada enlace sirve para verlo o descargarlo durante " . ENLACE_DIAS . " días; después sigue en Cloudflare R2, carpeta clips/$envio/):\n";
     foreach ($lista as $a) {
-        $cuerpo .= '- ' . $a['nombre'] . ' (' . mb_tam($a['tam']) . "):\n  " . prefirmar('GET', $a['clave'], [], ENLACE_DIAS * 86400) . "\n";
+        $hasta = time() + ENLACE_DIAS * 86400;
+        $cuerpo .= '- ' . $a['nombre'] . ' (' . mb_tam($a['tam']) . "):\n  " . $base . '?ver=' . rawurlencode($a['clave']) . '&hasta=' . $hasta . '&f=' . ficha('ver|' . $a['clave'] . '|' . $hasta) . "\n";
     }
     $cuerpo .= "\nEl remitente ha aceptado las condiciones de envío (cesión de derechos) y la política de privacidad, y declara ser mayor de edad y autor del vídeo o tener permiso del autor.\n";
     $cuerpo .= "Fecha de envío (UTC): " . $resumen['Fecha de envío (UTC)'] . " · IP: " . $resumen['IP'] . "\n";
