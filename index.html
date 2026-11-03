@@ -31,9 +31,9 @@
   color-scheme:light;
 }
 @media (prefers-color-scheme:dark){
-  :root:not([data-theme="light"]){--bg:#161d24; --surface:#1f2932; --text:#e6ebef; --accent:#5aa6e8; --on-accent:#0d1620; --line:#33424e; --muted:#9fb0bd; color-scheme:dark;}
+  :root:not([data-theme="light"]){--bg:#161d24; --surface:#1f2932; --text:#e6ebef; --accent:#5aa6e8; --on-accent:#0d1620; --line:#33424e; --muted:#9fb0bd; --rec-txt:#ff7a73; color-scheme:dark;}
 }
-:root[data-theme="dark"]{--bg:#161d24; --surface:#1f2932; --text:#e6ebef; --accent:#5aa6e8; --on-accent:#0d1620; --line:#33424e; --muted:#9fb0bd; color-scheme:dark;}
+:root[data-theme="dark"]{--bg:#161d24; --surface:#1f2932; --text:#e6ebef; --accent:#5aa6e8; --on-accent:#0d1620; --line:#33424e; --muted:#9fb0bd; --rec-txt:#ff7a73; color-scheme:dark;}
 html{scroll-padding-top:env(safe-area-inset-top,0px);}
 *,*::before,*::after{box-sizing:inherit;}
 body{margin:0;background:var(--bg);color:var(--text);font:400 1.0625rem/1.6 "Public Sans",system-ui,-apple-system,"Segoe UI",sans-serif;}
@@ -98,14 +98,12 @@ nav.top a.navclip:hover{text-decoration:none;filter:brightness(1.15);}
 .navclip i,.cb-rec i{width:.6rem;height:.6rem;border-radius:50%;background:var(--rec);flex:none;}
 .clipband{display:flex;align-items:center;gap:.75rem 1.5rem;flex-wrap:wrap;margin-top:1rem;padding:1.25rem 1.5rem;border-radius:6px;background:var(--surface);border:1px solid var(--line);color:var(--text);text-decoration:none;}
 .clipband:hover .cb-btn{filter:brightness(.92);}
-.cb-rec{display:inline-flex;align-items:center;gap:.4rem;font:600 .8rem/1 "Public Sans",sans-serif;letter-spacing:.06em;color:var(--rec);}
-.cb-rec i{animation:blink 1.6s steps(2,jump-none) infinite;}
+.cb-rec{display:inline-flex;align-items:center;gap:.4rem;font:600 .8rem/1 "Public Sans",sans-serif;letter-spacing:.06em;color:var(--rec-txt,var(--rec));}
 .cb-txt{flex:1 1 18rem;font-size:1.05rem;}
 .cb-txt strong{display:block;font-family:"Barlow Condensed","Arial Narrow",sans-serif;font-size:1.5rem;line-height:1.1;margin-bottom:.15rem;}
 .cb-btn{font-size:1.05rem;}
 .cb-btn{display:inline-block;padding:.8rem 1.4rem;border-radius:4px;background:var(--accent);color:var(--on-accent);font-weight:700;white-space:nowrap;}
 .art .clipband{margin-top:2rem;}
-@media(prefers-reduced-motion:reduce){.cb-rec i{animation:none;}}
 .form .si>.note{margin:0 0 14px;}
 .art{max-width:46rem;}
 .art h3{margin:1.75rem 0 .5rem;}
@@ -1375,7 +1373,7 @@ html[data-tema] nav.top a.navclip{background:var(--marca);}
 html[data-tema="escudo"] nav.top a.navclip{background:var(--grad);color:#1f2147;font-weight:800;box-shadow:0 10px 20px -12px var(--brillo);}
 html[data-tema="escudo"] nav.top a.navclip i{background:#c8161d;}
 html[data-tema] .clipband{border-radius:14px;background:var(--surface);box-shadow:0 1px 2px rgba(20,22,40,.05),0 6px 20px -12px rgba(20,22,40,.18);}
-html[data-tema] .cb-rec{color:var(--resalte);}
+html[data-tema] .cb-rec{color:var(--rec-txt,var(--resalte));}
 html[data-tema] .cb-btn{border-radius:12px;background:var(--acento);color:var(--sobre-acento);}
 html[data-tema="escudo"] .cb-btn{background:var(--grad);color:#1f2147;box-shadow:0 10px 20px -12px var(--brillo);}
 html[data-tema="escudo"] .clipband:hover .cb-btn{filter:none;box-shadow:0 14px 26px -12px var(--brillo);}
