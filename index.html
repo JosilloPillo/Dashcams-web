@@ -270,15 +270,6 @@ html.lb-on{overflow:hidden;}
   </div>
 </section>
 
-<section id="comparativa" data-view="recomendaciones">
-  <div class="wrap">
-    <h2>Las mejores dashcams recomendadas para tu coche</h2>
-    <p>Descubre las mejores dashcams del mercado con análisis detallados y recomendaciones expertas. Compara modelos, conoce sus características y elige la cámara ideal para tu vehículo. ¡Protege tu conducción con la mejor tecnología!</p>
-    <div class="scroll" role="region" aria-label="Tabla comparativa de dashcams" tabindex="0">
-      <table id="tabla"></table>
-    </div>
-  </div>
-</section>
 
 <section id="elegir" data-view="recomendaciones">
   <div class="wrap">
@@ -864,6 +855,7 @@ var DASHCAMS = [
 
 (function(){
   var t=document.getElementById("tabla"), keys=Object.keys(DASHCAMS[0].specs);
+  if(t){
   var h="<thead><tr><th scope='col'><span class='sr'>Característica</span></th>";
   DASHCAMS.forEach(function(d){h+="<th scope='col'>"+d.name+(d.tag?"<br><span class='tag'>"+d.tag+"</span>":"")+"</th>";});
   h+="</tr></thead><tbody>";
@@ -879,6 +871,7 @@ var DASHCAMS = [
   h+="</tr><tr><th scope='row'>Comprar</th>";
   DASHCAMS.forEach(function(d){h+="<td>"+compra(d.name,d.link)+"</td>";});
   t.innerHTML=h+"</tr></tbody>";
+  }
 
   var c=document.getElementById("clock");
   function tick(){var n=new Date();c.textContent=[n.getHours(),n.getMinutes(),n.getSeconds()].map(function(x){return String(x).padStart(2,"0");}).join(":");}
