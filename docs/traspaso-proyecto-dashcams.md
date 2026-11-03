@@ -69,3 +69,9 @@ En el JavaScript del final del archivo:
 - Las gamas (económica/media/alta/premium) son estimaciones por rango de precio, no precios exactos.
 - No se incluyen datos que no se hayan podido confirmar: se muestran como «—».
 - El logo se muestra sin recuadro ni fondo.
+
+## Diseño «Escudo» (3 nov 2026)
+- Colores sacados del logo: azul marino #1f2147, amarillo #f9bc03 y rojo #c8161d. Los botones principales y de compra llevan un degradado amarillo→naranja con brillo (pedido expresamente).
+- Toda la capa está en `<style id="temas">` y se activa con `data-tema="escudo"` en la etiqueta `<html>`. Para volver al diseño anterior basta con quitar ese atributo; el estado previo completo está en la etiqueta git `diseno-antes-color`.
+- «Envía tu clip» tiene botón propio en el menú, una franja bajo el bloque principal de la portada y otra al final de cada artículo. Contacto ya no es desplegable.
+- Redes del pie: YouTube, Instagram, Facebook y TikTok (@dashcams.esp).

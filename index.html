@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es" data-tema="escudo">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
@@ -1274,18 +1274,12 @@ var DASHCAMS = [
 /* ===== CAPA DE COLOR (propuestas). Solo actúa si <html data-tema="..."> ===== */
 html[data-tema="escudo"]{--marca:#1f2147;--marca2:#2e3170;--acento:#f9bc03;--sobre-acento:#1f2147;--resalte:#c8161d;
   --bg:#f3f2ee;--surface:#fff;--line:#d9d6cc;--muted:#5b5e72;--text:#1b1d33;--accent:#2b3a9e;--on-accent:#fff;--rec:#c8161d;}
-html[data-tema="naranja"]{--marca:#1c2026;--marca2:#2c323b;--acento:#ff6b1a;--sobre-acento:#1c2026;--resalte:#ff6b1a;
   --bg:#f4f2ef;--surface:#fff;--line:#dcd6cf;--muted:#5f6267;--text:#1c2026;--accent:#c2410c;--on-accent:#fff;}
-html[data-tema="autovia"]{--marca:#0b4fa8;--marca2:#0a3d82;--acento:#ffd23f;--sobre-acento:#0d2346;--resalte:#d6322e;
   --bg:#eef3f9;--surface:#fff;--line:#cbd7e6;--muted:#4f6178;--text:#0d2346;--accent:#0b4fa8;--on-accent:#fff;}
 /* Modo oscuro de cada tema */
 html[data-tema="escudo"][data-theme="dark"]{--bg:#12132a;--surface:#1c1e3d;--line:#33365e;--text:#ecebf5;--muted:#a9abc8;--accent:#ffd34d;--on-accent:#1f2147;--marca:#0c0d22;--marca2:#1f2147;}
-html[data-tema="naranja"][data-theme="dark"]{--bg:#121417;--surface:#1c2026;--line:#353b44;--text:#eceae6;--muted:#a7a9ad;--accent:#ff8a47;--on-accent:#1c2026;--marca:#0b0d10;--marca2:#1c2026;}
-html[data-tema="autovia"][data-theme="dark"]{--bg:#0b1626;--surface:#122238;--line:#2a3f5c;--text:#e8eef6;--muted:#9fb3cc;--accent:#7db7ff;--on-accent:#0b1626;--marca:#0a2f63;--marca2:#0b4fa8;}
 @media (prefers-color-scheme:dark){
   html[data-tema="escudo"]:not([data-theme="light"]){--bg:#12132a;--surface:#1c1e3d;--line:#33365e;--text:#ecebf5;--muted:#a9abc8;--accent:#ffd34d;--on-accent:#1f2147;--marca:#0c0d22;--marca2:#1f2147;}
-  html[data-tema="naranja"]:not([data-theme="light"]){--bg:#121417;--surface:#1c2026;--line:#353b44;--text:#eceae6;--muted:#a7a9ad;--accent:#ff8a47;--on-accent:#1c2026;--marca:#0b0d10;--marca2:#1c2026;}
-  html[data-tema="autovia"]:not([data-theme="light"]){--bg:#0b1626;--surface:#122238;--line:#2a3f5c;--text:#e8eef6;--muted:#9fb3cc;--accent:#7db7ff;--on-accent:#0b1626;--marca:#0a2f63;--marca2:#0b4fa8;}
 }
 
 /* --- Personalidad común: carretera, señal y escudo --- */
