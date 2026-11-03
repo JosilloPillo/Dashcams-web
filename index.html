@@ -347,7 +347,8 @@ var AE = {
 "DDPAI Mini Pro":"https://s.click.aliexpress.com/e/_c4dxB3N9",
 "Redtiger F7N Touch 4K":"https://s.click.aliexpress.com/e/_c45Irc63",
 "Redtiger F77":"https://s.click.aliexpress.com/e/_c3z7wUaF",
-"WOLFBOX G840S":"https://s.click.aliexpress.com/e/_c3U1RCcX"
+"WOLFBOX G840S":"https://s.click.aliexpress.com/e/_c3U1RCcX",
+"YI Smart Dash Camera":"https://es.aliexpress.com/item/1005005993243789.html"
 };
 function amz(n){if(!ASIN[n]&&AE[n])return AE[n];return ASIN[n]?"https://www.amazon.es/dp/"+ASIN[n]+"?tag="+TAG:"https://www.amazon.es/s?k="+encodeURIComponent(n)+"&tag="+TAG;}
 
@@ -360,7 +361,7 @@ var PR={"70mai Dash Cam M300":"40–80 €","70mai A810S 4K":"unos 260 €","AZD
 "Nextbase 622GW":"unos 255 €","Nextbase 522GW":"unos 205 €","Nextbase 422GW":"115–170 €","Nextbase 322GW":"unos 140 €","Nextbase 222X":"unos 175 €","Nextbase Piqo 2K":"unos 125 €","Nextbase iQ":"450–650 €",
 "Garmin Dash Cam 57":"unos 180 €","Garmin Dash Cam 67W":"unos 340 € (vendedor externo)","Garmin Dash Cam X310":"unos 300 €","70mai Dash Cam A500S":"unos 105 € (vendedor externo)",
 "DDPAI Z50 Pro":"unos 95 €","DDPAI Z60 Pro":"unos 170 €","DDPAI N5 Dual":"unos 150 €","DDPAI N4T Pro 3CH":"unos 130 €","DDPAI N2 Dual":"unos 80 €","DDPAI Mini Pro":"unos 55 €",
-"70mai A510":"unos 140 €","70mai A800SE":"unos 140 €","70mai A810 Lite":"unos 105 €","70mai A410":"unos 55 € (AliExpress)","70mai M310 Plus 4K":"unos 70 €","70mai Omni X800":"unos 400 €","70mai T800 3CH":"unos 450 €",
+"70mai A510":"unos 140 €","70mai A800SE":"unos 140 €","70mai A810 Lite":"unos 105 €","70mai A410":"unos 55 € (AliExpress)","YI Smart Dash Camera":"unos 45 € (AliExpress)","70mai M310 Plus 4K":"unos 70 €","70mai Omni X800":"unos 400 €","70mai T800 3CH":"unos 450 €",
 "Garmin Dash Cam Mini 3":"unos 130 €","Garmin Dash Cam X110":"unos 180 €","Garmin Dash Cam X210":"unos 240 €","Garmin Dash Cam Tandem":"unos 350 €","Miofive S1 Pro Dual":"unos 170 € (vendedor externo)","Redtiger F7N Touch 4K":"unos 120 €",
 "Thinkware ARC 700":"unos 305 € (vendedor externo)","Transcend DrivePro 550":"unos 155 €","Vantrue E2":"unos 220 €","Vantrue S1 Pro Max":"unos 300 €","Viofo A139 3CH":"unos 280 €","BlackVue Elite 10 2CH":"unos 700 €","AZDOME M550 Max 3CH":"unos 150 €","WOLFBOX G840S":"unos 170 €","Redtiger F77":"unos 240 €"};
 function compra(n,u){u=u||amz(n);var h=btn(u);if(AE[n]&&u.indexOf("aliexpress.")<0)h+=" "+btn(AE[n]);return h;}
@@ -943,7 +944,8 @@ var DASHCAMS = [
 ["Viofo A139 3CH",3,2,3,1,1,1,null,null,0,"170°","",""," (interior y trasera 1080p)"],
 ["Redtiger F77",3,3,2,1,1,null,1,null,0,"","",""," (trasera también 4K)"],
 ["AZDOME M550 Max 3CH",2,3,3,1,1,1,null,1,0,"","",""," (interior 1080p, trasera 2,5K)"],
-["WOLFBOX G840S",2,3,2,1,1,null,null,1,0,"","",""," (espejo retrovisor de 12\")"]
+["WOLFBOX G840S",2,3,2,1,1,null,null,1,0,"","",""," (espejo retrovisor de 12\")"],
+["YI Smart Dash Camera",1,1,1,0,1,0,null,1,0,"165°","Hasta 64 GB",""," (Full HD a 60 fps; con ADAS)"]
   ];
   (function(){
     var R=["","1080p","2K","4K"],Y=function(v){return v===1?"Sí":v===.5?"Opcional o según modelo":v===0?"No":"";};
