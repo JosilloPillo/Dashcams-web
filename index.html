@@ -93,6 +93,7 @@ button.buy{border:0;font:inherit;font-weight:600;cursor:pointer;}
 #gs dd{margin:0;}
 #cmp tr.diff td,#cmp tr.diff th{background:color-mix(in srgb,var(--accent) 12%,var(--surface));}
 [hidden]{display:none!important;}
+.form .si>.note{margin:0 0 14px;}
 .art{max-width:46rem;}
 .art h3{margin:1.75rem 0 .5rem;}
 .art h4{font-family:"Barlow Condensed",sans-serif;font-size:1.25rem;margin:1.25rem 0 .25rem;}
@@ -244,8 +245,6 @@ html.lb-on{overflow:hidden;}
 <li class="menu"><details><summary>Contacto</summary><ul>
 <li><a href="#enviar-clip">Envía tu clip</a></li>
 <li><a href="#contacto">Contacto</a></li>
-<li><a href="#llavero">Formulario llavero</a></li>
-<li><a href="#instagram">Formulario Instagram</a></li>
 </ul></details></li>
 <li><button type="button" class="theme" id="theme" aria-label="Cambiar a modo oscuro" title="Cambiar a modo oscuro"><span aria-hidden="true">🌙</span></button></li>
 </ul></div></nav>
@@ -674,18 +673,44 @@ var POSTS = [
 <p>¿Tienes alguna pregunta, sugerencia o propuesta de colaboración? ¡Estoy encantado de escucharte! En Dashcams España valoramos la comunidad y siempre estamos abiertos a nuevas ideas.</p>
 <p>📌 <strong>Para colaboraciones y negocios:</strong> si representas una marca o empresa y te interesa trabajar conmigo, ya sea en reviews, promociones o cualquier otro tipo de contenido, no dudes en escribirme.</p>
 <p>📌 <strong>Envío de vídeos:</strong> ¿has capturado algo interesante con tu dashcam y quieres compartirlo en el canal? Súbelo directamente en <a href="#enviar-clip">Envía tu clip</a> y podrías verlo en un próximo vídeo.</p>
+<p>📌 <strong>Miembros del canal:</strong> reclama aquí tu llavero o tu acceso a Mejores Amigos de Instagram eligiendo esa opción en «Motivo».</p>
 <p>📌 <strong>Otras consultas:</strong> si necesitas ayuda con una dashcam, tienes dudas sobre los vídeos o simplemente quieres saludar, ¡escríbeme sin problema!</p>
 <p>También puedes escribir directamente a <a href="mailto:info@dashcams.es">info@dashcams.es</a>.</p>
 </div>
 <form class="panel form" data-asunto="Contacto" novalidate>
-  <label>Nombre*<input name="Nombre" required autocomplete="name" placeholder="Introduce tu nombre aquí"></label>
+  <label>Nombre y apellidos*<input name="Nombre" required autocomplete="name" placeholder="Introduce tu nombre aquí"></label>
   <label>Correo electrónico para contacto*<input name="Correo" type="email" required autocomplete="email" placeholder="Escribe tu correo aquí"></label>
   <fieldset><legend>Motivo*</legend>
     <label class="ck"><input type="radio" name="Motivo" value="Colaboraciones" required> Colaboraciones</label>
+    <label class="ck"><input type="radio" name="Motivo" value="Llavero" data-tipo="Llavero"> Reclamar mi llavero (miembros del canal)</label>
+    <label class="ck"><input type="radio" name="Motivo" value="Mejores Amigos de Instagram" data-tipo="Mejores Amigos de Instagram"> Mejores Amigos de Instagram (miembros del canal)</label>
     <label class="ck"><input type="radio" name="Motivo" value="Otros"> Otros</label>
   </fieldset>
-  <label>Mensaje*<textarea name="Mensaje" required rows="5" placeholder="Escribe tu mensaje"></textarea></label>
-  <label class="ck"><input type="checkbox" required> <span>Acepto la <a href="#privacidad">política de privacidad</a> y el uso de mis datos para responder a este mensaje.*</span></label>
+  <div class="si" data-si="Llavero|Mejores Amigos de Instagram" hidden>
+    <p class="note">¡Mil gracias por apoyar el canal con tu membresía! 🙌 ¿Aún no eres miembro? <a href="https://www.youtube.com/channel/UCpPHHsVT7O1IUEUGiFBlUIg/join" rel="noopener">Hazte miembro aquí</a>.</p>
+    <label>Nombre de usuario de YouTube*<input name="Usuario de YouTube" required></label>
+    <fieldset><legend>Nivel de membresía*</legend>
+      <label class="ck" data-si="Mejores Amigos de Instagram"><input type="radio" name="Nivel de membresía" value="¿Hay alguien al volante?" required> ¿Hay alguien al volante?</label>
+      <label class="ck"><input type="radio" name="Nivel de membresía" value="Sereno al volante" required> Sereno al volante</label>
+      <label class="ck"><input type="radio" name="Nivel de membresía" value="Loquillo al volante"> Loquillo al volante</label>
+      <label class="ck"><input type="radio" name="Nivel de membresía" value="Simplemente gracias"> Simplemente gracias</label>
+    </fieldset>
+  </div>
+  <div class="si" data-si="Llavero" hidden>
+    <label>Tiempo en el nivel de membresía (meses)*<input name="Meses en el nivel" required inputmode="numeric" placeholder="Indica solo el número de meses"></label>
+    <fieldset><legend>¿Dónde te enviamos el llavero?*</legend>
+      <label>Calle y número*<input name="Calle y número" required autocomplete="address-line1"></label>
+      <label>Piso<input name="Piso" autocomplete="address-line2"></label>
+      <div class="two"><label>Ciudad*<input name="Ciudad" required autocomplete="address-level2"></label><label>Provincia*<input name="Provincia" required autocomplete="address-level1"></label></div>
+      <div class="two"><label>Código postal*<input name="Código postal" required autocomplete="postal-code" inputmode="numeric"></label><label>País*<input name="País" required autocomplete="country-name" value="España"></label></div>
+    </fieldset>
+  </div>
+  <div class="si" data-si="Mejores Amigos de Instagram" hidden>
+    <label>Tu usuario de Instagram*<input name="Instagram" required placeholder="@tuusuario"></label>
+    <p class="note">Asegúrate de seguir a <a href="https://www.instagram.com/dashcams.esp/" rel="noopener">@dashcams.esp</a> para que podamos añadirte.</p>
+  </div>
+  <label><span class="lmsg">Mensaje*</span><textarea name="Mensaje" required rows="5" placeholder="Escribe tu mensaje"></textarea></label>
+  <label class="ck"><input type="checkbox" required> <span>Acepto la <a href="#privacidad">política de privacidad</a> y el uso de mis datos para gestionar mi mensaje o solicitud.*</span></label>
   <p class="ferr" role="alert"></p>
   <button type="submit" class="buy">Enviar</button>
   <p class="note">Al pulsar «Enviar» se prepara un correo para info@dashcams.es: solo tienes que enviarlo desde tu aplicación de correo.</p>
@@ -760,61 +785,7 @@ var POSTS = [
 </div></section>
 
 
-<section id="llavero" data-view="llavero"><div class="wrap split">
-<div>
-<h2>Reclama tu llavero</h2>
-<p>¡Mil gracias por apoyar el canal con tu membresía! 🙌🔑 Como muestra de mi agradecimiento, quiero enviarte este llavero exclusivo. Es un pequeño detalle, pero significa mucho para mí poder darte algo a cambio por tu apoyo.</p>
-<p>Tu contribución ayuda a que siga creando contenido y mejorando cada día. ¡Espero que lo disfrutes! Si puedes, mándame una foto cuando lo recibas, me encantará verlo. 🚗💨 ¡Nos vemos en el próximo vídeo! 📹🔥</p>
-<p><a class="buy" href="https://www.youtube.com/channel/UCpPHHsVT7O1IUEUGiFBlUIg/join" rel="noopener">Hacerme miembro</a></p>
-</div>
-<form class="panel form" data-asunto="Llavero" novalidate>
-  <label>Nombre completo*<input name="Nombre completo" required autocomplete="name" placeholder="Introduce tu nombre aquí"></label>
-  <label>Correo electrónico para contacto*<input name="Correo" type="email" required autocomplete="email" placeholder="Escribe tu correo aquí"></label>
-  <fieldset><legend>Nivel de membresía*</legend>
-    <label class="ck"><input type="radio" name="Nivel de membresía" value="Sereno al volante" required> Sereno al volante</label>
-    <label class="ck"><input type="radio" name="Nivel de membresía" value="Loquillo al volante"> Loquillo al volante</label>
-    <label class="ck"><input type="radio" name="Nivel de membresía" value="Simplemente gracias"> Simplemente gracias</label>
-  </fieldset>
-  <fieldset><legend>¿Dónde va el llavero?*</legend>
-    <label>Calle y número*<input name="Calle y número" required autocomplete="address-line1"></label>
-    <label>Piso<input name="Piso" autocomplete="address-line2"></label>
-    <div class="two"><label>Ciudad*<input name="Ciudad" required autocomplete="address-level2"></label><label>Provincia*<input name="Provincia" required autocomplete="address-level1"></label></div>
-    <div class="two"><label>Código postal*<input name="Código postal" required autocomplete="postal-code" inputmode="numeric"></label><label>País*<input name="País" required autocomplete="country-name" value="España"></label></div>
-  </fieldset>
-  <label>Nombre de usuario de YouTube*<input name="Usuario de YouTube" required></label>
-  <label>Tiempo en el nivel de membresía (meses)*<input name="Meses en el nivel" required inputmode="numeric" placeholder="Indica solo el número de meses"></label>
-  <label>Mensaje<textarea name="Mensaje" rows="3"></textarea></label>
-  <label class="ck"><input type="checkbox" required> <span>Acepto la <a href="#privacidad">política de privacidad</a> y el uso de mis datos para enviarme el llavero.*</span></label>
-  <p class="ferr" role="alert"></p>
-  <button type="submit" class="buy">Enviar</button>
-  <p class="note">Al pulsar «Enviar» se prepara un correo para info@dashcams.es: solo tienes que enviarlo desde tu aplicación de correo.</p>
-</form>
-</div></section>
 
-<section id="instagram" data-view="instagram"><div class="wrap split">
-<div>
-<h2>Reclama Mejores Amigos de Instagram</h2>
-<p>¡Muchísimas gracias por tu apoyo a través de la membresía! 🙌💖 Como agradecimiento especial, quiero añadirte a mis Mejores Amigos de Instagram. Ahí podrás ver contenido exclusivo, adelantos de lo que viene y más sorpresas. 🎥✨</p>
-<p>¡Es un honor tenerte como parte de esta comunidad! Si tienes alguna pregunta o sugerencia, no dudes en escribirme. ¡Nos vemos por ahí! 📲🔥</p>
-<p><a class="buy" href="https://www.instagram.com/dashcams.esp/" rel="noopener">Seguir @dashcams.esp</a></p>
-</div>
-<form class="panel form" data-asunto="Mejores Amigos de Instagram" novalidate>
-  <label>Nombre*<input name="Nombre" required autocomplete="name" placeholder="Introduce tu nombre aquí"></label>
-  <label>Nombre de usuario de YouTube*<input name="Usuario de YouTube" required></label>
-  <fieldset><legend>Nivel de membresía*</legend>
-    <label class="ck"><input type="radio" name="Nivel de membresía" value="¿Hay alguien al volante?" required> ¿Hay alguien al volante?</label>
-    <label class="ck"><input type="radio" name="Nivel de membresía" value="Sereno al volante"> Sereno al volante</label>
-    <label class="ck"><input type="radio" name="Nivel de membresía" value="Loquillo al volante"> Loquillo al volante</label>
-    <label class="ck"><input type="radio" name="Nivel de membresía" value="Simplemente gracias"> Simplemente gracias</label>
-  </fieldset>
-  <label>Tu usuario de Instagram*<input name="Instagram" required placeholder="@tuusuario"></label>
-  <label>Mensaje<textarea name="Mensaje" rows="3"></textarea></label>
-  <label class="ck"><input type="checkbox" required> <span>Acepto la <a href="#privacidad">política de privacidad</a> y el uso de mis datos para gestionar mi solicitud.*</span></label>
-  <p class="ferr" role="alert"></p>
-  <button type="submit" class="buy">Enviar</button>
-  <p class="note">Al pulsar «Enviar» se prepara un correo para info@dashcams.es: solo tienes que enviarlo desde tu aplicación de correo.</p>
-</form>
-</div></section>
 
 <section id="sobre-nosotros" data-view="sobre-nosotros"><div class="wrap art">
 <h2>Sobre nosotros</h2>
@@ -1068,6 +1039,8 @@ var DASHCAMS = [
   function route(){
     var h=decodeURIComponent(location.hash.slice(1)),v="inicio",t=h?document.getElementById(h):null,perdida=false;
     var seg=location.pathname.replace(/^\/+|\/+$/g,"").replace(/^index\.html$/,"");
+    var VIEJO={llavero:"Llavero",instagram:"Mejores Amigos de Instagram"},vj=VIEJO[h]||(!h&&VIEJO[seg]);
+    if(vj){h="contacto";t=null;window.MOTIVO_PEND=vj;if(window.elegirMotivo)window.elegirMotivo(vj);}
     if(h&&existe(h)){v=h;t=null;}
     else if(t&&t.closest("[data-view]")){v=t.closest("[data-view]").getAttribute("data-view");}
     else if(!h&&seg&&RUTAS){var c=ALIAS[seg]||seg;if(existe(c))v=c;else perdida=true;}
@@ -1303,9 +1276,22 @@ var DASHCAMS = [
     box.scrollIntoView({block:"nearest"});
     if(!aviso){try{location.href=url;}catch(x){}}
   }
+  /* Bloques que solo aparecen con ciertos motivos (llavero, Instagram) */
+  function bloques(f){
+    var mot=f.querySelector('input[name="Motivo"]:checked'),v=mot?mot.value:"";
+    [].forEach.call(f.querySelectorAll("[data-si]"),function(b){
+      var on=b.getAttribute("data-si").split("|").indexOf(v)>-1;
+      b.hidden=!on;[].forEach.call(b.querySelectorAll("input,textarea"),function(i){i.disabled=!on;});
+    });
+    var msg=f.querySelector('textarea[name="Mensaje"]'),lm=f.querySelector(".lmsg");
+    if(msg){var opc=v==="Llavero"||v==="Mejores Amigos de Instagram";msg.required=!opc;if(lm)lm.textContent=opc?"Mensaje":"Mensaje*";}
+  }
+  window.elegirMotivo=function(v){var f=document.querySelector('#contacto form');if(!f)return;var r=f.querySelector('input[name="Motivo"][value="'+v+'"]');if(r){r.checked=true;bloques(f);}};
+  if(window.MOTIVO_PEND)window.elegirMotivo(window.MOTIVO_PEND);
   [].forEach.call(document.querySelectorAll("form.form:not(#clipform)"),function(f){
+    if(f.querySelector("[data-si]")){bloques(f);f.addEventListener("change",function(e){if(e.target.name==="Motivo")bloques(f);});}
     var hp=document.createElement("input");hp.type="text";hp.name="web";hp.tabIndex=-1;hp.autocomplete="off";hp.className="sr";hp.setAttribute("aria-hidden","true");f.appendChild(hp);
-    if(DIRECTO){var n=f.querySelector(".note");if(n)n.textContent="Tu mensaje nos llegará directamente. Te responderemos lo antes posible.";}
+    if(DIRECTO){var n=f.querySelector(":scope > .note");if(n)n.textContent="Tu mensaje nos llegará directamente. Te responderemos lo antes posible.";}
     f.addEventListener("submit",function(e){
       e.preventDefault();
       var err=f.querySelector(".ferr"),bad=null,btnE=f.querySelector("button[type=submit]");
@@ -1319,13 +1305,14 @@ var DASHCAMS = [
       err.textContent="";
       var lines=[],nombre="";
       [].forEach.call(f.elements,function(i){
-        if(!i.name||i.name==="web"||((i.type==="radio"||i.type==="checkbox")&&!i.checked))return;
+        if(!i.name||i.name==="web"||i.disabled||((i.type==="radio"||i.type==="checkbox")&&!i.checked))return;
         if(/^Nombre/.test(i.name))nombre=i.value;
         lines.push(i.name+": "+i.value);
       });
-      var asunto="["+f.getAttribute("data-asunto")+"] "+nombre,cuerpo=lines.join("\n");
+      var mot=f.querySelector('input[name="Motivo"]:checked'),tipo=(mot&&mot.getAttribute("data-tipo"))||f.getAttribute("data-asunto");
+      var asunto="["+tipo+"] "+nombre,cuerpo=lines.join("\n");
       if(!DIRECTO){manual(f,asunto,cuerpo);return;}
-      var fd=new FormData(f);fd.append("_tipo",f.getAttribute("data-asunto"));
+      var fd=new FormData(f);fd.append("_tipo",tipo);
       btnE.disabled=true;btnE.textContent="Enviando…";
       fetch("enviar.php",{method:"POST",body:fd}).then(function(r){return r.json();}).then(function(j){
         if(!j.ok)throw 0;

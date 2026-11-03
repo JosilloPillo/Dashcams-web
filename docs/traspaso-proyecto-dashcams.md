@@ -7,7 +7,7 @@ Idioma: español de España. Estilo: portada con aspecto de visor de dashcam, ti
 
 ## Cómo está construida
 - Un solo archivo HTML con CSS y JavaScript dentro. Se publica como página alojada (artifact); no puede cargar imágenes ni peticiones de otras webs (solo scripts de cdnjs/jsdelivr y Google Fonts).
-- Las «páginas» son vistas dentro del mismo archivo, con rutas por hash: `#inicio`, `#recomendaciones`, `#blog`, un hash por artículo (`#a329`, `#n5`, `#que-comprar`, `#vs1`, `#que-es`, `#instalar`) y las páginas copiadas de dashcams.es: `#descargas`, `#contacto`, `#llavero`, `#instagram`, `#sobre-nosotros`, `#privacidad`, `#aviso-legal`, `#cookies`. Cada bloque lleva `data-view="..."` y un pequeño router muestra la vista que toca.
+- Las «páginas» son vistas dentro del mismo archivo, con rutas por hash: `#inicio`, `#recomendaciones`, `#blog`, un hash por artículo (`#a329`, `#n5`, `#que-comprar`, `#vs1`, `#que-es`, `#instalar`) y las páginas copiadas de dashcams.es: `#descargas`, `#contacto`, `#sobre-nosotros`, `#privacidad`, `#aviso-legal`, `#cookies`. Cada bloque lleva `data-view="..."` y un pequeño router muestra la vista que toca.
 - Publicada como artifact: https://claude.ai/artifact/1mmgA3yQNGrjG6UQHK1iGc (slug 06404205-2a57-475c-afe2-931a53e4b9ad).
 - Menú arriba: logo a la izquierda (PNG incrustado en base64), enlaces a la derecha, «Contacto» como desplegable con los dos formularios.
 
@@ -33,7 +33,7 @@ En el JavaScript del final del archivo:
 - Enlaces amzn.to comprobados: «70mai 1S» era la M300, «A810 4K» la A810S (solo delantera), «AZDOME 4K+1080P» la M300S y «VANTRUE N4» la N4 Pro. Tabla y comparador renombrados y corregidos; se quitaron las filas duplicadas de M300 y N4 Pro en `NEW`.
 - Vantrue N5: 2,7K (1944p) delantera según Amazon.es; el texto del análisis sigue diciendo 4K.
 - Precios completados y fila de precio en la tabla grande.
-- Páginas copiadas: Descargas, Contacto, formulario llavero, formulario Instagram, Sobre nosotros y Política de privacidad. Los formularios preparan un correo a info@dashcams.es (con botón Copiar por si el correo no se abre).
+- Páginas copiadas: Descargas, Contacto, Sobre nosotros y Política de privacidad. Los antiguos formularios de llavero e Instagram están dentro de Contacto: al elegir ese «Motivo» aparecen sus campos (bloques `data-si`, los ocultos se desactivan y no se envían) y el asunto del correo pasa a ser [Llavero] o [Mejores Amigos de Instagram]. Los enlaces viejos `#llavero`, `#instagram`, `/llavero` e `/instagram` abren Contacto con el motivo ya marcado. Los formularios preparan un correo a info@dashcams.es (con botón Copiar por si el correo no se abre).
 - Blog convertido en bloque de datos `POSTS`.
 
 - Recomendador sin «Ver fotos». Botón de modo oscuro/claro (solo icono 🌙/☀️) que recuerda la elección en el navegador.
