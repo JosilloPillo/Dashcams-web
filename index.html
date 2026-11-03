@@ -1260,6 +1260,81 @@ var DASHCAMS = [
   window.addEventListener("hashchange",route); route();
 })();
 </script>
+<style id="temas">
+/* ===== CAPA DE COLOR (propuestas). Solo actúa si <html data-tema="..."> ===== */
+html[data-tema="escudo"]{--marca:#1f2147;--marca2:#2e3170;--acento:#f9bc03;--sobre-acento:#1f2147;--resalte:#c8161d;
+  --bg:#f3f2ee;--surface:#fff;--line:#d9d6cc;--muted:#5b5e72;--text:#1b1d33;--accent:#2b3a9e;--on-accent:#fff;--rec:#c8161d;}
+html[data-tema="naranja"]{--marca:#1c2026;--marca2:#2c323b;--acento:#ff6b1a;--sobre-acento:#1c2026;--resalte:#ff6b1a;
+  --bg:#f4f2ef;--surface:#fff;--line:#dcd6cf;--muted:#5f6267;--text:#1c2026;--accent:#c2410c;--on-accent:#fff;}
+html[data-tema="autovia"]{--marca:#0b4fa8;--marca2:#0a3d82;--acento:#ffd23f;--sobre-acento:#0d2346;--resalte:#d6322e;
+  --bg:#eef3f9;--surface:#fff;--line:#cbd7e6;--muted:#4f6178;--text:#0d2346;--accent:#0b4fa8;--on-accent:#fff;}
+/* Modo oscuro de cada tema */
+html[data-tema="escudo"][data-theme="dark"]{--bg:#12132a;--surface:#1c1e3d;--line:#33365e;--text:#ecebf5;--muted:#a9abc8;--accent:#ffd34d;--on-accent:#1f2147;--marca:#0c0d22;--marca2:#1f2147;}
+html[data-tema="naranja"][data-theme="dark"]{--bg:#121417;--surface:#1c2026;--line:#353b44;--text:#eceae6;--muted:#a7a9ad;--accent:#ff8a47;--on-accent:#1c2026;--marca:#0b0d10;--marca2:#1c2026;}
+html[data-tema="autovia"][data-theme="dark"]{--bg:#0b1626;--surface:#122238;--line:#2a3f5c;--text:#e8eef6;--muted:#9fb3cc;--accent:#7db7ff;--on-accent:#0b1626;--marca:#0a2f63;--marca2:#0b4fa8;}
+@media (prefers-color-scheme:dark){
+  html[data-tema="escudo"]:not([data-theme="light"]){--bg:#12132a;--surface:#1c1e3d;--line:#33365e;--text:#ecebf5;--muted:#a9abc8;--accent:#ffd34d;--on-accent:#1f2147;--marca:#0c0d22;--marca2:#1f2147;}
+  html[data-tema="naranja"]:not([data-theme="light"]){--bg:#121417;--surface:#1c2026;--line:#353b44;--text:#eceae6;--muted:#a7a9ad;--accent:#ff8a47;--on-accent:#1c2026;--marca:#0b0d10;--marca2:#1c2026;}
+  html[data-tema="autovia"]:not([data-theme="light"]){--bg:#0b1626;--surface:#122238;--line:#2a3f5c;--text:#e8eef6;--muted:#9fb3cc;--accent:#7db7ff;--on-accent:#0b1626;--marca:#0a2f63;--marca2:#0b4fa8;}
+}
+
+/* --- Personalidad común: carretera, señal y escudo --- */
+html[data-tema] nav.top{padding-bottom:1rem;}
+html[data-tema] nav.top .navrow>ul>li>a,html[data-tema] .menu summary{text-decoration:none;background:linear-gradient(var(--acento),var(--acento)) 0 100%/0 3px no-repeat;transition:background-size .2s ease-out;}
+html[data-tema] nav.top .navrow>ul>li>a:hover,html[data-tema] .menu summary:hover{text-decoration:none;background-size:100% 3px;}
+
+/* Hero: visor de la dashcam sobre asfalto con la línea discontinua */
+html[data-tema] .frame{background:
+  repeating-linear-gradient(90deg,var(--acento) 0 56px,transparent 56px 104px) 0 calc(100% - 24px)/calc(100% - 64px) 6px no-repeat,
+  radial-gradient(120% 90% at 85% 0%,var(--marca2) 0%,var(--marca) 62%);
+  padding-bottom:clamp(3rem,7vw,4.75rem);border-radius:10px;}
+html[data-tema] .frame h1{color:#fff;}
+html[data-tema] .frame h1::first-line{color:var(--acento);}
+html[data-tema] .osd{color:rgba(255,255,255,.75);}
+html[data-tema] .hero p{color:rgba(255,255,255,.85);}
+html[data-tema] .btn{border-radius:8px;}
+html[data-tema] .btn.primary{background:var(--acento);color:var(--sobre-acento);}
+html[data-tema] .btn.ghost{border-color:rgba(255,255,255,.55);}
+html[data-tema] .btn.ghost:hover{background:rgba(255,255,255,.1);filter:none;}
+
+/* Títulos de sección con la "marca vial" */
+html[data-tema] section > .wrap > h2::before,html[data-tema] .split .panel > h2::before{content:"";display:block;width:3.25rem;height:.4rem;margin-bottom:.7rem;border-radius:2px;
+  background:repeating-linear-gradient(90deg,var(--acento) 0 1.25rem,transparent 1.25rem 2rem);}
+
+/* Botones de compra y botones principales */
+html[data-tema] .buy{background:var(--acento);color:var(--sobre-acento);border-radius:8px;font-weight:700;}
+html[data-tema] .buy:hover{filter:brightness(.95);}
+html[data-tema] .btn2{border-radius:8px;}
+html[data-tema] .tag{background:var(--resalte);color:#fff;border-radius:4px;}
+
+/* Tarjetas y paneles */
+html[data-tema] .panel,html[data-tema] .post,html[data-tema] .dlcard,html[data-tema] .scroll{border-radius:10px;border-color:var(--line);box-shadow:0 1px 2px rgba(20,22,40,.05),0 6px 20px -12px rgba(20,22,40,.18);}
+html[data-tema] .post{transition:transform .18s ease-out,box-shadow .18s ease-out;}
+html[data-tema] .post:hover{transform:translateY(-2px);box-shadow:0 2px 4px rgba(20,22,40,.06),0 14px 30px -14px rgba(20,22,40,.3);}
+html[data-tema] .post .pimg img{border-radius:10px 10px 0 0;}
+html[data-tema] .panel.merch{border-left:1px solid var(--line);border-top:6px solid var(--acento);}
+html[data-tema] .opt{border-radius:10px;background:var(--surface);}
+html[data-tema] .opt:hover{border-color:color-mix(in srgb,var(--acento) 70%,var(--line));}
+html[data-tema] .opt[aria-pressed="true"]{border-color:var(--acento);background:color-mix(in srgb,var(--acento) 16%,var(--surface));}
+html[data-tema] dt{border-top-color:var(--acento);}
+
+/* Tabla comparativa: cabecera como un cartel */
+html[data-tema] thead th{background:var(--marca);color:#fff;border-bottom:4px solid var(--acento);}
+html[data-tema] thead th:first-child{position:sticky;left:0;}
+
+/* Formularios */
+html[data-tema] .form input:not([type=radio]):not([type=checkbox]),html[data-tema] .form textarea,html[data-tema] .pick select{background:var(--surface);border-radius:8px;}
+html[data-tema] .form input:focus,html[data-tema] .form textarea:focus,html[data-tema] .pick select:focus{outline:3px solid color-mix(in srgb,var(--acento) 60%,transparent);outline-offset:1px;border-color:var(--marca);}
+html[data-tema] .form label.ck input{accent-color:var(--marca);}
+html[data-tema] .sent{border-left-color:var(--acento);}
+
+/* Pie de página oscuro */
+html[data-tema] footer{background:var(--marca);color:rgba(255,255,255,.72);border-top:6px solid var(--acento);}
+html[data-tema] footer a{color:#fff;}
+html[data-tema] footer a:hover{color:var(--acento);}
+
+@media(prefers-reduced-motion:reduce){html[data-tema] .post,html[data-tema] nav.top a{transition:none;}html[data-tema] .post:hover{transform:none;}}
+</style>
 <style>.sr{position:absolute;left:-9999px;}</style>
 <script>
 /* Formularios: en dashcams.es se envían solos con enviar.php; en cualquier otro sitio preparan un correo para info@dashcams.es */
