@@ -1334,6 +1334,28 @@ html[data-tema] footer a{color:#fff;}
 html[data-tema] footer a:hover{color:var(--acento);}
 
 @media(prefers-reduced-motion:reduce){html[data-tema] .post,html[data-tema] nav.top a{transition:none;}html[data-tema] .post:hover{transform:none;}}
+
+/* ===== Escudo: amarillo con degradado y brillo (botones y detalles) ===== */
+html[data-tema="escudo"]{--grad:linear-gradient(120deg,#ffd84a 0%,#fbb80c 48%,#f68b1f 100%);--brillo:rgba(246,145,22,.5);
+  --rayas:repeating-linear-gradient(90deg,#000 0 56px,transparent 56px 104px);}
+html[data-tema="escudo"] .btn.primary,html[data-tema="escudo"] .buy{background:var(--grad);color:#1f2147;border:0;border-radius:14px;font-weight:800;
+  box-shadow:0 12px 24px -12px var(--brillo),0 3px 8px -3px var(--brillo);transition:transform .15s ease-out,box-shadow .15s ease-out;}
+html[data-tema="escudo"] .btn.primary{padding:.9rem 1.5rem;}
+html[data-tema="escudo"] .btn.primary:hover,html[data-tema="escudo"] .buy:hover{filter:none;transform:translateY(-1px);box-shadow:0 16px 30px -12px var(--brillo),0 4px 10px -3px var(--brillo);}
+html[data-tema="escudo"] .btn.primary:active,html[data-tema="escudo"] .buy:active{transform:translateY(0);box-shadow:0 6px 14px -8px var(--brillo);}
+html[data-tema="escudo"] .btn.ghost{border-radius:14px;}
+/* Línea del carril del hero con degradado */
+html[data-tema="escudo"] .frame{background:radial-gradient(120% 90% at 85% 0%,var(--marca2) 0%,var(--marca) 62%);}
+html[data-tema="escudo"] .osd::after{content:"";position:absolute;left:0;right:64px;bottom:24px;height:6px;background:var(--grad);-webkit-mask:var(--rayas);mask:var(--rayas);}
+/* Marcas de los títulos, franja de la tienda, del pie y subrayado del menú */
+html[data-tema="escudo"] section > .wrap > h2::before,html[data-tema="escudo"] .split .panel > h2::before{background:var(--grad);
+  -webkit-mask:repeating-linear-gradient(90deg,#000 0 1.25rem,transparent 1.25rem 2rem);mask:repeating-linear-gradient(90deg,#000 0 1.25rem,transparent 1.25rem 2rem);}
+html[data-tema="escudo"] .panel.merch{border-top:1px solid var(--line);background:var(--grad) top/100% 6px no-repeat,var(--surface);padding-top:calc(1.5rem + 6px);}
+html[data-tema="escudo"] footer{border-top:0;background:var(--grad) top/100% 6px no-repeat,var(--marca);padding-top:calc(2rem + 6px);}
+html[data-tema="escudo"] nav.top .navrow>ul>li>a,html[data-tema="escudo"] .menu summary{background:var(--grad) 0 100%/0 3px no-repeat;}
+html[data-tema="escudo"] nav.top .navrow>ul>li>a:hover,html[data-tema="escudo"] .menu summary:hover{background-size:100% 3px;}
+html[data-tema="escudo"] .opt[aria-pressed="true"]{border-color:#fbb80c;box-shadow:0 10px 22px -14px var(--brillo);}
+@media(prefers-reduced-motion:reduce){html[data-tema="escudo"] .btn.primary,html[data-tema="escudo"] .buy{transition:none;}html[data-tema="escudo"] .btn.primary:hover,html[data-tema="escudo"] .buy:hover{transform:none;}}
 </style>
 <style>.sr{position:absolute;left:-9999px;}</style>
 <script>
