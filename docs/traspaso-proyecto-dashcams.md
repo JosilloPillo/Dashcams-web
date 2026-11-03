@@ -75,3 +75,14 @@ En el JavaScript del final del archivo:
 - Toda la capa está en `<style id="temas">` y se activa con `data-tema="escudo"` en la etiqueta `<html>`. Para volver al diseño anterior basta con quitar ese atributo; el estado previo completo está en la etiqueta git `diseno-antes-color`.
 - «Envía tu clip» tiene botón propio en el menú, una franja bajo el bloque principal de la portada y otra al final de cada artículo. Contacto ya no es desplegable.
 - Redes del pie: YouTube, Instagram, Facebook y TikTok (@dashcams.esp).
+
+## Estructura nueva para SEO (3 nov 2026)
+- **Se edita `web.html`** (la fuente, bloqueada al público por `.htaccess`). Después hay que ejecutar `node herramientas/generar.js` (necesita Node y Playwright), que crea:
+  - `index.html` (portada), `paginas/<ruta>.html` (una por sección y artículo), `404.html` y `sitemap.xml`.
+  - Cada página lleva su título, descripción, canónica, imagen para redes, datos estructurados (migas, BlogPosting y Review con la nota) y solo su propio contenido, sin depender de JavaScript.
+- Direcciones limpias: `/recomendador`, `/blog`, `/viofo-a329`, `/vantrue-n5`, `/viofo-vs1`, `/ddpai-z60-pro`, `/que-dashcam-comprar`, `/que-es-una-dashcam`, `/como-instalar-una-dashcam`, `/mejores-dashcams`, `/es-legal-una-dashcam`, `/descargas`, `/contacto`, `/envia-tu-clip`… El mapa vista → dirección está en `SLUG` (primer script de `web.html`).
+- `.htaccess`: sirve `paginas/<ruta>.html`, responde 404 real con `404.html` y redirige (301) las direcciones de la web antigua de dashcams.es y las cortas de la versión de pruebas.
+- Las páginas legales llevan `noindex` y no están en el sitemap.
+- Fuentes alojadas en `/fuentes` (Barlow Condensed y Public Sans, licencia OFL); ya no se carga nada de Google Fonts.
+- Menú móvil con botón ☰ por debajo de 960 px; el menú marca la página actual.
+- Artículos nuevos (borradores para revisar por Jose): «Mejores dashcams 2026» y «¿Es legal una dashcam en España?». La portada muestra los 3 últimos análisis y la lista de guías.
