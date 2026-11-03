@@ -1,23 +1,70 @@
 # Dashcams España
-Options -MultiViews
+Options -MultiViews -Indexes
 RewriteEngine On
+ErrorDocument 404 /404.html
 
 # Sin «www» (el https lo fuerza Hostinger desde hPanel)
 RewriteCond %{HTTP_HOST} ^www\.dashcams\.es$ [NC]
 RewriteRule ^(.*)$ https://dashcams.es/$1 [R=301,L]
 
-# Documentación interna: no pública
-RewriteRule ^docs(/|$) - [F,L]
+# Interno: no público
+RewriteRule ^(docs|herramientas|node_modules)(/|$) - [F,L]
+
+# /index.html y /paginas/x.html -> dirección limpia
+RewriteCond %{THE_REQUEST} \s/+index\.html[\s?]
+RewriteRule ^ / [R=301,L]
+RewriteCond %{THE_REQUEST} \s/+paginas/([a-z0-9-]+)\.html[\s?]
+RewriteRule ^ /%1 [R=301,L]
 
 # Quitar la barra final: /recomendador/ -> /recomendador
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteRule ^([a-z0-9-]+)/$ /$1 [R=301,L]
 
-# Páginas de la web (/recomendador, /blog, /a329…): las sirve index.html
+# Direcciones de la web antigua de dashcams.es -> páginas nuevas
+RewriteRule ^viofo-a329-2ch$ /viofo-a329 [R=301,L]
+RewriteRule ^resena-dashcam-viofo-vs1$ /viofo-vs1 [R=301,L]
+RewriteRule ^la-dashcam-definitiva-analisis-completo-de-vantrue-n5-con-4-camaras(-copy)?$ /vantrue-n5 [R=301,L]
+RewriteRule ^que-dashcam-comprar-precio-calidad-y-funcionalidades$ /que-dashcam-comprar [R=301,L]
+RewriteRule ^que-es-una-dashcam-y-por-que-deberias-tener-una$ /que-es-una-dashcam [R=301,L]
+RewriteRule ^guia-completa-como-instalar-una-dashcam-facilmente-en-tu-coche$ /como-instalar-una-dashcam [R=301,L]
+RewriteRule ^mejor-dashcam-para-coche$ /mejores-dashcams [R=301,L]
+RewriteRule ^blog-dashcams$ /blog [R=301,L]
+RewriteRule ^contacto-dashcams$ /contacto [R=301,L]
+RewriteRule ^descargas-dashcams$ /descargas [R=301,L]
+RewriteRule ^politica-de-privacidad$ /privacidad [R=301,L]
+RewriteRule ^(formulario-llavero-dashcams|llavero)$ /contacto?motivo=llavero [R=301,L]
+RewriteRule ^(formulario-instagram-dashcams|instagram)$ /contacto?motivo=instagram [R=301,L]
+RewriteRule ^tienda$ https://tienda.dashcams.es/ [R=301,L]
+
+# Direcciones cortas que se usaron en la versión de pruebas
+RewriteRule ^a329$ /viofo-a329 [R=301,L]
+RewriteRule ^n5$ /vantrue-n5 [R=301,L]
+RewriteRule ^vs1$ /viofo-vs1 [R=301,L]
+RewriteRule ^que-es$ /que-es-una-dashcam [R=301,L]
+RewriteRule ^instalar$ /como-instalar-una-dashcam [R=301,L]
+RewriteRule ^que-comprar$ /que-dashcam-comprar [R=301,L]
+RewriteRule ^recomendaciones$ /recomendador [R=301,L]
+RewriteRule ^enviar-clip$ /envia-tu-clip [R=301,L]
+
+# Cada página tiene su HTML en /paginas (lo crea herramientas/generar.js).
+# Si no existe, el servidor responde 404 con /404.html.
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
-RewriteRule ^[a-z0-9-]+$ index.html [L]
+RewriteRule ^([a-z0-9-]+)$ paginas/$1.html [L]
 
 <Files "clips-config.php">
   Require all denied
 </Files>
+<Files "web.html">
+  Require all denied
+</Files>
+
+# Caché: fuentes e imágenes un mes; HTML siempre al día
+<IfModule mod_headers.c>
+  <FilesMatch "\.(woff|webp|png|jpg|ico)$">
+    Header set Cache-Control "public, max-age=2592000"
+  </FilesMatch>
+  <FilesMatch "\.html$">
+    Header set Cache-Control "no-cache"
+  </FilesMatch>
+</IfModule>
