@@ -16,7 +16,7 @@
  *     'secreto'   => 'Secret Access Key del token de R2',
  *     'bucket'    => 'clips-dashcams',
  *     'firma'     => 'una frase larga e inventada cualquiera',
- *     'correo'    => 'info@dashcams.es',
+ *     (los avisos llegan a tuclip@dashcams.es)
  *     'ue'        => true,   // si el bucket se creó con jurisdicción UE (recomendado)
  *   ];
  */
@@ -50,8 +50,8 @@ if (!is_array($CFG) || empty($CFG['clave']) || empty($CFG['secreto']) || empty($
 }
 $ENDPOINT  = rtrim($CFG['endpoint'] ?? ('https://' . $CFG['cuenta'] . (!empty($CFG['ue']) ? '.eu' : '') . '.r2.cloudflarestorage.com'), '/');
 $REGION    = $CFG['region'] ?? 'auto';
-$DESTINO   = $CFG['correo'] ?? 'info@dashcams.es';
-$REMITENTE = $CFG['remitente'] ?? 'info@dashcams.es';
+$DESTINO   = $CFG['correo_clips'] ?? 'tuclip@dashcams.es';   // los avisos de clips llegan aquí
+$REMITENTE = $CFG['remitente_clips'] ?? 'tuclip@dashcams.es'; // debe ser un buzón del dominio
 $u = parse_url($ENDPOINT);
 $HOST = $u['host'] . (isset($u['port']) ? ':' . $u['port'] : '');
 
@@ -214,14 +214,13 @@ if ($accion === 'terminar') {
     if (!preg_match('/^\d{8}-\d{6}-[0-9a-f]{6}$/', $envio) || !hash_equals(ficha('envio|' . $envio), (string) ($E['fe'] ?? ''))) fallo('Envío no válido.');
     foreach (['autor', 'cesion', 'privacidad', 'edad'] as $k) if (empty($E[$k])) fallo('Tienes que aceptar las condiciones de envío y la política de privacidad.');
     $d = [
-        'Nombre'                 => texto($E['nombre'] ?? '', 120),
-        'Correo'                 => texto($E['correo'] ?? '', 160),
         'Cómo quiere aparecer'   => texto($E['aparecer'] ?? '', 160),
-        'Fecha del incidente'    => texto($E['fecha'] ?? '', 40),
+        'Correo'                 => texto($E['correo'] ?? '', 160),
         'Lugar'                  => texto($E['lugar'] ?? '', 200),
+        'Carretera'              => texto($E['carretera'] ?? '', 200),
         'Qué pasó'               => texto($E['descripcion'] ?? '', 3000),
     ];
-    if ($d['Nombre'] === '' || !filter_var($d['Correo'], FILTER_VALIDATE_EMAIL)) fallo('Revisa tu nombre y tu correo.');
+    if (!filter_var($d['Correo'], FILTER_VALIDATE_EMAIL)) fallo('Revisa tu correo electrónico.');
     $archivos = $E['archivos'] ?? [];
     if (!is_array($archivos) || !$archivos || count($archivos) > MAX_ARCHIVOS) fallo('No ha llegado ningún vídeo.');
     $lista = [];
@@ -250,7 +249,9 @@ if ($accion === 'terminar') {
     }
     $cuerpo .= "\nEl remitente ha aceptado las condiciones de envío (cesión de derechos) y la política de privacidad, y declara ser mayor de edad y autor del vídeo o tener permiso del autor.\n";
     $cuerpo .= "Fecha de envío (UTC): " . $resumen['Fecha de envío (UTC)'] . " · IP: " . $resumen['IP'] . "\n";
-    $asunto = '=?UTF-8?B?' . base64_encode('[Clip] ' . $limpio($d['Nombre']) . ($d['Lugar'] !== '' ? ' · ' . $limpio(mb_substr($d['Lugar'], 0, 60)) : '')) . '?=';
+    $quien = $d['Cómo quiere aparecer'] !== '' ? $d['Cómo quiere aparecer'] : $d['Correo'];
+    $donde = trim($d['Lugar'] . ($d['Lugar'] !== '' && $d['Carretera'] !== '' ? ', ' : '') . $d['Carretera']);
+    $asunto = '=?UTF-8?B?' . base64_encode('[Clip] ' . $limpio(mb_substr($quien, 0, 60)) . ($donde !== '' ? ' · ' . $limpio(mb_substr($donde, 0, 60)) : '')) . '?=';
     $cab  = 'From: =?UTF-8?B?' . base64_encode('Web Dashcams España') . "?= <{$REMITENTE}>\r\n";
     $cab .= 'Reply-To: ' . $limpio($d['Correo']) . "\r\n";
     $cab .= "MIME-Version: 1.0\r\nContent-Type: text/plain; charset=UTF-8\r\nContent-Transfer-Encoding: 8bit\r\n";

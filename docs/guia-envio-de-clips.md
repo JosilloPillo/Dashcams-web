@@ -1,6 +1,6 @@
 # Envío de clips: cómo activarlo
 
-La página **Envía tu clip** (`#enviar-clip`) sube los vídeos directamente desde el navegador del visitante a **Cloudflare R2**. No pasan por Hostinger, así que no gastan espacio ni tienen el límite de subida del hosting. Cuando termina un envío, te llega un correo a info@dashcams.es con los datos y los enlaces de descarga.
+La página **Envía tu clip** (`#enviar-clip`) sube los vídeos directamente desde el navegador del visitante a **Cloudflare R2**. No pasan por Hostinger, así que no gastan espacio ni tienen el límite de subida del hosting. Cuando termina un envío, te llega un correo a tuclip@dashcams.es con los datos y los enlaces de descarga.
 
 Solo funciona en el alojamiento PHP/HTML de Hostinger (dashcams.es o la dirección provisional `lime-emu-605845.hostingersite.com`), porque necesita `clips.php`. La web hecha con el Creador de Hostinger no ejecuta PHP. En GitHub Pages o en la vista previa sale un aviso y el botón queda desactivado.
 
@@ -57,7 +57,6 @@ En hPanel → **Administrador de archivos**, sube un nivel por encima de `public
   'bucket'  => 'clips-dashcams',
   'ue'      => true,
   'firma'   => 'inventa aquí una frase larga cualquiera, por ejemplo la matrícula de tu primer coche y tu comida favorita',
-  'correo'  => 'info@dashcams.es',
 ];
 ```
 
@@ -68,13 +67,13 @@ En hPanel → **Administrador de archivos**, sube un nivel por encima de `public
 Entra en https://dashcams.es/#enviar-clip, envía un vídeo corto y comprueba que:
 
 - sale «¡Clip enviado!»;
-- te llega el correo «[Clip] …» a info@dashcams.es con el enlace de descarga;
+- te llega el correo «[Clip] …» a tuclip@dashcams.es (crea antes ese buzón en hPanel → Emails) con el enlace de descarga;
 - en el bucket aparece la carpeta `clips/<fecha>-<código>/` con el vídeo y un `envio.json` con los datos.
 
 ## Dónde ver los clips
 
 - En el **correo**: cada clip trae un enlace de descarga que vale 7 días.
-- En **Cloudflare → R2 → clips-dashcams → clips/**: una carpeta por envío, con los vídeos y `envio.json` (nombre, correo, cómo quiere aparecer, fecha, lugar, descripción y lo que aceptó).
+- En **Cloudflare → R2 → clips-dashcams → clips/**: una carpeta por envío, con los vídeos y `envio.json` (correo, cómo quiere aparecer, lugar, carretera, descripción y lo que aceptó).
 
 ## Límites que tiene configurados
 

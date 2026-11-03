@@ -696,14 +696,13 @@ var POSTS = [
 <p class="note">Al enviar un vídeo nos autorizas a publicarlo en el canal y en nuestras redes según las <a href="#condiciones-clips">condiciones de envío</a>. El vídeo sigue siendo tuyo.</p>
 </div>
 <form class="panel form" id="clipform" novalidate>
-  <label>Nombre*<input name="nombre" required autocomplete="name" placeholder="Tu nombre"></label>
   <label>Correo electrónico*<input name="correo" type="email" required autocomplete="email" placeholder="Para avisarte si lo publicamos"></label>
-  <label>¿Cómo quieres aparecer en el vídeo?<input name="aparecer" placeholder="Tu nombre, tu @ de Instagram o TikTok, o «anónimo»"></label>
+  <label>¿Cómo quieres aparecer en el vídeo?<input name="aparecer" autocomplete="nickname" placeholder="Tu @ de Instagram o TikTok, un apodo o «anónimo»"></label>
   <div class="two">
-    <label>Fecha<input name="fecha" type="date"></label>
-    <label>Lugar<input name="lugar" placeholder="Ciudad, calle o carretera"></label>
+    <label>Lugar<input name="lugar" placeholder="Ciudad o pueblo"></label>
+    <label>Carretera<input name="carretera" placeholder="Calle, carretera o km"></label>
   </div>
-  <label>¿Qué pasó?*<textarea name="descripcion" required rows="4" placeholder="Cuéntanos qué se ve en el vídeo y, si es largo, en qué minuto"></textarea></label>
+  <label>¿Qué pasó?<textarea name="descripcion" rows="4" placeholder="Cuéntanos qué se ve en el vídeo y, si es largo, en qué minuto"></textarea></label>
   <label>Vídeos*<input name="videos" type="file" required multiple accept="video/*,.mp4,.mov,.avi,.mkv,.ts,.mts,.m2ts,.m4v"></label>
   <ul class="clip-lista" aria-live="polite"></ul>
   <label class="ck"><input type="checkbox" name="autor" required> <span>He grabado yo el vídeo o tengo permiso de quien lo grabó.*</span></label>
@@ -731,7 +730,7 @@ var POSTS = [
 </ul>
 <p>La autorización es <strong>no exclusiva</strong>: el vídeo sigue siendo tuyo y puedes usarlo donde quieras. No recibirás pago por ello.</p>
 <h3>3. Cómo apareces</h3>
-<p>Si lo publicamos, te mencionaremos como indiques en el formulario (tu nombre o tu usuario de redes). Si lo dejas en blanco o escribes «anónimo», no te mencionaremos. Nunca publicaremos tu correo.</p>
+<p>Si lo publicamos, te mencionaremos como indiques en el formulario (tu usuario de redes o un apodo). Si lo dejas en blanco o escribes «anónimo», no te mencionaremos. Nunca publicaremos tu correo.</p>
 <h3>4. Lo que garantizas</h3>
 <ul>
 <li>Que eres el autor del vídeo o tienes permiso de su autor, y que no infringe derechos de nadie.</li>
@@ -836,7 +835,7 @@ var POSTS = [
 <h3>Envío de vídeos</h3>
 <p>Si nos envías un vídeo desde la página «Envía tu clip», tratamos los siguientes datos:</p>
 <ul>
-<li><strong>Datos:</strong> nombre, correo electrónico, cómo quieres aparecer, fecha, lugar y descripción del vídeo, la dirección IP desde la que lo envías y el propio vídeo, que puede contener imágenes y datos de otras personas (matrículas, caras o voces).</li>
+<li><strong>Datos:</strong> correo electrónico, cómo quieres aparecer, lugar, carretera y descripción del vídeo, la dirección IP desde la que lo envías y el propio vídeo, que puede contener imágenes y datos de otras personas (matrículas, caras o voces).</li>
 <li><strong>Finalidad:</strong> recibir y valorar el vídeo, contactar contigo, publicarlo en nuestros canales según las <a href="#condiciones-clips">condiciones de envío</a> y mencionarte si así lo indicas.</li>
 <li><strong>Legitimación:</strong> tu consentimiento y la autorización de uso que aceptas al enviarlo. En cuanto a los terceros que aparecen en los vídeos, nuestro interés legítimo en informar sobre seguridad vial, minimizando su identificación: pixelamos matrículas y caras antes de publicar.</li>
 <li><strong>Encargados del tratamiento:</strong> los vídeos se guardan en el servicio de almacenamiento Cloudflare R2 (Cloudflare, Inc.), en servidores de la Unión Europea, y el aviso del envío llega por correo a través de nuestro proveedor de alojamiento, Hostinger. Cloudflare está adherida al Marco de Privacidad de Datos UE-EE. UU. y aplica cláusulas contractuales tipo para cualquier acceso desde fuera de la UE.</li>
@@ -1419,11 +1418,11 @@ var DASHCAMS = [
       var archivos=[];
       for(var i=0;i<fs.length;i++)archivos.push(await subirVideo(fs[i],i,ctx));
       estado.textContent="Terminando el envío…";
-      await api({accion:"terminar",envio:ctx.envio,fe:ctx.fe,nombre:v("nombre"),correo:v("correo"),aparecer:v("aparecer"),fecha:v("fecha"),lugar:v("lugar"),descripcion:v("descripcion"),
+      await api({accion:"terminar",envio:ctx.envio,fe:ctx.fe,correo:v("correo"),aparecer:v("aparecer"),lugar:v("lugar"),carretera:v("carretera"),descripcion:v("descripcion"),
         autor:f.elements.autor.checked,cesion:f.elements.cesion.checked,edad:f.elements.edad.checked,privacidad:f.elements.privacidad.checked,archivos:archivos});
       barra.value=100;
       var box=document.createElement("div");box.className="sent";
-      box.innerHTML="<p><strong>¡Clip enviado!</strong> Gracias, "+esc(v("nombre"))+". Hemos recibido "+(fs.length>1?fs.length+" vídeos":"tu vídeo")+" ("+tam(ctx.total)+"). Si lo publicamos, te avisaremos por correo.</p>";
+      box.innerHTML="<p><strong>¡Clip enviado!</strong> Gracias"+(v("aparecer")&&!/^an[oó]nimo$/i.test(v("aparecer"))?", "+esc(v("aparecer")):"")+". Hemos recibido "+(fs.length>1?fs.length+" vídeos":"tu vídeo")+" ("+tam(ctx.total)+"). Si lo publicamos, te avisaremos por correo.</p>";
       f.appendChild(box);prog.hidden=true;f.reset();lista.innerHTML="";btn.textContent="Enviar otro clip";
       [].forEach.call(f.querySelectorAll("[aria-invalid]"),function(i){i.removeAttribute("aria-invalid");});
       box.scrollIntoView({block:"nearest"});
