@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es" data-tema="escudo">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
@@ -31,9 +31,9 @@
   color-scheme:light;
 }
 @media (prefers-color-scheme:dark){
-  :root:not([data-theme="light"]){--bg:#161d24; --surface:#1f2932; --text:#e6ebef; --accent:#5aa6e8; --on-accent:#0d1620; --line:#33424e; --muted:#9fb0bd; color-scheme:dark;}
+  :root:not([data-theme="light"]){--bg:#161d24; --surface:#1f2932; --text:#e6ebef; --accent:#5aa6e8; --on-accent:#0d1620; --line:#33424e; --muted:#9fb0bd; --rec-txt:#ff7a73; color-scheme:dark;}
 }
-:root[data-theme="dark"]{--bg:#161d24; --surface:#1f2932; --text:#e6ebef; --accent:#5aa6e8; --on-accent:#0d1620; --line:#33424e; --muted:#9fb0bd; color-scheme:dark;}
+:root[data-theme="dark"]{--bg:#161d24; --surface:#1f2932; --text:#e6ebef; --accent:#5aa6e8; --on-accent:#0d1620; --line:#33424e; --muted:#9fb0bd; --rec-txt:#ff7a73; color-scheme:dark;}
 html{scroll-padding-top:env(safe-area-inset-top,0px);}
 *,*::before,*::after{box-sizing:inherit;}
 body{margin:0;background:var(--bg);color:var(--text);font:400 1.0625rem/1.6 "Public Sans",system-ui,-apple-system,"Segoe UI",sans-serif;}
@@ -93,6 +93,17 @@ button.buy{border:0;font:inherit;font-weight:600;cursor:pointer;}
 #gs dd{margin:0;}
 #cmp tr.diff td,#cmp tr.diff th{background:color-mix(in srgb,var(--accent) 12%,var(--surface));}
 [hidden]{display:none!important;}
+nav.top a.navclip{display:inline-flex;align-items:center;gap:.5rem;padding:.55rem 1rem;border-radius:999px;background:var(--asphalt);color:#fff;text-decoration:none;}
+nav.top a.navclip:hover{text-decoration:none;filter:brightness(1.15);}
+.navclip i,.cb-rec i{width:.6rem;height:.6rem;border-radius:50%;background:var(--rec);flex:none;}
+.clipband{display:flex;align-items:center;gap:.75rem 1.5rem;flex-wrap:wrap;margin-top:1rem;padding:1.25rem 1.5rem;border-radius:6px;background:var(--surface);border:1px solid var(--line);color:var(--text);text-decoration:none;}
+.clipband:hover .cb-btn{filter:brightness(.92);}
+.cb-rec{display:inline-flex;align-items:center;gap:.4rem;font:600 .8rem/1 "Public Sans",sans-serif;letter-spacing:.06em;color:var(--rec-txt,var(--rec));}
+.cb-txt{flex:1 1 18rem;font-size:1.05rem;}
+.cb-txt strong{display:block;font-family:"Barlow Condensed","Arial Narrow",sans-serif;font-size:1.5rem;line-height:1.1;margin-bottom:.15rem;}
+.cb-btn{font-size:1.05rem;}
+.cb-btn{display:inline-block;padding:.8rem 1.4rem;border-radius:4px;background:var(--accent);color:var(--on-accent);font-weight:700;white-space:nowrap;}
+.art .clipband{margin-top:2rem;}
 .form .si>.note{margin:0 0 14px;}
 .art{max-width:46rem;}
 .art h3{margin:1.75rem 0 .5rem;}
@@ -242,10 +253,8 @@ html.lb-on{overflow:hidden;}
 <li><a href="#recomendaciones">Recomendaciones</a></li>
 <li><a href="#descargas">Descargas</a></li>
 <li><a href="https://tienda.dashcams.es/">Tienda</a></li>
-<li class="menu"><details><summary>Contacto</summary><ul>
-<li><a href="#enviar-clip">Envía tu clip</a></li>
 <li><a href="#contacto">Contacto</a></li>
-</ul></details></li>
+<li><a class="navclip" href="#enviar-clip"><i aria-hidden="true"></i>Envía tu clip</a></li>
 <li><button type="button" class="theme" id="theme" aria-label="Cambiar a modo oscuro" title="Cambiar a modo oscuro"><span aria-hidden="true">🌙</span></button></li>
 </ul></div></nav>
 <header class="hero" data-view="inicio">
@@ -259,6 +268,11 @@ html.lb-on{overflow:hidden;}
         <a class="btn ghost" href="#youtube">Qué hacemos en YouTube</a>
       </div>
     </div>
+    <a class="clipband" href="#enviar-clip">
+      <span class="cb-rec" aria-hidden="true"><i></i>REC</span>
+      <span class="cb-txt"><strong>¿Lo has grabado con tu dashcam?</strong> Envíanos tu clip y podría salir en el canal.</span>
+      <span class="cb-btn">Envía tu clip <span aria-hidden="true">→</span></span>
+    </a>
   </div>
 </header>
 
@@ -648,7 +662,7 @@ var POSTS = [
   var ul=document.getElementById("posts"),box=document.getElementById("articulos"),l="",a="";
   POSTS.forEach(function(p){
     l+="<li class='post'>"+(p.portada?"<a class='pimg' href='#"+p.id+"' tabindex='-1' aria-hidden='true'><img src='"+p.portada+"' alt='' loading='lazy'></a>":"")+"<h3><a href='#"+p.id+"'>"+p.titulo+"</a></h3><p class='meta'>"+p.tipo+", "+p.fecha+", "+p.lectura+" de lectura"+(p.nota?". Nota final: "+p.nota:"")+"</p><p>"+p.resumen+"</p></li>";
-    a+="<section id='"+p.id+"' data-view='"+p.id+"'><div class='wrap art'><p><a href='#blog'>Volver al blog</a></p><h2>"+p.titulo+"</h2><p class='meta'>"+p.tipo+", por "+(p.autor||"Jose Barranco")+", "+p.fecha+", "+p.lectura+" de lectura</p>"+(p.portada?"<img class='portada' src='"+p.portada+"' alt='"+(p.portadaAlt||"").replace(/'/g,"&#39;")+"'>":"")+p.cuerpo+(p.video?"<h3>"+(p.tipo==="Análisis"?"El vídeo del análisis":"El vídeo paso a paso")+"</h3>"+vid(p.video,p.titulo):"")+(p.amazon?"<p>"+btn(p.amazon)+"</p>":"")+(p.compra?"<p><a class='buy' href='"+p.compra+"' target='_blank' rel='sponsored noopener'>Ver en "+(p.tienda||"la tienda")+"</a></p>":"")+"</div></section>";
+    a+="<section id='"+p.id+"' data-view='"+p.id+"'><div class='wrap art'><p><a href='#blog'>Volver al blog</a></p><h2>"+p.titulo+"</h2><p class='meta'>"+p.tipo+", por "+(p.autor||"Jose Barranco")+", "+p.fecha+", "+p.lectura+" de lectura</p>"+(p.portada?"<img class='portada' src='"+p.portada+"' alt='"+(p.portadaAlt||"").replace(/'/g,"&#39;")+"'>":"")+p.cuerpo+(p.video?"<h3>"+(p.tipo==="Análisis"?"El vídeo del análisis":"El vídeo paso a paso")+"</h3>"+vid(p.video,p.titulo):"")+(p.amazon?"<p>"+btn(p.amazon)+"</p>":"")+(p.compra?"<p><a class='buy' href='"+p.compra+"' target='_blank' rel='sponsored noopener'>Ver en "+(p.tienda||"la tienda")+"</a></p>":"")+"<a class='clipband' href='#enviar-clip'><span class='cb-rec' aria-hidden='true'><i></i>REC</span><span class='cb-txt'><strong>¿Tienes un clip?</strong> Si has grabado algo con tu dashcam, envíanoslo y podría salir en el canal.</span><span class='cb-btn'>Envía tu clip <span aria-hidden='true'>→</span></span></a></div></section>";
   });
   ul.innerHTML=l; box.outerHTML=a;
 })();
@@ -927,9 +941,6 @@ var POSTS = [
       <p>¡Únete como miembro del canal y lleva tu apoyo al siguiente nivel! Forma parte de nuestra comunidad exclusiva en YouTube y disfruta de ventajas especiales: contenido anticipado, insignias personalizadas, acceso a publicaciones solo para miembros y mucho más.</p>
       <ul><li>Apoya el canal y ayuda a que sigamos creando contenido de calidad.</li><li>Consigue beneficios exclusivos que solo los miembros pueden disfrutar.</li></ul>
       <a class="buy" id="yt" href="https://www.youtube.com/@DashcamsEsp" rel="noopener">Ver el canal</a> <a class="buy" href="https://www.youtube.com/channel/UCpPHHsVT7O1IUEUGiFBlUIg/join" rel="noopener">Hacerme miembro</a>
-      <h3>¿Tienes un clip?</h3>
-      <p>Si has grabado algo con tu dashcam, envíanoslo y podrías salir en el canal.</p>
-      <a class="buy" href="#enviar-clip">Envía tu clip</a>
     </div>
     <div class="panel merch">
       <h3>Tienda de merch</h3>
@@ -1259,6 +1270,107 @@ var DASHCAMS = [
   window.addEventListener("hashchange",route); route();
 })();
 </script>
+<style id="temas">
+/* ===== CAPA DE COLOR (propuestas). Solo actúa si <html data-tema="..."> ===== */
+html[data-tema="escudo"]{--marca:#1f2147;--marca2:#2e3170;--acento:#f9bc03;--sobre-acento:#1f2147;--resalte:#c8161d;
+  --bg:#f3f2ee;--surface:#fff;--line:#d9d6cc;--muted:#5b5e72;--text:#1b1d33;--accent:#2b3a9e;--on-accent:#fff;--rec:#c8161d;}
+  --bg:#f4f2ef;--surface:#fff;--line:#dcd6cf;--muted:#5f6267;--text:#1c2026;--accent:#c2410c;--on-accent:#fff;}
+  --bg:#eef3f9;--surface:#fff;--line:#cbd7e6;--muted:#4f6178;--text:#0d2346;--accent:#0b4fa8;--on-accent:#fff;}
+/* Modo oscuro de cada tema */
+html[data-tema="escudo"][data-theme="dark"]{--bg:#12132a;--surface:#1c1e3d;--line:#33365e;--text:#ecebf5;--muted:#a9abc8;--accent:#ffd34d;--on-accent:#1f2147;--marca:#0c0d22;--marca2:#1f2147;}
+@media (prefers-color-scheme:dark){
+  html[data-tema="escudo"]:not([data-theme="light"]){--bg:#12132a;--surface:#1c1e3d;--line:#33365e;--text:#ecebf5;--muted:#a9abc8;--accent:#ffd34d;--on-accent:#1f2147;--marca:#0c0d22;--marca2:#1f2147;}
+}
+
+/* --- Personalidad común: carretera, señal y escudo --- */
+html[data-tema] nav.top{padding-bottom:1rem;}
+html[data-tema] nav.top .navrow>ul>li>a:not(.navclip),html[data-tema] .menu summary{text-decoration:none;background:linear-gradient(var(--acento),var(--acento)) 0 100%/0 3px no-repeat;transition:background-size .2s ease-out;}
+html[data-tema] nav.top .navrow>ul>li>a:not(.navclip):hover,html[data-tema] .menu summary:hover{text-decoration:none;background-size:100% 3px;}
+
+/* Hero: visor de la dashcam sobre asfalto con la línea discontinua */
+html[data-tema] .frame{background:
+  repeating-linear-gradient(90deg,var(--acento) 0 56px,transparent 56px 104px) 0 calc(100% - 24px)/calc(100% - 64px) 6px no-repeat,
+  radial-gradient(120% 90% at 85% 0%,var(--marca2) 0%,var(--marca) 62%);
+  padding-bottom:clamp(3rem,7vw,4.75rem);border-radius:10px;}
+html[data-tema] .frame h1{color:#fff;}
+html[data-tema] .frame h1::first-line{color:var(--acento);}
+html[data-tema] .osd{color:rgba(255,255,255,.75);}
+html[data-tema] .hero p{color:rgba(255,255,255,.85);}
+html[data-tema] .btn{border-radius:8px;}
+html[data-tema] .btn.primary{background:var(--acento);color:var(--sobre-acento);}
+html[data-tema] .btn.ghost{border-color:rgba(255,255,255,.55);}
+html[data-tema] .btn.ghost:hover{background:rgba(255,255,255,.1);filter:none;}
+
+/* Títulos de sección con la "marca vial" */
+html[data-tema] section > .wrap > h2::before,html[data-tema] .split .panel > h2::before{content:"";display:block;width:3.25rem;height:.4rem;margin-bottom:.7rem;border-radius:2px;
+  background:repeating-linear-gradient(90deg,var(--acento) 0 1.25rem,transparent 1.25rem 2rem);}
+
+/* Botones de compra y botones principales */
+html[data-tema] .buy{background:var(--acento);color:var(--sobre-acento);border-radius:8px;font-weight:700;}
+html[data-tema] .buy:hover{filter:brightness(.95);}
+html[data-tema] .btn2{border-radius:8px;}
+html[data-tema] .tag{background:var(--resalte);color:#fff;border-radius:4px;}
+
+/* Tarjetas y paneles */
+html[data-tema] .panel,html[data-tema] .post,html[data-tema] .dlcard,html[data-tema] .scroll{border-radius:10px;border-color:var(--line);box-shadow:0 1px 2px rgba(20,22,40,.05),0 6px 20px -12px rgba(20,22,40,.18);}
+html[data-tema] .post{transition:transform .18s ease-out,box-shadow .18s ease-out;}
+html[data-tema] .post:hover{transform:translateY(-2px);box-shadow:0 2px 4px rgba(20,22,40,.06),0 14px 30px -14px rgba(20,22,40,.3);}
+html[data-tema] .post .pimg img{border-radius:10px 10px 0 0;}
+html[data-tema] .panel.merch{border-left:1px solid var(--line);border-top:6px solid var(--acento);}
+html[data-tema] .opt{border-radius:10px;background:var(--surface);}
+html[data-tema] .opt:hover{border-color:color-mix(in srgb,var(--acento) 70%,var(--line));}
+html[data-tema] .opt[aria-pressed="true"]{border-color:var(--acento);background:color-mix(in srgb,var(--acento) 16%,var(--surface));}
+html[data-tema] dt{border-top-color:var(--acento);}
+
+/* Tabla comparativa: cabecera como un cartel */
+html[data-tema] thead th{background:var(--marca);color:#fff;border-bottom:4px solid var(--acento);}
+html[data-tema] thead th:first-child{position:sticky;left:0;}
+
+/* Formularios */
+html[data-tema] .form input:not([type=radio]):not([type=checkbox]),html[data-tema] .form textarea,html[data-tema] .pick select{background:var(--surface);border-radius:8px;}
+html[data-tema] .form input:focus,html[data-tema] .form textarea:focus,html[data-tema] .pick select:focus{outline:3px solid color-mix(in srgb,var(--acento) 60%,transparent);outline-offset:1px;border-color:var(--marca);}
+html[data-tema] .form label.ck input{accent-color:var(--marca);}
+html[data-tema] .sent{border-left-color:var(--acento);}
+
+/* Pie de página oscuro */
+html[data-tema] footer{background:var(--marca);color:rgba(255,255,255,.72);border-top:6px solid var(--acento);}
+html[data-tema] footer a{color:#fff;}
+html[data-tema] footer a:hover{color:var(--acento);}
+
+@media(prefers-reduced-motion:reduce){html[data-tema] .post,html[data-tema] nav.top a{transition:none;}html[data-tema] .post:hover{transform:none;}}
+
+/* ===== Escudo: amarillo con degradado y brillo (botones y detalles) ===== */
+html[data-tema="escudo"]{--grad:linear-gradient(120deg,#ffd84a 0%,#fbb80c 48%,#f68b1f 100%);--brillo:rgba(246,145,22,.5);
+  --rayas:repeating-linear-gradient(90deg,#000 0 56px,transparent 56px 104px);}
+html[data-tema="escudo"] .btn.primary,html[data-tema="escudo"] .buy{background:var(--grad);color:#1f2147;border:0;border-radius:14px;font-weight:800;
+  box-shadow:0 12px 24px -12px var(--brillo),0 3px 8px -3px var(--brillo);transition:transform .15s ease-out,box-shadow .15s ease-out;}
+html[data-tema="escudo"] .btn.primary{padding:.9rem 1.5rem;}
+html[data-tema="escudo"] .btn.primary:hover,html[data-tema="escudo"] .buy:hover{filter:none;transform:translateY(-1px);box-shadow:0 16px 30px -12px var(--brillo),0 4px 10px -3px var(--brillo);}
+html[data-tema="escudo"] .btn.primary:active,html[data-tema="escudo"] .buy:active{transform:translateY(0);box-shadow:0 6px 14px -8px var(--brillo);}
+html[data-tema="escudo"] .btn.ghost{border-radius:14px;}
+/* Línea del carril del hero con degradado */
+html[data-tema="escudo"] .frame{background:radial-gradient(120% 90% at 85% 0%,var(--marca2) 0%,var(--marca) 62%);}
+html[data-tema="escudo"] .osd::after{content:"";position:absolute;left:0;right:64px;bottom:24px;height:6px;background:var(--grad);-webkit-mask:var(--rayas);mask:var(--rayas);}
+/* Marcas de los títulos, franja de la tienda, del pie y subrayado del menú */
+html[data-tema="escudo"] section > .wrap > h2::before,html[data-tema="escudo"] .split .panel > h2::before{background:var(--grad);
+  -webkit-mask:repeating-linear-gradient(90deg,#000 0 1.25rem,transparent 1.25rem 2rem);mask:repeating-linear-gradient(90deg,#000 0 1.25rem,transparent 1.25rem 2rem);}
+html[data-tema="escudo"] .panel.merch{border-top:1px solid var(--line);background:var(--grad) top/100% 6px no-repeat,var(--surface);padding-top:calc(1.5rem + 6px);}
+html[data-tema="escudo"] footer{border-top:0;background:var(--grad) top/100% 6px no-repeat,var(--marca);padding-top:calc(2rem + 6px);}
+html[data-tema="escudo"] nav.top .navrow>ul>li>a:not(.navclip),html[data-tema="escudo"] .menu summary{background:var(--grad) 0 100%/0 3px no-repeat;}
+html[data-tema="escudo"] nav.top .navrow>ul>li>a:not(.navclip):hover,html[data-tema="escudo"] .menu summary:hover{background-size:100% 3px;}
+html[data-tema="escudo"] .opt[aria-pressed="true"]{border-color:#fbb80c;box-shadow:0 10px 22px -14px var(--brillo);}
+@media(prefers-reduced-motion:reduce){html[data-tema="escudo"] .btn.primary,html[data-tema="escudo"] .buy{transition:none;}html[data-tema="escudo"] .btn.primary:hover,html[data-tema="escudo"] .buy:hover{transform:none;}}
+
+/* ===== Envía tu clip: botón del menú y franja ===== */
+html[data-tema] nav.top a.navclip{background:var(--marca);}
+html[data-tema="escudo"] nav.top a.navclip{background:var(--grad);color:#1f2147;font-weight:800;box-shadow:0 10px 20px -12px var(--brillo);}
+html[data-tema="escudo"] nav.top a.navclip i{background:#c8161d;}
+html[data-tema] .clipband{border-radius:14px;background:var(--surface);box-shadow:0 1px 2px rgba(20,22,40,.05),0 6px 20px -12px rgba(20,22,40,.18);}
+html[data-tema] .cb-rec{color:var(--rec-txt,var(--resalte));}
+html[data-tema] .cb-btn{border-radius:12px;background:var(--acento);color:var(--sobre-acento);}
+html[data-tema="escudo"] .cb-btn{background:var(--grad);color:#1f2147;box-shadow:0 10px 20px -12px var(--brillo);}
+html[data-tema="escudo"] .clipband:hover .cb-btn{filter:none;box-shadow:0 14px 26px -12px var(--brillo);}
+</style>
 <style>.sr{position:absolute;left:-9999px;}</style>
 <script>
 /* Formularios: en dashcams.es se envían solos con enviar.php; en cualquier otro sitio preparan un correo para info@dashcams.es */
