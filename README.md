@@ -46,3 +46,7 @@ Si solo tienes el dominio (o el plan del creador de webs):
 
 ## Pendiente
 Ver `docs/traspaso-proyecto-dashcams.md`.
+
+## Envío de clips
+
+La página «Envía tu clip» sube los vídeos a Cloudflare R2. Para activarla sigue [docs/guia-envio-de-clips.md](docs/guia-envio-de-clips.md).
