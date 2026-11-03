@@ -476,7 +476,7 @@ function btn(u){var t=/amazon\.|amzn\.to/.test(u)?(u.indexOf("/s?k=")>-1?"Buscar
 /* ===== VÍDEOS: en tu dominio se incrustan con el reproductor de YouTube; aquí, como tarjeta con enlace =====
    Añade tu dominio a la lista si lo cambias. */
 var INCRUSTAR = /(^|\.)dashcams\.es$|\.github\.io$|\.hostingersite\.com$/.test(location.hostname);
-var DIM={"img/blog/ddpai-z60-pro/portada.webp":[1600,900],"img/blog/instalar/portada.webp":[768,432],"img/blog/que-dashcam-comprar/portada.webp":[1024,434],"img/blog/vantrue-n5/portada.webp":[1024,535],"img/blog/viofo-a329/portada.webp":[1024,535],"img/blog/viofo-vs1/portada.webp":[1024,535]};
+var DIM={"img/blog/es-legal-una-dashcam/portada.webp":[1600,900],"img/blog/ddpai-z60-pro/portada.webp":[1600,900],"img/blog/instalar/portada.webp":[768,432],"img/blog/que-dashcam-comprar/portada.webp":[1024,434],"img/blog/vantrue-n5/portada.webp":[1024,535],"img/blog/viofo-a329/portada.webp":[1024,535],"img/blog/viofo-vs1/portada.webp":[1024,535]};
 function dim(src){var d=DIM[src];return d?" width='"+d[0]+"' height='"+d[1]+"'":"";}
 function vid(id, t){
   if(!id)return "";
@@ -484,7 +484,7 @@ function vid(id, t){
   return "<a class='vcard' href='https://www.youtube.com/watch?v="+id+"' target='_blank' rel='noopener'><span class='vosd'><span class='rec'><i></i>REC</span><span>YouTube · Dashcams ESP</span></span><span class='vplay' aria-hidden='true'>▶</span><span class='vtxt'>Ver el vídeo en YouTube</span></a>";
 }
 var POSTS = [
-{id:"es-legal-una-dashcam", seo:["¿Es legal una dashcam en España? Lo que dicen la DGT y la AEPD","Sí, llevar una dashcam es legal en España, pero hay límites: dónde colocarla, qué grabar y, sobre todo, qué hacer con los vídeos. Te lo explicamos."],
+{id:"es-legal-una-dashcam", portada:"img/blog/es-legal-una-dashcam/portada.webp", portadaAlt:"Dashcam grabando la carretera junto a un mazo de juez y un libro de la Ley de Tráfico, con el texto «¿Es legal una dashcam?»", seo:["¿Es legal una dashcam en España? Lo que dicen la DGT y la AEPD","Sí, llevar una dashcam es legal en España, pero hay límites: dónde colocarla, qué grabar y, sobre todo, qué hacer con los vídeos. Te lo explicamos."],
  titulo:"¿Es legal una dashcam en España? Lo que dicen la DGT y la AEPD", tipo:"Guía", fecha:"3 nov 2026", lectura:"5 min", nota:"", amazon:"",
  resumen:"Llevar una dashcam es legal, pero con límites: dónde colocarla para no tapar la visión, qué pasa con la protección de datos, si sirve como prueba y qué puedes publicar en redes.",
  cuerpo:""},
