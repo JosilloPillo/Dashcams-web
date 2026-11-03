@@ -93,6 +93,19 @@ button.buy{border:0;font:inherit;font-weight:600;cursor:pointer;}
 #gs dd{margin:0;}
 #cmp tr.diff td,#cmp tr.diff th{background:color-mix(in srgb,var(--accent) 12%,var(--surface));}
 [hidden]{display:none!important;}
+nav.top a.navclip{display:inline-flex;align-items:center;gap:.5rem;padding:.55rem 1rem;border-radius:999px;background:var(--asphalt);color:#fff;text-decoration:none;}
+nav.top a.navclip:hover{text-decoration:none;filter:brightness(1.15);}
+.navclip i,.cb-rec i{width:.6rem;height:.6rem;border-radius:50%;background:var(--rec);flex:none;}
+.clipband{display:flex;align-items:center;gap:.75rem 1.5rem;flex-wrap:wrap;margin-top:1rem;padding:1.25rem 1.5rem;border-radius:6px;background:var(--surface);border:1px solid var(--line);color:var(--text);text-decoration:none;}
+.clipband:hover .cb-btn{filter:brightness(.92);}
+.cb-rec{display:inline-flex;align-items:center;gap:.4rem;font:600 .8rem/1 "Public Sans",sans-serif;letter-spacing:.06em;color:var(--rec);}
+.cb-rec i{animation:blink 1.6s steps(2,jump-none) infinite;}
+.cb-txt{flex:1 1 18rem;font-size:1.05rem;}
+.cb-txt strong{display:block;font-family:"Barlow Condensed","Arial Narrow",sans-serif;font-size:1.5rem;line-height:1.1;margin-bottom:.15rem;}
+.cb-btn{font-size:1.05rem;}
+.cb-btn{display:inline-block;padding:.8rem 1.4rem;border-radius:4px;background:var(--accent);color:var(--on-accent);font-weight:700;white-space:nowrap;}
+.art .clipband{margin-top:2rem;}
+@media(prefers-reduced-motion:reduce){.cb-rec i{animation:none;}}
 .form .si>.note{margin:0 0 14px;}
 .art{max-width:46rem;}
 .art h3{margin:1.75rem 0 .5rem;}
@@ -242,10 +255,8 @@ html.lb-on{overflow:hidden;}
 <li><a href="#recomendaciones">Recomendaciones</a></li>
 <li><a href="#descargas">Descargas</a></li>
 <li><a href="https://tienda.dashcams.es/">Tienda</a></li>
-<li class="menu"><details><summary>Contacto</summary><ul>
-<li><a href="#enviar-clip">Envía tu clip</a></li>
 <li><a href="#contacto">Contacto</a></li>
-</ul></details></li>
+<li><a class="navclip" href="#enviar-clip"><i aria-hidden="true"></i>Envía tu clip</a></li>
 <li><button type="button" class="theme" id="theme" aria-label="Cambiar a modo oscuro" title="Cambiar a modo oscuro"><span aria-hidden="true">🌙</span></button></li>
 </ul></div></nav>
 <header class="hero" data-view="inicio">
@@ -259,6 +270,11 @@ html.lb-on{overflow:hidden;}
         <a class="btn ghost" href="#youtube">Qué hacemos en YouTube</a>
       </div>
     </div>
+    <a class="clipband" href="#enviar-clip">
+      <span class="cb-rec" aria-hidden="true"><i></i>REC</span>
+      <span class="cb-txt"><strong>¿Lo has grabado con tu dashcam?</strong> Envíanos tu clip y podría salir en el canal.</span>
+      <span class="cb-btn">Envía tu clip <span aria-hidden="true">→</span></span>
+    </a>
   </div>
 </header>
 
@@ -648,7 +664,7 @@ var POSTS = [
   var ul=document.getElementById("posts"),box=document.getElementById("articulos"),l="",a="";
   POSTS.forEach(function(p){
     l+="<li class='post'>"+(p.portada?"<a class='pimg' href='#"+p.id+"' tabindex='-1' aria-hidden='true'><img src='"+p.portada+"' alt='' loading='lazy'></a>":"")+"<h3><a href='#"+p.id+"'>"+p.titulo+"</a></h3><p class='meta'>"+p.tipo+", "+p.fecha+", "+p.lectura+" de lectura"+(p.nota?". Nota final: "+p.nota:"")+"</p><p>"+p.resumen+"</p></li>";
-    a+="<section id='"+p.id+"' data-view='"+p.id+"'><div class='wrap art'><p><a href='#blog'>Volver al blog</a></p><h2>"+p.titulo+"</h2><p class='meta'>"+p.tipo+", por "+(p.autor||"Jose Barranco")+", "+p.fecha+", "+p.lectura+" de lectura</p>"+(p.portada?"<img class='portada' src='"+p.portada+"' alt='"+(p.portadaAlt||"").replace(/'/g,"&#39;")+"'>":"")+p.cuerpo+(p.video?"<h3>"+(p.tipo==="Análisis"?"El vídeo del análisis":"El vídeo paso a paso")+"</h3>"+vid(p.video,p.titulo):"")+(p.amazon?"<p>"+btn(p.amazon)+"</p>":"")+(p.compra?"<p><a class='buy' href='"+p.compra+"' target='_blank' rel='sponsored noopener'>Ver en "+(p.tienda||"la tienda")+"</a></p>":"")+"</div></section>";
+    a+="<section id='"+p.id+"' data-view='"+p.id+"'><div class='wrap art'><p><a href='#blog'>Volver al blog</a></p><h2>"+p.titulo+"</h2><p class='meta'>"+p.tipo+", por "+(p.autor||"Jose Barranco")+", "+p.fecha+", "+p.lectura+" de lectura</p>"+(p.portada?"<img class='portada' src='"+p.portada+"' alt='"+(p.portadaAlt||"").replace(/'/g,"&#39;")+"'>":"")+p.cuerpo+(p.video?"<h3>"+(p.tipo==="Análisis"?"El vídeo del análisis":"El vídeo paso a paso")+"</h3>"+vid(p.video,p.titulo):"")+(p.amazon?"<p>"+btn(p.amazon)+"</p>":"")+(p.compra?"<p><a class='buy' href='"+p.compra+"' target='_blank' rel='sponsored noopener'>Ver en "+(p.tienda||"la tienda")+"</a></p>":"")+"<a class='clipband' href='#enviar-clip'><span class='cb-rec' aria-hidden='true'><i></i>REC</span><span class='cb-txt'><strong>¿Tienes un clip?</strong> Si has grabado algo con tu dashcam, envíanoslo y podría salir en el canal.</span><span class='cb-btn'>Envía tu clip <span aria-hidden='true'>→</span></span></a></div></section>";
   });
   ul.innerHTML=l; box.outerHTML=a;
 })();
@@ -927,9 +943,6 @@ var POSTS = [
       <p>¡Únete como miembro del canal y lleva tu apoyo al siguiente nivel! Forma parte de nuestra comunidad exclusiva en YouTube y disfruta de ventajas especiales: contenido anticipado, insignias personalizadas, acceso a publicaciones solo para miembros y mucho más.</p>
       <ul><li>Apoya el canal y ayuda a que sigamos creando contenido de calidad.</li><li>Consigue beneficios exclusivos que solo los miembros pueden disfrutar.</li></ul>
       <a class="buy" id="yt" href="https://www.youtube.com/@DashcamsEsp" rel="noopener">Ver el canal</a> <a class="buy" href="https://www.youtube.com/channel/UCpPHHsVT7O1IUEUGiFBlUIg/join" rel="noopener">Hacerme miembro</a>
-      <h3>¿Tienes un clip?</h3>
-      <p>Si has grabado algo con tu dashcam, envíanoslo y podrías salir en el canal.</p>
-      <a class="buy" href="#enviar-clip">Envía tu clip</a>
     </div>
     <div class="panel merch">
       <h3>Tienda de merch</h3>
@@ -1280,8 +1293,8 @@ html[data-tema="autovia"][data-theme="dark"]{--bg:#0b1626;--surface:#122238;--li
 
 /* --- Personalidad común: carretera, señal y escudo --- */
 html[data-tema] nav.top{padding-bottom:1rem;}
-html[data-tema] nav.top .navrow>ul>li>a,html[data-tema] .menu summary{text-decoration:none;background:linear-gradient(var(--acento),var(--acento)) 0 100%/0 3px no-repeat;transition:background-size .2s ease-out;}
-html[data-tema] nav.top .navrow>ul>li>a:hover,html[data-tema] .menu summary:hover{text-decoration:none;background-size:100% 3px;}
+html[data-tema] nav.top .navrow>ul>li>a:not(.navclip),html[data-tema] .menu summary{text-decoration:none;background:linear-gradient(var(--acento),var(--acento)) 0 100%/0 3px no-repeat;transition:background-size .2s ease-out;}
+html[data-tema] nav.top .navrow>ul>li>a:not(.navclip):hover,html[data-tema] .menu summary:hover{text-decoration:none;background-size:100% 3px;}
 
 /* Hero: visor de la dashcam sobre asfalto con la línea discontinua */
 html[data-tema] .frame{background:
@@ -1352,10 +1365,20 @@ html[data-tema="escudo"] section > .wrap > h2::before,html[data-tema="escudo"] .
   -webkit-mask:repeating-linear-gradient(90deg,#000 0 1.25rem,transparent 1.25rem 2rem);mask:repeating-linear-gradient(90deg,#000 0 1.25rem,transparent 1.25rem 2rem);}
 html[data-tema="escudo"] .panel.merch{border-top:1px solid var(--line);background:var(--grad) top/100% 6px no-repeat,var(--surface);padding-top:calc(1.5rem + 6px);}
 html[data-tema="escudo"] footer{border-top:0;background:var(--grad) top/100% 6px no-repeat,var(--marca);padding-top:calc(2rem + 6px);}
-html[data-tema="escudo"] nav.top .navrow>ul>li>a,html[data-tema="escudo"] .menu summary{background:var(--grad) 0 100%/0 3px no-repeat;}
-html[data-tema="escudo"] nav.top .navrow>ul>li>a:hover,html[data-tema="escudo"] .menu summary:hover{background-size:100% 3px;}
+html[data-tema="escudo"] nav.top .navrow>ul>li>a:not(.navclip),html[data-tema="escudo"] .menu summary{background:var(--grad) 0 100%/0 3px no-repeat;}
+html[data-tema="escudo"] nav.top .navrow>ul>li>a:not(.navclip):hover,html[data-tema="escudo"] .menu summary:hover{background-size:100% 3px;}
 html[data-tema="escudo"] .opt[aria-pressed="true"]{border-color:#fbb80c;box-shadow:0 10px 22px -14px var(--brillo);}
 @media(prefers-reduced-motion:reduce){html[data-tema="escudo"] .btn.primary,html[data-tema="escudo"] .buy{transition:none;}html[data-tema="escudo"] .btn.primary:hover,html[data-tema="escudo"] .buy:hover{transform:none;}}
+
+/* ===== Envía tu clip: botón del menú y franja ===== */
+html[data-tema] nav.top a.navclip{background:var(--marca);}
+html[data-tema="escudo"] nav.top a.navclip{background:var(--grad);color:#1f2147;font-weight:800;box-shadow:0 10px 20px -12px var(--brillo);}
+html[data-tema="escudo"] nav.top a.navclip i{background:#c8161d;}
+html[data-tema] .clipband{border-radius:14px;background:var(--surface);box-shadow:0 1px 2px rgba(20,22,40,.05),0 6px 20px -12px rgba(20,22,40,.18);}
+html[data-tema] .cb-rec{color:var(--resalte);}
+html[data-tema] .cb-btn{border-radius:12px;background:var(--acento);color:var(--sobre-acento);}
+html[data-tema="escudo"] .cb-btn{background:var(--grad);color:#1f2147;box-shadow:0 10px 20px -12px var(--brillo);}
+html[data-tema="escudo"] .clipband:hover .cb-btn{filter:none;box-shadow:0 14px 26px -12px var(--brillo);}
 </style>
 <style>.sr{position:absolute;left:-9999px;}</style>
 <script>
