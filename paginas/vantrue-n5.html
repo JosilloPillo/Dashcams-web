@@ -67,6 +67,8 @@ nav.top a:hover{text-decoration:underline;}
 nav.top .menu ul{display:block;position:absolute;z-index:5;top:100%;left:0;min-width:13rem;background:var(--surface);border:1px solid var(--line);border-radius:6px;padding:.4rem 1rem;}
 .links a{display:inline-block;padding:.3rem 0;}
 .panel ul{margin:0 0 1rem;padding-left:1.25rem;max-width:62ch;}
+.guias{list-style:none;margin:1.25rem 0;padding:0;display:grid;gap:.25rem 1.5rem;grid-template-columns:repeat(auto-fit,minmax(18rem,1fr));}
+.guias a{display:inline-block;padding:.45rem 0;font-weight:600;}
 .posts{list-style:none;margin:1.25rem 0 0;padding:0;display:grid;gap:1rem;grid-template-columns:repeat(auto-fit,minmax(19rem,1fr));}
 .post{background:var(--surface);border:1px solid var(--line);border-radius:6px;padding:1.25rem;}
 .post h3 a{color:var(--text);text-decoration:none;}
@@ -94,6 +96,9 @@ button.buy{border:0;font:inherit;font-weight:600;cursor:pointer;}
 #gs dd{margin:0;}
 #cmp tr.diff td,#cmp tr.diff th{background:color-mix(in srgb,var(--accent) 12%,var(--surface));}
 [hidden]{display:none!important;}
+.art .scroll{margin:1rem 0 1.5rem;}
+table.tabla-art{min-width:30rem;}
+table.tabla-art tbody th{width:auto;color:var(--text);}
 .saltar{position:absolute;left:1rem;top:-4rem;z-index:20;padding:.6rem 1rem;border-radius:8px;background:var(--surface);color:var(--text);font-weight:600;}
 .saltar:focus{top:.75rem;}
 main:focus{outline:none;}
@@ -486,6 +491,14 @@ function vid(id, t){
   return "<a class='vcard' href='https://www.youtube.com/watch?v="+id+"' target='_blank' rel='noopener'><span class='vosd'><span class='rec'><i></i>REC</span><span>YouTube · Dashcams ESP</span></span><span class='vplay' aria-hidden='true'>▶</span><span class='vtxt'>Ver el vídeo en YouTube</span></a>";
 }
 var POSTS = [
+{id:"es-legal-una-dashcam", seo:["¿Es legal una dashcam en España? Lo que dicen la DGT y la AEPD","Sí, llevar una dashcam es legal en España, pero hay límites: dónde colocarla, qué grabar y, sobre todo, qué hacer con los vídeos. Te lo explicamos."],
+ titulo:"¿Es legal una dashcam en España? Lo que dicen la DGT y la AEPD", tipo:"Guía", fecha:"3 nov 2026", lectura:"5 min", nota:"", amazon:"",
+ resumen:"Llevar una dashcam es legal, pero con límites: dónde colocarla para no tapar la visión, qué pasa con la protección de datos, si sirve como prueba y qué puedes publicar en redes.",
+ cuerpo:""},
+{id:"mejores-dashcams", seo:["Mejores dashcams 2026: cuál comprar según tu uso","Las mejores dashcams de 2026 por categorías: calidad-precio, gama alta, taxi y VTC, económica, discreta y con 4G. Elegidas entre más de 60 modelos."],
+ titulo:"Mejores dashcams 2026: cuál comprar según tu uso", tipo:"Guía de compra", fecha:"3 nov 2026", lectura:"6 min", nota:"", amazon:"",
+ resumen:"Nuestra selección por categorías: la mejor en general, la de mejor calidad-precio, para taxi y VTC, la más barata que merece la pena, la más discreta y la que vigila el coche por 4G.",
+ cuerpo:""},
 {id:"ddpai-z60-pro", seo:["DDPAI Z60 Pro: análisis de la dashcam de 3 cámaras con LTE","Probamos la DDPAI Z60 Pro: delantera 4K con doble sensor STARVIS 2, interior 2K, trasera 1080p y módulo LTE para ver el coche desde el móvil."], producto:"DDPAI Z60 Pro", marca:"DDPAI", video:"HiVIGk5xuWQ", portada:"img/blog/ddpai-z60-pro/portada.webp", portadaAlt:"Cámara delantera de la DDPAI Z60 Pro, con el acabado dorado y el logo 4K, delante del escudo de Dashcams España", titulo:"DDPAI Z60 Pro: tres cámaras y módulo LTE para tener el coche bajo control", tipo:"Análisis", fecha:"2 nov 2026", lectura:"5 min", nota:"", amazon:amz("DDPAI Z60 Pro"), compra:"https://bit.ly/4rH50JL", tienda:"AliExpress",
  resumen:"Un sistema completo de tres cámaras: delantera 4K con doble sensor Sony STARVIS 2, interior 2K y trasera 1080p, más un módulo LTE para ver el coche en directo desde el móvil. Muy buena de día, con uno de los mejores controles por voz que he probado, aunque el reparto de resoluciones entre cámaras es mejorable.",
  cuerpo:""},
@@ -511,6 +524,14 @@ var POSTS = [
 (function(){
   var ul=document.getElementById("posts"),box=document.getElementById("articulos"),l="",a="";
   if(!box)return; /* páginas ya generadas: los artículos vienen escritos en el HTML */
+  /* Portada: los 3 últimos análisis con foto y la lista de guías */
+  function portada(){
+  var ult=document.getElementById("ultimos"),gui=document.getElementById("guias");
+  if(ult)ult.innerHTML=POSTS.filter(function(p){return p.portada&&p.tipo==="Análisis";}).slice(0,3).map(function(p){
+    return "<li class='post'><a class='pimg' href='"+enlace(p.id)+"' tabindex='-1' aria-hidden='true'><img src='"+p.portada+"' alt=''"+dim(p.portada)+" loading='lazy' decoding='async'></a><h3><a href='"+enlace(p.id)+"'>"+p.titulo+"</a></h3><p class='meta'>"+p.tipo+", "+p.fecha+(p.nota?". Nota: "+p.nota:"")+"</p></li>";}).join("");
+  if(gui)gui.innerHTML=POSTS.filter(function(p){return p.tipo!=="Análisis";}).map(function(p){return "<li><a href='"+enlace(p.id)+"'>"+p.titulo+"</a></li>";}).join("");
+  }
+  if(document.readyState==="loading")document.addEventListener("DOMContentLoaded",portada);else portada();
   POSTS.forEach(function(p){
     l+="<li class='post'>"+(p.portada?"<a class='pimg' href='"+enlace(p.id)+"' tabindex='-1' aria-hidden='true'><img src='"+p.portada+"' alt=''"+dim(p.portada)+" loading='lazy' decoding='async'></a>":"")+"<h3><a href='"+enlace(p.id)+"'>"+p.titulo+"</a></h3><p class='meta'>"+p.tipo+", "+p.fecha+", "+p.lectura+" de lectura"+(p.nota?". Nota final: "+p.nota:"")+"</p><p>"+p.resumen+"</p></li>";
     a+="<section id='"+p.id+"' data-view='"+p.id+"'><div class='wrap art'><p class='migas'><a href='/'>Inicio</a> › <a href='/blog'>Blog</a></p><h1>"+p.titulo+"</h1><p class='meta'>"+p.tipo+", por "+(p.autor||"Jose Barranco")+", "+p.fecha+", "+p.lectura+" de lectura</p>"+(p.portada?"<img class='portada' src='"+p.portada+"' alt='"+(p.portadaAlt||"").replace(/'/g,"&#39;")+"'"+dim(p.portada)+" fetchpriority='high'>":"")+p.cuerpo+(p.video?"<h3>"+(p.tipo==="Análisis"?"El vídeo del análisis":"El vídeo paso a paso")+"</h3>"+vid(p.video,p.titulo):"")+(p.amazon?"<p>"+btn(p.amazon)+"</p>":"")+(p.compra?"<p><a class='buy' href='"+p.compra+"' target='_blank' rel='sponsored noopener'>Ver en "+(p.tienda||"la tienda")+"</a></p>":"")+"<a class='clipband' href='/envia-tu-clip'><span class='cb-rec' aria-hidden='true'><i></i>REC</span><span class='cb-txt'><strong>¿Tienes un clip?</strong> Si has grabado algo con tu dashcam, envíanoslo y podría salir en el canal.</span><span class='cb-btn'>Envía tu clip <span aria-hidden='true'>→</span></span></a></div></section>";
@@ -518,6 +539,8 @@ var POSTS = [
   ul.innerHTML=l; box.outerHTML=a;
 })();
 </script>
+
+
 
 
 
