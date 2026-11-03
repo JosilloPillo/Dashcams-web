@@ -2,7 +2,7 @@
 
 La página **Envía tu clip** (`#enviar-clip`) sube los vídeos directamente desde el navegador del visitante a **Cloudflare R2**. No pasan por Hostinger, así que no gastan espacio ni tienen el límite de subida del hosting. Cuando termina un envío, te llega un correo a info@dashcams.es con los datos y los enlaces de descarga.
 
-Solo funciona cuando la web está en **dashcams.es** (Hostinger), porque necesita `clips.php`. En GitHub Pages o en la vista previa sale un aviso y el botón queda desactivado.
+Solo funciona en el alojamiento PHP/HTML de Hostinger (dashcams.es o la dirección provisional `lime-emu-605845.hostingersite.com`), porque necesita `clips.php`. La web hecha con el Creador de Hostinger no ejecuta PHP. En GitHub Pages o en la vista previa sale un aviso y el botón queda desactivado.
 
 ## 1. Activar R2 en Cloudflare
 
@@ -22,7 +22,7 @@ En el bucket → **Settings** → **CORS Policy** → **Add CORS policy** → pe
 ```json
 [
   {
-    "AllowedOrigins": ["https://dashcams.es", "https://www.dashcams.es"],
+    "AllowedOrigins": ["https://dashcams.es", "https://www.dashcams.es", "https://lime-emu-605845.hostingersite.com"],
     "AllowedMethods": ["PUT", "GET"],
     "AllowedHeaders": ["Content-Type"],
     "ExposeHeaders": ["ETag"],

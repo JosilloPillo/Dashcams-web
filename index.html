@@ -454,7 +454,7 @@ function btn(u){return "<a class='buy' href='"+u+"' target='_blank' rel='sponsor
 */
 /* ===== VÍDEOS: en tu dominio se incrustan con el reproductor de YouTube; aquí, como tarjeta con enlace =====
    Añade tu dominio a la lista si lo cambias. */
-var INCRUSTAR = /(^|\.)dashcams\.es$|\.github\.io$/.test(location.hostname);
+var INCRUSTAR = /(^|\.)dashcams\.es$|\.github\.io$|\.hostingersite\.com$/.test(location.hostname);
 function vid(id, t){
   if(!id)return "";
   if(INCRUSTAR)return "<div class='yt'><iframe src='https://www.youtube-nocookie.com/embed/"+id+"' title='"+t.replace(/'/g,"&#39;")+"' loading='lazy' allow='accelerometer; encrypted-media; gyroscope; picture-in-picture; fullscreen' referrerpolicy='strict-origin-when-cross-origin' allowfullscreen></iframe></div>";
@@ -1253,7 +1253,7 @@ var DASHCAMS = [
 /* Formularios: en dashcams.es se envían solos con enviar.php; en cualquier otro sitio preparan un correo para info@dashcams.es */
 (function(){
   var DEST="info@dashcams.es";
-  var DIRECTO=/(^|\.)dashcams\.es$/.test(location.hostname);
+  var DIRECTO=/(^|\.)dashcams\.es$|\.hostingersite\.com$/.test(location.hostname);
   function manual(f,asunto,cuerpo,aviso){
     var url="mailto:"+DEST+"?subject="+encodeURIComponent(asunto)+"&body="+encodeURIComponent(cuerpo);
     var box=f.querySelector(".sent");
@@ -1308,7 +1308,7 @@ var DASHCAMS = [
   if(mq.addEventListener)mq.addEventListener("change",paint);
   paint();
   /* Descargas: en la web propia el botón descarga el archivo; en otros sitios lo abre */
-  if(/(^|\.)dashcams\.es$|\.github\.io$/.test(location.hostname)){[].forEach.call(document.querySelectorAll("[data-dl]"),function(a){a.setAttribute("download","dashcams-esp-"+a.getAttribute("href").split("/").pop());});}
+  if(/(^|\.)dashcams\.es$|\.github\.io$|\.hostingersite\.com$/.test(location.hostname)){[].forEach.call(document.querySelectorAll("[data-dl]"),function(a){a.setAttribute("download","dashcams-esp-"+a.getAttribute("href").split("/").pop());});}
   /* Cerrar el desplegable de Contacto al elegir una opción */
   [].forEach.call(document.querySelectorAll(".menu a"),function(a){a.addEventListener("click",function(){a.closest("details").open=false;});});
 })();
@@ -1351,7 +1351,7 @@ var DASHCAMS = [
 /* ENVÍO DE CLIPS: sube los vídeos por partes directamente a Cloudflare R2 (clips.php solo firma y avisa) */
 (function(){
   var f=document.getElementById("clipform");if(!f)return;
-  var ACTIVO=/(^|\.)dashcams\.es$|^(127\.0\.0\.1|localhost)$/.test(location.hostname);
+  var ACTIVO=/(^|\.)dashcams\.es$|\.hostingersite\.com$|^(127\.0\.0\.1|localhost)$/.test(location.hostname);
   var MAX=4294967296,MAXN=3,EXT=/\.(mp4|mov|avi|mkv|ts|mts|m2ts|m4v|3gp|webm)$/i,PARALELO=3;
   var inp=f.querySelector("input[type=file]"),lista=f.querySelector(".clip-lista"),err=f.querySelector(".ferr"),btn=f.querySelector("button[type=submit]");
   var prog=f.querySelector(".clip-prog"),barra=prog.querySelector("progress"),estado=prog.querySelector(".clip-estado"),aviso=f.querySelector(".clip-aviso");
