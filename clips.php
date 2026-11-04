@@ -272,7 +272,8 @@ if ($accion === 'terminar') {
     $cuerpo .= "Fecha de envío (UTC): " . $resumen['Fecha de envío (UTC)'] . " · IP: " . $resumen['IP'] . "\n";
     $quien = $d['Cómo quiere aparecer'] !== '' ? $d['Cómo quiere aparecer'] : $d['Correo'];
     $donde = trim($d['Lugar'] . ($d['Lugar'] !== '' && $d['Carretera'] !== '' ? ', ' : '') . $d['Carretera']);
-    $asunto = '=?UTF-8?B?' . base64_encode('[Clip] ' . $limpio(mb_substr($quien, 0, 60)) . ($donde !== '' ? ' · ' . $limpio(mb_substr($donde, 0, 60)) : '')) . '?=';
+    // Asunto: «Dashcam de [nombre] loc. [lugar, carretera]» (sin «loc.» si no indica ubicación)
+    $asunto = '=?UTF-8?B?' . base64_encode('Dashcam de ' . $limpio(mb_substr($quien, 0, 60)) . ($donde !== '' ? ' loc. ' . $limpio(mb_substr($donde, 0, 80)) : '')) . '?=';
     $cab  = 'From: =?UTF-8?B?' . base64_encode('Web Dashcams España') . "?= <{$REMITENTE}>\r\n";
     $cab .= 'Reply-To: ' . $limpio($d['Correo']) . "\r\n";
     $cab .= "MIME-Version: 1.0\r\nContent-Type: text/plain; charset=UTF-8\r\nContent-Transfer-Encoding: 8bit\r\n";

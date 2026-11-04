@@ -67,7 +67,7 @@ En hPanel → **Administrador de archivos**, sube un nivel por encima de `public
 Entra en https://dashcams.es/#enviar-clip, envía un vídeo corto y comprueba que:
 
 - sale «¡Clip enviado!»;
-- te llega el correo «[Clip] …» a tuclip@dashcams.es (crea antes ese buzón en hPanel → Emails) con el enlace de descarga;
+- te llega el correo «Dashcam de [nombre] loc. [lugar, carretera]» a tuclip@dashcams.es (crea antes ese buzón en hPanel → Emails) con el enlace de descarga;
 - en el bucket aparece la carpeta `clips/<fecha>-<código>/` con el vídeo y un `envio.json` con los datos.
 
 ## Dónde ver los clips
