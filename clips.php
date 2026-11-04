@@ -167,7 +167,7 @@ if (($_SERVER['REQUEST_METHOD'] ?? '') === 'GET' && isset($_GET['ver'])) {
     header('Content-Type: text/html; charset=utf-8');
     http_response_code($valido ? 410 : 404);
     echo '<!doctype html><meta charset="utf-8"><title>Enlace no disponible</title><p style="font:16px system-ui;margin:2rem">'
-       . ($valido ? 'Este enlace ha caducado. El vídeo sigue en Cloudflare R2 (bucket clips-dashcams, carpeta ' . htmlspecialchars(dirname($clave)) . ') hasta que se cumplan los 90 días.' : 'Enlace no válido.')
+       . ($valido ? 'Este enlace ha caducado. El vídeo sigue en Cloudflare R2 (bucket clips-dashcams, carpeta ' . htmlspecialchars(dirname($clave)) . ') hasta que se cumplan los 40 días.' : 'Enlace no válido.')
        . '</p>';
     exit;
 }

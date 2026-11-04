@@ -35,7 +35,7 @@ En el bucket → **Settings** → **CORS Policy** → **Add CORS policy** → pe
 
 En el bucket → **Settings** → **Object lifecycle rules** → **Add rule**:
 
-- Nombre: `borrar a los 90 días`, prefijo `clips/`, **Delete objects after 90 days**. Las condiciones de envío prometen borrar a los 90 días los vídeos que no se publiquen, así que descarga antes los que vayas a usar.
+- Nombre: `borrar a los 40 días`, prefijo `clips/`, **Delete objects after 40 days** (Jose lo cambió de 90 a 40 días el 4 nov 2026, porque descarga los clips cada semana). Las condiciones de envío prometen borrar a los 40 días los vídeos que no se publiquen, así que descarga antes los que vayas a usar.
 - Comprueba que también exista una regla para **abortar las subidas incompletas** (Abort incomplete multipart uploads) a los 1–7 días. Cloudflare suele crearla por defecto; si no está, añádela.
 
 ## 5. Crear la clave de acceso
