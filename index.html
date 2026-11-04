@@ -294,7 +294,7 @@ html.lb-on{overflow:hidden;}
 <header class="hero" data-view="inicio">
   <div class="wrap">
     <div class="frame">
-      <div class="osd"><span class="rec"><i></i>REC</span><span id="clock">00:40:26</span><span>1080p · 30 fps</span></div>
+      <div class="osd"><span class="rec"><i></i>REC</span><span id="clock">11:21:26</span><span>1080p · 30 fps</span></div>
       <h1>Encuentra la dashcam ideal para ti</h1>
       <p>No importa si buscas una dashcam económica o un modelo de alta gama con grabación en 4K y funciones avanzadas. Aquí te ayudamos a encontrar la mejor opción para tu presupuesto y necesidades.</p>
       <div class="btns">
@@ -682,7 +682,8 @@ var DASHCAMS = [
   function ruta(v){return v==="inicio"?"/":"/"+(RUTA[v]||v);}
   function pon(sel,val){var e=document.querySelector(sel);if(e)e.setAttribute(e.tagName==="LINK"?"href":"content",val);}
   var MES={ene:"01",feb:"02",mar:"03",abr:"04",may:"05",jun:"06",jul:"07",ago:"08",sep:"09",oct:"10",nov:"11",dic:"12"};
-  function iso(f){var x=String(f||"").split(" ");return x.length===3&&MES[x[1]]?x[2]+"-"+MES[x[1]]+"-"+("0"+x[0]).slice(-2):undefined;}
+  /* Fecha completa con hora y zona horaria de Madrid (Google la pide así en los vídeos) */
+  function iso(f){var x=String(f||"").split(" ");if(x.length!==3||!MES[x[1]])return undefined;var m=+MES[x[1]];return x[2]+"-"+MES[x[1]]+"-"+("0"+x[0]).slice(-2)+"T12:00:00"+(m>=4&&m<=10?"+02:00":"+01:00");}
   function seo(v,perdida){
     var h1=document.querySelector("[data-view='"+v+"'] h1"),s=SEO[v]||[(h1?h1.textContent:"Dashcams España")+" | Dashcams España",SEO.inicio[1]],url="https://dashcams.es"+ruta(v);
     var post=POSTMAP[v],img="https://dashcams.es/"+(post&&post.portada?post.portada:"og-image.png");
