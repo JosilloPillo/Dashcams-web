@@ -66,6 +66,7 @@ const servidor = http.createServer((req, res) => {
       // Cada página lleva solo su contenido: nada de copias ocultas de las demás páginas
       document.querySelectorAll('[data-view]').forEach(e => { if (e.hidden) e.remove(); });
       document.querySelector('nav.top')?.classList.remove('abierto');
+      const av = document.getElementById('cookies-aviso'); if (av) av.hidden = true; // lo muestra el JavaScript si hace falta
       const robots = document.querySelector('meta[name="robots"]');
       return {
         html: '<!DOCTYPE html>\n' + document.documentElement.outerHTML + '\n',
