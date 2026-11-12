@@ -251,6 +251,20 @@ h3.sub{margin:1.5rem 0 .75rem;}
 .galeria.una img{aspect-ratio:16/9;}
 .galeria.documento img{aspect-ratio:auto;object-fit:contain;max-width:36rem;margin:0 auto;border:1px solid var(--line);box-shadow:0 6px 18px rgba(0,0,0,.12);}
 .galeria.documento figcaption{text-align:center;}
+.redes-videos{display:grid;grid-template-columns:repeat(3,1fr);gap:.9rem;margin:1.25rem 0 .5rem;align-items:start;}
+.rv-item{margin:0;}
+.rv{position:relative;display:block;width:100%;aspect-ratio:9/16;padding:0;border:0;border-radius:12px;overflow:hidden;cursor:pointer;background:#000;box-shadow:0 8px 22px rgba(0,0,0,.18);}
+.rv img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .3s ease;}
+.rv:hover img{transform:scale(1.03);}
+.rv::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,0) 55%,rgba(0,0,0,.55));}
+.rv-red{position:absolute;left:.6rem;top:.6rem;z-index:1;font:700 .8rem/1 "Public Sans",sans-serif;color:#fff;padding:.4rem .6rem;border-radius:999px;}
+.rv-yt .rv-red{background:#ff0033;}.rv-ig .rv-red{background:linear-gradient(45deg,#f9a12e,#e1306c,#833ab4);}.rv-tt .rv-red{background:#111;box-shadow:-2px 0 0 #25f4ee,2px 0 0 #fe2c55;}
+.rv-play{position:absolute;left:50%;bottom:9%;z-index:1;transform:translateX(-50%);width:3.6rem;height:3.6rem;border-radius:50%;display:grid;place-items:center;font-size:1.3rem;color:#1f2147;background:var(--grad,#ffd34d);box-shadow:0 0 22px rgba(251,184,12,.55);padding-left:.2rem;}
+.rv-frame{display:block;width:100%;aspect-ratio:9/16;border:0;border-radius:12px;background:#000;}
+.rv-frame.rv-ig{aspect-ratio:auto;height:auto;min-height:0;}
+.rv-item figcaption{text-align:center;font-size:.85rem;margin-top:.4rem;}
+.rv-nota{font-size:.8rem;color:var(--muted);}
+@media(max-width:40rem){.redes-videos{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;gap:.75rem;padding-bottom:.5rem;margin-right:-1.25rem;padding-right:1.25rem;}.rv-item{flex:0 0 68%;scroll-snap-align:start;}}
 @media(max-width:30rem){.galeria{grid-template-columns:1fr;}}
 /* Visor de fotos */
 dialog.lb{padding:0;border:0;margin:0;width:100vw;height:100vh;max-width:none;max-height:none;background:rgba(10,14,18,.94);color:#f2f5f7;overflow:hidden;}
@@ -491,8 +505,10 @@ function vid(id, t){
   if(INCRUSTAR)return "<div class='yt'><iframe src='https://www.youtube-nocookie.com/embed/"+id+"' title='"+t.replace(/'/g,"&#39;")+"' loading='lazy' allow='accelerometer; encrypted-media; gyroscope; picture-in-picture; fullscreen' referrerpolicy='strict-origin-when-cross-origin' allowfullscreen></iframe></div>";
   return "<a class='vcard' href='https://www.youtube.com/watch?v="+id+"' target='_blank' rel='noopener'><span class='vosd'><span class='rec'><i></i>REC</span><span>YouTube · Dashcams ESP</span></span><span class='vplay' aria-hidden='true'>▶</span><span class='vtxt'>Ver el vídeo en YouTube</span></a>";
 }
+/* Vídeos de redes: se cargan al pulsar */
+document.addEventListener("click",function(e){var b=e.target.closest&&e.target.closest(".rv[data-src]");if(!b)return;var f=document.createElement("iframe");f.src=b.getAttribute("data-src");f.title=b.getAttribute("aria-label");f.className="rv-frame "+(b.className.match(/rv-(yt|ig|tt)/)||[""])[0];f.setAttribute("allow","autoplay; encrypted-media; picture-in-picture; fullscreen");f.setAttribute("allowfullscreen","");if(/rv-ig/.test(b.className)){var w=b.offsetWidth;f.style.height=Math.round(w*16/9+170)+"px";}b.parentNode.replaceChild(f,b);});
 var POSTS = [
-{id:"como-circular-por-una-glorieta", seo:["Cómo circular por una glorieta en España: normativa 2026","Quién tiene preferencia, qué carril usar y desde dónde salir de una glorieta según la normativa de 2026, con la respuesta por escrito de la DGT sobre la prioridad."], video:"", portada:"img/blog/como-circular-por-una-glorieta/portada.webp", portadaAlt:"Vista aérea de una glorieta animada con el texto «¿Cómo se circula por una glorieta? Normativa 2026»", titulo:"Cómo circular por una glorieta en España: lo que dice la normativa en 2026", tipo:"Guía", fecha:"12 nov 2026", lectura:"6 min", nota:"", amazon:"",
+{id:"como-circular-por-una-glorieta", redes:true, seo:["Cómo circular por una glorieta en España: normativa 2026","Quién tiene preferencia, qué carril usar y desde dónde salir de una glorieta según la normativa de 2026, con la respuesta por escrito de la DGT sobre la prioridad."], video:"IUtmSzenl9s", portada:"img/blog/como-circular-por-una-glorieta/portada.webp", portadaAlt:"Vista aérea de una glorieta animada con el texto «¿Cómo se circula por una glorieta? Normativa 2026»", titulo:"Cómo circular por una glorieta en España: lo que dice la normativa en 2026", tipo:"Guía", fecha:"12 nov 2026", lectura:"6 min", nota:"", amazon:"",
  resumen:"Quién tiene preferencia, por qué carril entrar, desde dónde salir y qué cambia en 2026. Incluye la respuesta por escrito que nos dio la DGT sobre la prioridad en glorietas de varios carriles.",
  cuerpo:""},
 {id:"es-legal-una-dashcam", portada:"img/blog/es-legal-una-dashcam/portada.webp", portadaAlt:"Dashcam grabando la carretera junto a un mazo de juez y un libro de la Ley de Tráfico, con el texto «¿Es legal una dashcam?»", seo:["¿Es legal una dashcam en España? Lo que dicen la DGT y la AEPD","Sí, llevar una dashcam es legal en España, pero hay límites: dónde colocarla, qué grabar y, sobre todo, qué hacer con los vídeos. Te lo explicamos."],
@@ -538,7 +554,7 @@ var POSTS = [
   if(document.readyState==="loading")document.addEventListener("DOMContentLoaded",portada);else portada();
   POSTS.forEach(function(p){
     l+="<li class='post'>"+(p.portada?"<a class='pimg' href='"+enlace(p.id)+"' tabindex='-1' aria-hidden='true'><img src='"+p.portada+"' alt=''"+dim(p.portada)+" loading='lazy' decoding='async'></a>":"")+"<h3><a href='"+enlace(p.id)+"'>"+p.titulo+"</a></h3><p class='meta'>"+p.tipo+", "+p.fecha+", "+p.lectura+" de lectura"+(p.nota?". Nota final: "+p.nota:"")+"</p><p>"+p.resumen+"</p></li>";
-    a+="<section id='"+p.id+"' data-view='"+p.id+"'><div class='wrap art'><p class='migas'><a href='/'>Inicio</a> › <a href='/blog'>Blog</a></p><h1>"+p.titulo+"</h1><p class='meta'>"+p.tipo+", por "+(p.autor||"Jose Barranco")+", "+p.fecha+", "+p.lectura+" de lectura</p>"+(p.portada?"<img class='portada' src='"+p.portada+"' alt='"+(p.portadaAlt||"").replace(/'/g,"&#39;")+"'"+dim(p.portada)+" fetchpriority='high'>":"")+p.cuerpo+(p.video?"<h3>"+(p.tipo==="Análisis"?"El vídeo del análisis":"El vídeo paso a paso")+"</h3>"+vid(p.video,p.titulo):"")+(p.amazon?"<p>"+btn(p.amazon,p.producto||p.titulo)+"</p>":"")+(p.compra?"<p><a class='buy' href='"+p.compra+"' target='_blank' rel='sponsored noopener'>Ver en "+(p.tienda||"la tienda")+"</a></p>":"")+"<a class='clipband' href='/envia-tu-clip'><span class='cb-rec' aria-hidden='true'><i></i>REC</span><span class='cb-txt'><strong>¿Tienes un clip?</strong> Si has grabado algo con tu dashcam, envíanoslo y podría salir en el canal.</span><span class='cb-btn'>Envía tu clip <span aria-hidden='true'>→</span></span></a></div></section>";
+    a+="<section id='"+p.id+"' data-view='"+p.id+"'><div class='wrap art'><p class='migas'><a href='/'>Inicio</a> › <a href='/blog'>Blog</a></p><h1>"+p.titulo+"</h1><p class='meta'>"+p.tipo+", por "+(p.autor||"Jose Barranco")+", "+p.fecha+", "+p.lectura+" de lectura</p>"+(p.portada?"<img class='portada' src='"+p.portada+"' alt='"+(p.portadaAlt||"").replace(/'/g,"&#39;")+"'"+dim(p.portada)+" fetchpriority='high'>":"")+p.cuerpo+(p.video&&!p.redes?"<h3>"+(p.tipo==="Análisis"?"El vídeo del análisis":"El vídeo paso a paso")+"</h3>"+vid(p.video,p.titulo):"")+(p.amazon?"<p>"+btn(p.amazon,p.producto||p.titulo)+"</p>":"")+(p.compra?"<p><a class='buy' href='"+p.compra+"' target='_blank' rel='sponsored noopener'>Ver en "+(p.tienda||"la tienda")+"</a></p>":"")+"<a class='clipband' href='/envia-tu-clip'><span class='cb-rec' aria-hidden='true'><i></i>REC</span><span class='cb-txt'><strong>¿Tienes un clip?</strong> Si has grabado algo con tu dashcam, envíanoslo y podría salir en el canal.</span><span class='cb-btn'>Envía tu clip <span aria-hidden='true'>→</span></span></a></div></section>";
   });
   ul.innerHTML=l; box.outerHTML=a;
 })();
