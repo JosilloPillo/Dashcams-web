@@ -249,6 +249,8 @@ h3.sub{margin:1.5rem 0 .75rem;}
 .galeria figcaption{font-size:.85rem;color:var(--muted);margin-top:.3rem;}
 .galeria.una{grid-template-columns:1fr;}
 .galeria.una img{aspect-ratio:16/9;}
+.galeria.documento img{aspect-ratio:auto;object-fit:contain;max-width:36rem;margin:0 auto;border:1px solid var(--line);box-shadow:0 6px 18px rgba(0,0,0,.12);}
+.galeria.documento figcaption{text-align:center;}
 @media(max-width:30rem){.galeria{grid-template-columns:1fr;}}
 /* Visor de fotos */
 dialog.lb{padding:0;border:0;margin:0;width:100vw;height:100vh;max-width:none;max-height:none;background:rgba(10,14,18,.94);color:#f2f5f7;overflow:hidden;}
@@ -467,7 +469,7 @@ function btn(u,n){var t=/amazon\.|amzn\.to/.test(u)?(u.indexOf("/s?k=")>-1?"Busc
 /* ===== VÍDEOS: en tu dominio se incrustan con el reproductor de YouTube; aquí, como tarjeta con enlace =====
    Añade tu dominio a la lista si lo cambias. */
 var INCRUSTAR = /(^|\.)dashcams\.es$|\.github\.io$|\.hostingersite\.com$/.test(location.hostname);
-var DIM={"img/blog/es-legal-una-dashcam/portada.webp":[1600,900],"img/blog/ddpai-z60-pro/portada.webp":[1600,900],"img/blog/instalar/portada.webp":[768,432],"img/blog/que-dashcam-comprar/portada.webp":[1024,434],"img/blog/vantrue-n5/portada.webp":[1024,535],"img/blog/viofo-a329/portada.webp":[1024,535],"img/blog/viofo-vs1/portada.webp":[1024,535]};
+var DIM={"img/blog/como-circular-por-una-glorieta/portada.webp":[1600,900],"img/blog/es-legal-una-dashcam/portada.webp":[1600,900],"img/blog/ddpai-z60-pro/portada.webp":[1600,900],"img/blog/instalar/portada.webp":[768,432],"img/blog/que-dashcam-comprar/portada.webp":[1024,434],"img/blog/vantrue-n5/portada.webp":[1024,535],"img/blog/viofo-a329/portada.webp":[1024,535],"img/blog/viofo-vs1/portada.webp":[1024,535]};
 function dim(src){var d=DIM[src];return d?" width='"+d[0]+"' height='"+d[1]+"'":"";}
 function vid(id, t){
   if(!id)return "";
@@ -475,6 +477,9 @@ function vid(id, t){
   return "<a class='vcard' href='https://www.youtube.com/watch?v="+id+"' target='_blank' rel='noopener'><span class='vosd'><span class='rec'><i></i>REC</span><span>YouTube · Dashcams ESP</span></span><span class='vplay' aria-hidden='true'>▶</span><span class='vtxt'>Ver el vídeo en YouTube</span></a>";
 }
 var POSTS = [
+{id:"como-circular-por-una-glorieta", seo:["Cómo circular por una glorieta en España: normativa 2026","Quién tiene preferencia, qué carril usar y desde dónde salir de una glorieta según la normativa de 2026, con la respuesta por escrito de la DGT sobre la prioridad."], video:"", portada:"img/blog/como-circular-por-una-glorieta/portada.webp", portadaAlt:"Vista aérea de una glorieta animada con el texto «¿Cómo se circula por una glorieta? Normativa 2026»", titulo:"Cómo circular por una glorieta en España: lo que dice la normativa en 2026", tipo:"Guía", fecha:"12 nov 2026", lectura:"6 min", nota:"", amazon:"",
+ resumen:"Quién tiene preferencia, por qué carril entrar, desde dónde salir y qué cambia en 2026. Incluye la respuesta por escrito que nos dio la DGT sobre la prioridad en glorietas de varios carriles.",
+ cuerpo:""},
 {id:"es-legal-una-dashcam", portada:"img/blog/es-legal-una-dashcam/portada.webp", portadaAlt:"Dashcam grabando la carretera junto a un mazo de juez y un libro de la Ley de Tráfico, con el texto «¿Es legal una dashcam?»", seo:["¿Es legal una dashcam en España? Lo que dicen la DGT y la AEPD","Sí, llevar una dashcam es legal en España, pero hay límites: dónde colocarla, qué grabar y, sobre todo, qué hacer con los vídeos. Te lo explicamos."],
  titulo:"¿Es legal una dashcam en España? Lo que dicen la DGT y la AEPD", tipo:"Guía", fecha:"3 nov 2026", lectura:"5 min", nota:"", amazon:"",
  resumen:"Llevar una dashcam es legal, pero con límites: dónde colocarla para no tapar la visión, qué pasa con la protección de datos, si sirve como prueba y qué puedes publicar en redes.",

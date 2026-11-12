@@ -250,6 +250,8 @@ h3.sub{margin:1.5rem 0 .75rem;}
 .galeria figcaption{font-size:.85rem;color:var(--muted);margin-top:.3rem;}
 .galeria.una{grid-template-columns:1fr;}
 .galeria.una img{aspect-ratio:16/9;}
+.galeria.documento img{aspect-ratio:auto;object-fit:contain;max-width:36rem;margin:0 auto;border:1px solid var(--line);box-shadow:0 6px 18px rgba(0,0,0,.12);}
+.galeria.documento figcaption{text-align:center;}
 @media(max-width:30rem){.galeria{grid-template-columns:1fr;}}
 /* Visor de fotos */
 dialog.lb{padding:0;border:0;margin:0;width:100vw;height:100vh;max-width:none;max-height:none;background:rgba(10,14,18,.94);color:#f2f5f7;overflow:hidden;}
@@ -523,7 +525,7 @@ function btn(u,n){var t=/amazon\.|amzn\.to/.test(u)?(u.indexOf("/s?k=")>-1?"Busc
 /* ===== VÍDEOS: en tu dominio se incrustan con el reproductor de YouTube; aquí, como tarjeta con enlace =====
    Añade tu dominio a la lista si lo cambias. */
 var INCRUSTAR = /(^|\.)dashcams\.es$|\.github\.io$|\.hostingersite\.com$/.test(location.hostname);
-var DIM={"img/blog/es-legal-una-dashcam/portada.webp":[1600,900],"img/blog/ddpai-z60-pro/portada.webp":[1600,900],"img/blog/instalar/portada.webp":[768,432],"img/blog/que-dashcam-comprar/portada.webp":[1024,434],"img/blog/vantrue-n5/portada.webp":[1024,535],"img/blog/viofo-a329/portada.webp":[1024,535],"img/blog/viofo-vs1/portada.webp":[1024,535]};
+var DIM={"img/blog/como-circular-por-una-glorieta/portada.webp":[1600,900],"img/blog/es-legal-una-dashcam/portada.webp":[1600,900],"img/blog/ddpai-z60-pro/portada.webp":[1600,900],"img/blog/instalar/portada.webp":[768,432],"img/blog/que-dashcam-comprar/portada.webp":[1024,434],"img/blog/vantrue-n5/portada.webp":[1024,535],"img/blog/viofo-a329/portada.webp":[1024,535],"img/blog/viofo-vs1/portada.webp":[1024,535]};
 function dim(src){var d=DIM[src];return d?" width='"+d[0]+"' height='"+d[1]+"'":"";}
 function vid(id, t){
   if(!id)return "";
@@ -531,6 +533,107 @@ function vid(id, t){
   return "<a class='vcard' href='https://www.youtube.com/watch?v="+id+"' target='_blank' rel='noopener'><span class='vosd'><span class='rec'><i></i>REC</span><span>YouTube · Dashcams ESP</span></span><span class='vplay' aria-hidden='true'>▶</span><span class='vtxt'>Ver el vídeo en YouTube</span></a>";
 }
 var POSTS = [
+{id:"como-circular-por-una-glorieta", seo:["Cómo circular por una glorieta en España: normativa 2026","Quién tiene preferencia, qué carril usar y desde dónde salir de una glorieta según la normativa de 2026, con la respuesta por escrito de la DGT sobre la prioridad."], video:"", portada:"img/blog/como-circular-por-una-glorieta/portada.webp", portadaAlt:"Vista aérea de una glorieta animada con el texto «¿Cómo se circula por una glorieta? Normativa 2026»", titulo:"Cómo circular por una glorieta en España: lo que dice la normativa en 2026", tipo:"Guía", fecha:"12 nov 2026", lectura:"6 min", nota:"", amazon:"",
+ resumen:"Quién tiene preferencia, por qué carril entrar, desde dónde salir y qué cambia en 2026. Incluye la respuesta por escrito que nos dio la DGT sobre la prioridad en glorietas de varios carriles.",
+ cuerpo:`
+<p>Las glorietas (o rotondas, como las llama casi todo el mundo) son de los sitios donde más se discute al volante. Que si el de dentro tiene preferencia, que si se puede salir desde el carril interior, que si el intermitente te da derecho a algo… Hemos hecho un vídeo de 84 segundos con animaciones en vista aérea para dejarlo claro, y aquí tienes la versión por escrito, con la base legal de cada regla y una respuesta que nos mandó la propia DGT.</p>
+<p class="note">Esto es información general basada en la normativa vigente, no asesoramiento legal. Ante cualquier duda en la vía, manda la prudencia y lo que indiquen las señales y los agentes.</p>
+
+<h3>Las 8 reglas, en resumen</h3>
+<ol>
+<li><strong>Con ceda el paso:</strong> cede al carril al que te incorporas.</li>
+<li><strong>Sin señales:</strong> cede a todo el que ya circula dentro.</li>
+<li><strong>Entra por el carril derecho</strong> si está libre.</li>
+<li><strong>Exterior:</strong> norma general y carril para salir.</li>
+<li><strong>Interior:</strong> salidas lejanas o cambio de sentido.</li>
+<li><strong>Sal siempre desde el carril exterior.</strong></li>
+<li><strong>Intermitente</strong> en los cambios de carril y en la salida.</li>
+<li><strong>¿Sin hueco para salir?</strong> Otra vuelta.</li>
+</ol>
+<p>Salir directamente desde el carril interior cortando al de fuera se multa con 200 €. Ahora vamos una por una.</p>
+
+<h3>1. Entrar con señal de ceda el paso</h3>
+<p>Es lo más habitual: casi todas las entradas a una glorieta tienen la señal de ceda el paso (la R-1, el triángulo invertido) y su línea pintada en el suelo. Esa señal te obliga a ceder a los vehículos que circulan por la vía a la que te aproximas o por el carril al que pretendes incorporarte.</p>
+<p>En la práctica: esperas en la línea y entras cuando <strong>el carril exterior, que es al que te incorporas, está libre</strong>. Y mientras entras, <strong>vigilas el carril interior</strong>, porque el que va por dentro puede querer pasarse al exterior para salir.</p>
+
+<h3>2. Entrar en una glorieta sin señales</h3>
+<p>Si en esa entrada no hay ninguna señal, la regla cambia: <strong>cedes a todos los que ya circulan dentro</strong>, vayan por el carril que vayan. Lo dicen el artículo 57.1.c del Reglamento General de Circulación y el artículo 23.2.c de la Ley de Tráfico: «en defecto de señal», los que están dentro de la glorieta tienen preferencia sobre los que quieren entrar.</p>
+<p>Y ojo, porque aquí mucha gente se lía: en una glorieta <strong>no hay prioridad a la derecha</strong>. El que viene por tu derecha queriendo entrar no tiene preferencia sobre ti si tú ya estás dentro.</p>
+
+<h3>¿A quién cedes: al carril al que entras o a todos los de dentro?</h3>
+<p>Este es el punto que más debate genera, y hay argumentos en los dos lados:</p>
+<ul>
+<li><strong>Ceder al carril al que te incorporas.</strong> Es lo que se deduce de la definición de la señal de ceda el paso (R-1) y del «en defecto de señal» del artículo 57: la regla de ceder a todos los de dentro se aplica cuando no hay señal. Es la postura que explicamos en el vídeo.</li>
+<li><strong>Ceder a todos los que circulan por la glorieta.</strong> Es como la DGT lo suele resumir en sus campañas: cede el paso a quien ya circula por la glorieta, salvo que una señal indique otra cosa. Es una forma sencilla de recordarlo y, sobre todo, es la opción más prudente.</li>
+</ul>
+<p>Como esta duda nos llega muchísimo, se la planteamos por escrito a la Jefatura Provincial de Tráfico de Barcelona. Esta es su respuesta, del Área de Pruebas de Aptitud (la que se encarga de los exámenes de conducir). Hemos tapado los datos personales y los códigos de verificación del documento:</p>
+<div class="galeria una documento"><figure><a href='img/blog/como-circular-por-una-glorieta/respuesta-dgt.webp' target='_blank' rel='noopener'><img src='img/blog/como-circular-por-una-glorieta/respuesta-dgt-mini.webp' alt='Carta de la Jefatura Provincial de Tráfico de Barcelona sobre la prioridad de paso en glorietas, con los datos personales tapados' width='720' height='689' loading='lazy'></a><figcaption>Respuesta de la Jefatura Provincial de Tráfico de Barcelona, firmada el 6 de agosto de 2025</figcaption></figure></div>
+<p>Lo que viene a decir, en cristiano:</p>
+<ul>
+<li>En una glorieta con varios carriles, <strong>si un coche va por el carril interior y vuestras trayectorias no se cruzan, no tienes por qué detenerte</strong>: puedes entrar al carril exterior y es una maniobra correcta.</li>
+<li>Pero tienes que tener <strong>la certeza plena</strong> de que ese coche no va a cambiarse de carril. Si las trayectorias se cruzan, la preferencia es siempre del que circula por dentro.</li>
+<li>La calzada tiene que ser lo bastante ancha y la trayectoria del de dentro no puede ofrecer ninguna duda. <strong>Si hay la mínima duda, no entres.</strong></li>
+</ul>
+<p>O sea, las dos posturas tienen su parte de razón: la norma te permite entrar al carril libre, pero el que va dentro manda en cuanto puede haber conflicto. Nuestro consejo: entra solo cuando lo tengas clarísimo y, si dudas, espera. Llegar dos segundos tarde no le ha costado un parte a nadie.</p>
+<p>Ten en cuenta que es la respuesta de una jefatura provincial a una consulta concreta: sirve para entender cómo lo interpreta Tráfico, pero no es una norma nueva ni sustituye al Reglamento.</p>
+
+<h3>3. El carril exterior: el de siempre y el de salir</h3>
+<p>La norma general es <strong>entrar por el carril derecho y circular por el exterior</strong>. Es también el carril desde el que se sale, así que si vas a coger la primera o la segunda salida, no tienes nada que hacer en el interior. Antes de llegar a tu salida, <strong>pon el intermitente derecho</strong>.</p>
+
+<h3>4. El carril interior: para ir lejos o cambiar de sentido</h3>
+<p>El interior sirve para las salidas lejanas o para dar la vuelta completa y cambiar de sentido. La secuencia correcta tiene dos cambios de carril:</p>
+<ol>
+<li>Intermitente izquierdo y te pasas al carril interior.</li>
+<li>Antes de tu salida, intermitente derecho, vuelves al exterior y sales desde ahí.</li>
+</ol>
+<p>Un detalle importante: según el artículo 74.2 del Reglamento, quien cambia de carril tiene que respetar la prioridad de quien ya circula por el carril de destino. <strong>El intermitente avisa, pero no te da preferencia.</strong> Si al volver al exterior hay alguien, esperas.</p>
+
+<h3>5. Lo prohibido: salir desde el carril interior</h3>
+<p>La maniobra que la DGT considera ilegal y peligrosa es <strong>salir directamente desde el carril interior cruzándote por delante del que va por el exterior</strong>. Le cortas el paso y es una de las causas típicas de golpes en las rotondas.</p>
+<p>La multa es de <strong>200 €</strong>. Y si la maniobra se considera temeraria, puede llegar a 500 € y 6 puntos.</p>
+
+<h3>6. ¿No hay hueco para salir? Da otra vuelta</h3>
+<p>Si vas por el interior, el exterior va lleno y no consigues pasarte a tiempo, <strong>no fuerces la salida</strong>. Da otra vuelta y sal desde el exterior cuando haya hueco. Pierdes medio minuto; forzándola te puedes llevar un golpe y una multa.</p>
+
+<h3>7. Las dos excepciones</h3>
+<ul>
+<li><strong>Salir desde el interior cuando las marcas lo indican.</strong> Algunas glorietas tienen una línea continua en espiral y flechas de salida pintadas en el carril interior. Con esas marcas sí puedes salir desde dentro, porque la propia glorieta está diseñada para eso.</li>
+<li><strong>Entrar por el izquierdo si el derecho está atascado.</strong> Si el carril derecho de entrada está congestionado, puedes entrar por el izquierdo directamente al carril interior.</li>
+</ul>
+
+<h3>8. Ciclistas en grupo</h3>
+<p>Si un grupo de ciclistas entra en la glorieta y el primero ya ha entrado, <strong>cuentan como un solo vehículo</strong>: tienes que ceder el paso al grupo entero, aunque tú ya estuvieras circulando dentro. Nada de meterte entre ellos.</p>
+
+<h3>Novedad 2026: los peatones</h3>
+<p>Desde el 1 de octubre de 2026 está en vigor el Real Decreto 518/2026, que reforma el Reglamento. En lo que toca a las glorietas, solo cambia una cosa: <strong>los peatones ya no pueden cruzar la glorieta por la calzada</strong> y tienen que usar los pasos de peatones. Para los coches, las reglas son las mismas de siempre.</p>
+
+<h3>El vídeo</h3>
+<p>Lo tienes en nuestros canales de <a href="https://www.youtube.com/@DashcamsEsp" target="_blank" rel="noopener">YouTube</a>, <a href="https://www.instagram.com/dashcams.esp/" target="_blank" rel="noopener">Instagram</a> y <a href="https://www.tiktok.com/@dashcams.esp" target="_blank" rel="noopener">TikTok</a>, en dos versiones: una glorieta genérica de cuatro accesos y la rotonda real junto al Hospital de Sant Joan Despí (Barcelona). Las trayectorias van pintadas: en amarillo lo correcto y en rojo lo prohibido. Compártelo con quien lo necesite (todos tenemos a alguien) y cuéntanos en los comentarios: <strong>¿tú cedes al carril al que entras o a todos los que están dentro?</strong></p>
+<p>Y si tienes grabado algún lío en una rotonda con tu dashcam, <a href="/envia-tu-clip">envíanos tu clip</a>.</p>
+
+<h3>Preguntas frecuentes</h3>
+<h4>¿Quién tiene preferencia en una glorieta?</h4>
+<p>Si la entrada no tiene señales, los que ya circulan dentro. Si tiene ceda el paso, debes ceder al carril al que te incorporas y vigilar el interior. Ante cualquier conflicto de trayectorias, la preferencia es del que va dentro.</p>
+<h4>¿Se puede salir de una glorieta desde el carril interior?</h4>
+<p>No, salvo que las marcas viales (línea en espiral y flechas de salida) lo permitan. Hay que volver al carril exterior antes de salir. Si no, la multa es de 200 €.</p>
+<h4>¿Por qué carril se entra a una glorieta?</h4>
+<p>Por el derecho, si está libre. Si está atascado, puedes entrar por el izquierdo directamente al carril interior.</p>
+<h4>¿Qué ha cambiado en las glorietas en 2026?</h4>
+<p>Solo lo de los peatones: desde el 1 de octubre de 2026 no pueden cruzar la glorieta por la calzada. Para los conductores, las normas no cambian.</p>
+
+<h3>Fuentes</h3>
+<ul>
+<li><a href="https://www.dgt.es/comunicacion/noticias/glorietas-como-actuar-en-6-situaciones-habituales" target="_blank" rel="noopener">DGT: Glorietas, cómo actuar en 6 situaciones habituales</a></li>
+<li><a href="https://www.dgt.es/comunicacion/noticias/glorietas-las-imprudencias-mas-peligrosas" target="_blank" rel="noopener">DGT: Glorietas, las imprudencias más peligrosas</a></li>
+<li><a href="https://tuteorica.com/legislacion/texto-refundido-ley-de-trafico/23-normas-generales-de-preferencia-de-paso/" target="_blank" rel="noopener">Ley de Tráfico, artículo 23: normas generales de preferencia de paso</a></li>
+<li><a href="https://tuteorica.com/normativa-de-trafico/rgc/intersecciones-sin-senalizar-art-57-rgcir/" target="_blank" rel="noopener">Reglamento General de Circulación, artículo 57: intersecciones sin señalizar</a></li>
+<li><a href="https://tuteorica.com/normativa-de-trafico/rgc/normas-generales-cambios-direccion-art-74-rgcir/" target="_blank" rel="noopener">Reglamento General de Circulación, artículo 74: cambios de carril</a></li>
+<li><a href="https://www.race.es/senal-r-3-calzada-prioridad" target="_blank" rel="noopener">RACE: señales de prioridad (R-1)</a></li>
+<li><a href="https://www.elespanol.com/motor/20260506/entrado-vigor-multas-eur-puntos-circular-rotonda-reglamento-circulacion/1003744234219_0.html" target="_blank" rel="noopener">El Español: multas por circular mal en una rotonda</a></li>
+<li><a href="https://www.boe.es/boe/dias/2026/06/26/pdfs/BOE-A-2026-13889.pdf" target="_blank" rel="noopener">BOE: Real Decreto 518/2026</a></li>
+<li>Respuesta escrita de la Jefatura Provincial de Tráfico de Barcelona (Área de Pruebas de Aptitud), 6 de agosto de 2025</li>
+</ul>
+`},
 {id:"es-legal-una-dashcam", portada:"img/blog/es-legal-una-dashcam/portada.webp", portadaAlt:"Dashcam grabando la carretera junto a un mazo de juez y un libro de la Ley de Tráfico, con el texto «¿Es legal una dashcam?»", seo:["¿Es legal una dashcam en España? Lo que dicen la DGT y la AEPD","Sí, llevar una dashcam es legal en España, pero hay límites: dónde colocarla, qué grabar y, sobre todo, qué hacer con los vídeos. Te lo explicamos."],
  titulo:"¿Es legal una dashcam en España? Lo que dicen la DGT y la AEPD", tipo:"Guía", fecha:"3 nov 2026", lectura:"5 min", nota:"", amazon:"",
  resumen:"Llevar una dashcam es legal, pero con límites: dónde colocarla para no tapar la visión, qué pasa con la protección de datos, si sirve como prueba y qué puedes publicar en redes.",

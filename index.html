@@ -249,6 +249,8 @@ h3.sub{margin:1.5rem 0 .75rem;}
 .galeria figcaption{font-size:.85rem;color:var(--muted);margin-top:.3rem;}
 .galeria.una{grid-template-columns:1fr;}
 .galeria.una img{aspect-ratio:16/9;}
+.galeria.documento img{aspect-ratio:auto;object-fit:contain;max-width:36rem;margin:0 auto;border:1px solid var(--line);box-shadow:0 6px 18px rgba(0,0,0,.12);}
+.galeria.documento figcaption{text-align:center;}
 @media(max-width:30rem){.galeria{grid-template-columns:1fr;}}
 /* Visor de fotos */
 dialog.lb{padding:0;border:0;margin:0;width:100vw;height:100vh;max-width:none;max-height:none;background:rgba(10,14,18,.94);color:#f2f5f7;overflow:hidden;}
@@ -298,7 +300,7 @@ html.lb-on{overflow:hidden;}
 <header class="hero" data-view="inicio">
   <div class="wrap">
     <div class="frame">
-      <div class="osd"><span class="rec"><i></i>REC</span><span id="clock">15:26:44</span><span>1080p · 30 fps</span></div>
+      <div class="osd"><span class="rec"><i></i>REC</span><span id="clock">21:09:43</span><span>1080p · 30 fps</span></div>
       <h1>Encuentra la dashcam ideal para ti</h1>
       <p>No importa si buscas una dashcam económica o un modelo de alta gama con grabación en 4K y funciones avanzadas. Aquí te ayudamos a encontrar la mejor opción para tu presupuesto y necesidades.</p>
       <div class="btns">
@@ -484,7 +486,7 @@ function btn(u,n){var t=/amazon\.|amzn\.to/.test(u)?(u.indexOf("/s?k=")>-1?"Busc
 /* ===== VÍDEOS: en tu dominio se incrustan con el reproductor de YouTube; aquí, como tarjeta con enlace =====
    Añade tu dominio a la lista si lo cambias. */
 var INCRUSTAR = /(^|\.)dashcams\.es$|\.github\.io$|\.hostingersite\.com$/.test(location.hostname);
-var DIM={"img/blog/es-legal-una-dashcam/portada.webp":[1600,900],"img/blog/ddpai-z60-pro/portada.webp":[1600,900],"img/blog/instalar/portada.webp":[768,432],"img/blog/que-dashcam-comprar/portada.webp":[1024,434],"img/blog/vantrue-n5/portada.webp":[1024,535],"img/blog/viofo-a329/portada.webp":[1024,535],"img/blog/viofo-vs1/portada.webp":[1024,535]};
+var DIM={"img/blog/como-circular-por-una-glorieta/portada.webp":[1600,900],"img/blog/es-legal-una-dashcam/portada.webp":[1600,900],"img/blog/ddpai-z60-pro/portada.webp":[1600,900],"img/blog/instalar/portada.webp":[768,432],"img/blog/que-dashcam-comprar/portada.webp":[1024,434],"img/blog/vantrue-n5/portada.webp":[1024,535],"img/blog/viofo-a329/portada.webp":[1024,535],"img/blog/viofo-vs1/portada.webp":[1024,535]};
 function dim(src){var d=DIM[src];return d?" width='"+d[0]+"' height='"+d[1]+"'":"";}
 function vid(id, t){
   if(!id)return "";
@@ -492,6 +494,9 @@ function vid(id, t){
   return "<a class='vcard' href='https://www.youtube.com/watch?v="+id+"' target='_blank' rel='noopener'><span class='vosd'><span class='rec'><i></i>REC</span><span>YouTube · Dashcams ESP</span></span><span class='vplay' aria-hidden='true'>▶</span><span class='vtxt'>Ver el vídeo en YouTube</span></a>";
 }
 var POSTS = [
+{id:"como-circular-por-una-glorieta", seo:["Cómo circular por una glorieta en España: normativa 2026","Quién tiene preferencia, qué carril usar y desde dónde salir de una glorieta según la normativa de 2026, con la respuesta por escrito de la DGT sobre la prioridad."], video:"", portada:"img/blog/como-circular-por-una-glorieta/portada.webp", portadaAlt:"Vista aérea de una glorieta animada con el texto «¿Cómo se circula por una glorieta? Normativa 2026»", titulo:"Cómo circular por una glorieta en España: lo que dice la normativa en 2026", tipo:"Guía", fecha:"12 nov 2026", lectura:"6 min", nota:"", amazon:"",
+ resumen:"Quién tiene preferencia, por qué carril entrar, desde dónde salir y qué cambia en 2026. Incluye la respuesta por escrito que nos dio la DGT sobre la prioridad en glorietas de varios carriles.",
+ cuerpo:""},
 {id:"es-legal-una-dashcam", portada:"img/blog/es-legal-una-dashcam/portada.webp", portadaAlt:"Dashcam grabando la carretera junto a un mazo de juez y un libro de la Ley de Tráfico, con el texto «¿Es legal una dashcam?»", seo:["¿Es legal una dashcam en España? Lo que dicen la DGT y la AEPD","Sí, llevar una dashcam es legal en España, pero hay límites: dónde colocarla, qué grabar y, sobre todo, qué hacer con los vídeos. Te lo explicamos."],
  titulo:"¿Es legal una dashcam en España? Lo que dicen la DGT y la AEPD", tipo:"Guía", fecha:"3 nov 2026", lectura:"5 min", nota:"", amazon:"",
  resumen:"Llevar una dashcam es legal, pero con límites: dónde colocarla para no tapar la visión, qué pasa con la protección de datos, si sirve como prueba y qué puedes publicar en redes.",
@@ -565,7 +570,7 @@ var POSTS = [
     <h2>Análisis y guías</h2>
     <p>Dashcams probadas en carretera por el canal y guías para elegir bien. ¿Con prisa? Mira las <a href="/mejores-dashcams">mejores dashcams de 2026</a> o usa el <a href="/recomendador">recomendador</a>.</p>
     <ul class="posts" id="ultimos"><li class="post"><a class="pimg" href="/ddpai-z60-pro" tabindex="-1" aria-hidden="true"><img src="img/blog/ddpai-z60-pro/portada.webp" alt="" width="1600" height="900" loading="lazy" decoding="async"></a><h3><a href="/ddpai-z60-pro">DDPAI Z60 Pro: tres cámaras y módulo LTE para tener el coche bajo control</a></h3><p class="meta">Análisis, 2 nov 2026</p></li><li class="post"><a class="pimg" href="/viofo-a329" tabindex="-1" aria-hidden="true"><img src="img/blog/viofo-a329/portada.webp" alt="" width="1024" height="535" loading="lazy" decoding="async"></a><h3><a href="/viofo-a329">Viofo A329: esto sí es calidad</a></h3><p class="meta">Análisis, 1 jun 2025. Nota: 9,2</p></li><li class="post"><a class="pimg" href="/vantrue-n5" tabindex="-1" aria-hidden="true"><img src="img/blog/vantrue-n5/portada.webp" alt="" width="1024" height="535" loading="lazy" decoding="async"></a><h3><a href="/vantrue-n5">La dashcam definitiva: análisis completo de la Vantrue N5 con 4 cámaras</a></h3><p class="meta">Análisis, 8 mar 2025. Nota: 9,1</p></li></ul>
-    <ul class="guias" id="guias"><li><a href="/es-legal-una-dashcam">¿Es legal una dashcam en España? Lo que dicen la DGT y la AEPD</a></li><li><a href="/mejores-dashcams">Mejores dashcams 2026: cuál comprar según tu uso</a></li><li><a href="/que-dashcam-comprar">¿Qué dashcam comprar? Precio, calidad y funcionalidades</a></li><li><a href="/que-es-una-dashcam">¿Qué es una dashcam y por qué deberías tener una?</a></li><li><a href="/como-instalar-una-dashcam">Guía completa: cómo instalar una dashcam fácilmente en tu coche</a></li></ul>
+    <ul class="guias" id="guias"><li><a href="/como-circular-por-una-glorieta">Cómo circular por una glorieta en España: lo que dice la normativa en 2026</a></li><li><a href="/es-legal-una-dashcam">¿Es legal una dashcam en España? Lo que dicen la DGT y la AEPD</a></li><li><a href="/mejores-dashcams">Mejores dashcams 2026: cuál comprar según tu uso</a></li><li><a href="/que-dashcam-comprar">¿Qué dashcam comprar? Precio, calidad y funcionalidades</a></li><li><a href="/que-es-una-dashcam">¿Qué es una dashcam y por qué deberías tener una?</a></li><li><a href="/como-instalar-una-dashcam">Guía completa: cómo instalar una dashcam fácilmente en tu coche</a></li></ul>
     <p><a class="btn2" href="/blog">Ver todo el blog</a></p>
   </div>
 </section>
