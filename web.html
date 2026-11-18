@@ -183,7 +183,7 @@ dd{margin:.35rem 0 0;color:var(--muted);}
 
 /* Divulgación y merch */
 .split{display:grid;gap:1.5rem;grid-template-columns:1fr;}
-@media(min-width:48rem){.split{grid-template-columns:3fr 2fr;}}
+@media(min-width:60rem){.split{grid-template-columns:3fr 2fr;}}
 .panel{background:var(--surface);border:1px solid var(--line);border-radius:6px;padding:1.5rem;}
 .panel.merch{border-left:6px solid var(--accent);}
 .prods{display:grid;gap:.75rem;grid-template-columns:repeat(3,minmax(0,1fr));margin:1rem 0 1.25rem;}
@@ -201,6 +201,7 @@ footer p{max-width:70ch;}
 .form{display:grid;gap:1rem;align-content:start;}
 .form label{display:grid;gap:.3rem;font-weight:600;}
 .form input:not([type=radio]):not([type=checkbox]),.form textarea{font:inherit;font-weight:400;padding:.65rem .75rem;border:1px solid var(--line);border-radius:4px;background:var(--bg);color:var(--text);width:100%;}
+.form input::placeholder{text-overflow:ellipsis;}
 .form textarea{resize:vertical;}
 .form fieldset{border:1px solid var(--line);border-radius:6px;padding:.75rem 1rem 1rem;margin:0;display:grid;gap:.6rem;}
 .form legend{font-weight:600;padding:0 .3rem;}
@@ -1007,7 +1008,7 @@ var POSTS = [
     </fieldset>
   </div>
   <div class="si" data-si="Llavero" hidden>
-    <label>Tiempo en el nivel de membresía (meses)*<input name="Meses en el nivel" required inputmode="numeric" placeholder="Indica solo el número de meses"></label>
+    <label>Tiempo en el nivel de membresía (meses)*<input name="Meses en el nivel" required inputmode="numeric" placeholder="Por ejemplo, 6"></label>
     <fieldset><legend>¿Dónde te enviamos el llavero?*</legend>
       <label>Calle y número*<input name="Calle y número" required autocomplete="address-line1"></label>
       <label>Piso<input name="Piso" autocomplete="address-line2"></label>
@@ -1043,10 +1044,10 @@ var POSTS = [
 </div>
 <form class="panel form" id="clipform" novalidate>
   <label>Correo electrónico*<input name="correo" type="email" required autocomplete="email" placeholder="Para avisarte si lo publicamos"></label>
-  <label>¿Cómo quieres aparecer en el vídeo?<input name="aparecer" autocomplete="nickname" placeholder="Tu @ de Instagram o TikTok, un apodo o «anónimo»"></label>
+  <label>¿Cómo quieres aparecer en el vídeo?<input name="aparecer" autocomplete="nickname" placeholder="@usuario, apodo o «anónimo»"></label>
   <div class="two">
     <label>Lugar<input name="lugar" placeholder="Ciudad o pueblo"></label>
-    <label>Carretera<input name="carretera" placeholder="Calle, carretera o km"></label>
+    <label>Carretera<input name="carretera" placeholder="Calle o carretera"></label>
   </div>
   <label>¿Qué pasó?<textarea name="descripcion" rows="4" placeholder="Cuéntanos qué se ve en el vídeo y, si es largo, en qué minuto"></textarea></label>
   <label>Vídeos*<input name="videos" type="file" required multiple accept="video/*,.mp4,.mov,.avi,.mkv,.ts,.mts,.m2ts,.m4v"></label>
