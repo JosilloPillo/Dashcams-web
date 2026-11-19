@@ -12,7 +12,7 @@
 <meta property="og:title" content="¿Qué es una dashcam y para qué sirve? | Dashcams España">
 <meta property="og:description" content="Qué es una dashcam y para qué sirve: graba lo que pasa en la carretera y aporta pruebas en reclamaciones y ante el seguro.">
 <meta property="og:url" content="https://dashcams.es/que-es-una-dashcam">
-<meta property="og:image" content="https://dashcams.es/og-image.png">
+<meta property="og:image" content="https://dashcams.es/og-dashcams.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:image:alt" content="Dashcams España: encuentra la dashcam ideal para ti">
@@ -299,7 +299,7 @@ html.lb-on{overflow:hidden;}
 </style>
 <script type="application/ld+json">
 {"@context":"https://schema.org","@graph":[
- {"@type":"Organization","@id":"https://dashcams.es/#org","name":"Dashcams España","url":"https://dashcams.es/","logo":"https://dashcams.es/og-image.png",
+ {"@type":"Organization","@id":"https://dashcams.es/#org","name":"Dashcams España","url":"https://dashcams.es/","logo":"https://dashcams.es/logo-dashcams.png",
   "sameAs":["https://www.youtube.com/@DashcamsEsp","https://www.instagram.com/dashcams.esp/","https://www.tiktok.com/@dashcams.esp"]},
  {"@type":"WebSite","@id":"https://dashcams.es/#web","url":"https://dashcams.es/","name":"Dashcams España","inLanguage":"es-ES","publisher":{"@id":"https://dashcams.es/#org"}},
  {"@type":"WebApplication","name":"Recomendador de dashcams: ¿qué dashcam comprar?","url":"https://dashcams.es/recomendador","applicationCategory":"UtilitiesApplication","operatingSystem":"Cualquiera (navegador web)","inLanguage":"es-ES",
@@ -705,7 +705,7 @@ var DASHCAMS = [
   function iso(f){var x=String(f||"").split(" ");if(x.length!==3||!MES[x[1]])return undefined;var m=+MES[x[1]];return x[2]+"-"+MES[x[1]]+"-"+("0"+x[0]).slice(-2)+"T12:00:00"+(m>=4&&m<=10?"+02:00":"+01:00");}
   function seo(v,perdida){
     var h1=document.querySelector("[data-view='"+v+"'] h1"),s=SEO[v]||[(h1?h1.textContent:"Dashcams España")+" | Dashcams España",SEO.inicio[1]],url="https://dashcams.es"+ruta(v);
-    var post=POSTMAP[v],img="https://dashcams.es/"+(post&&post.portada?post.portada:"og-image.png");
+    var post=POSTMAP[v],img="https://dashcams.es/"+(post&&post.portada?post.portada:"og-dashcams.png");
     document.title=s[0];pon('meta[name="description"]',s[1]);pon('link[rel="canonical"]',url);
     pon('meta[property="og:title"]',s[0]);pon('meta[property="og:description"]',s[1]);pon('meta[property="og:url"]',url);
     pon('meta[property="og:type"]',post?"article":"website");pon('meta[property="og:image"]',img);pon('meta[property="og:image:alt"]',post&&post.portadaAlt?post.portadaAlt:"Dashcams España: encuentra la dashcam ideal para ti");
