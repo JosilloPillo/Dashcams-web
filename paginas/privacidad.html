@@ -475,7 +475,9 @@ var VAL={
 function compra(n,u){u=u||amz(n);var h=btn(u,n);if(AE[n]&&u.indexOf("aliexpress.")<0)h+=btn(AE[n],n);return "<span class='botones'>"+h+"</span>";}
 /* Varios modelos en la misma sección: una fila por modelo con su nombre delante de los botones */
 function compraCon(etq,n,u){return "<div class='compra-modelo'><span class='cm-nombre'>"+etq+"</span>"+compra(n,u)+"</div>";}
-function btn(u,n){var t=/amazon\.|amzn\.to/.test(u)?(u.indexOf("/s?k=")>-1?"Buscar en Amazon":"Ver en Amazon"):u.indexOf("aliexpress.")>-1?"Ver en AliExpress":/viofo\.com/.test(u)?"Ver en la web de VIOFO":/powerplanetonline\./.test(u)?"Ver en PowerPlanet":"Ver en la tienda";return "<a class='buy' href='"+u+"'"+(n?" data-modelo='"+String(n).replace(/'/g,"&#39;")+"'":"")+" target='_blank' rel='"+(/amazon\.|amzn\.to|aliexpress\./.test(u)?"sponsored noopener":"noopener")+"'>"+t+"</a>";}
+/* Enlaces de afiliado de PowerPlanet (Awin): PP("url de la ficha") */
+function PP(u){return "https://www.awin1.com/cread.php?awinmid=77138&awinaffid=3160333&ued="+encodeURIComponent(u);}
+function btn(u,n){var t=/amazon\.|amzn\.to/.test(u)?(u.indexOf("/s?k=")>-1?"Buscar en Amazon":"Ver en Amazon"):u.indexOf("aliexpress.")>-1?"Ver en AliExpress":/viofo\.com/.test(u)?"Ver en la web de VIOFO":/powerplanetonline\./.test(u)?"Ver en PowerPlanet":"Ver en la tienda";return "<a class='buy' href='"+u+"'"+(n?" data-modelo='"+String(n).replace(/'/g,"&#39;")+"'":"")+" target='_blank' rel='"+(/amazon\.|amzn\.to|aliexpress\.|awin1\./.test(u)?"sponsored noopener":"noopener")+"'>"+t+"</a>";}
 
 /* ===== BLOG: cada artículo es un bloque de esta lista (el primero sale el primero en el blog) =====
    Para añadir un artículo, copia esta PLANTILLA al principio de POSTS y rellénala:
@@ -656,8 +658,8 @@ var POSTS = [
       <li><a href="https://www.tiktok.com/@dashcams.esp" rel="noopener">TikTok</a></li>
     </ul>
     <p>Contacto: <a href="mailto:info@dashcams.es">info@dashcams.es</a></p>
-    <p>Esta página contiene enlaces de afiliado de Amazon y AliExpress. Si compras a través de ellos, podemos recibir una comisión sin coste extra para ti. Como afiliado de Amazon, obtenemos ingresos por las compras adscritas que cumplen los requisitos aplicables.</p>
-    <p>Las características y los precios pueden cambiar: confírmalos siempre en la ficha de Amazon antes de comprar.</p>
+    <p>Esta página contiene enlaces de afiliado de Amazon, AliExpress y PowerPlanet. Si compras a través de ellos, podemos recibir una comisión sin coste extra para ti. Como afiliado de Amazon, obtenemos ingresos por las compras adscritas que cumplen los requisitos aplicables.</p>
+    <p>Las características y los precios pueden cambiar: confírmalos siempre en la tienda antes de comprar.</p>
     <ul class="links">
       <li><a href="/sobre-nosotros">Sobre nosotros</a></li>
       <li><a href="/privacidad">Política de privacidad</a></li>
@@ -919,8 +921,8 @@ var DASHCAMS = [
   var EX={gps:[3,"GPS"],wifi:[4,"WiFi y app"],voz:[6,"Control por voz"]};
   function precio(n){var t=(PR[n]||"").replace(/\./g,"").match(/\d+/g);if(!t)return 0;t=t.slice(0,2).map(Number);return t.length>1?(t[0]+t[1])/2:t[0];}
   var GRANDES=[
-   ["VIOFO A329WW 3CH","unos 380-400 €",["Delantera 4K y dos cámaras exteriores impermeables (IP67) en 2K","Cables de 3 a 15 metros según el vehículo","Adaptador de 12 y 24 V incluido","Disco SSD de hasta 4 TB para jornadas largas"],["https://www.powerplanetonline.com/es/viofo-a329ww-3canales-camara-frontal-doble-camara-strasera-camara-para-salpicadero","https://viofo.com/products/viofo-a329ww-3ch-4k-front-dual-2k-hdr-waterproof-rear-cameras-with-sony-starvis-2-sensor"]],
-   ["VIOFO A329SW 2CH","unos 320 €",["Delantera 4K y una cámara trasera exterior impermeable","Para furgonetas o autocaravanas en las que basta con grabar detrás"],["https://www.powerplanetonline.com/es/viofo-a329sw-2ch-dashcam-4k-2k-gps-wifi-6-140-vision-nocturna-hdr"]]
+   ["VIOFO A329WW 3CH","unos 380-400 €",["Delantera 4K y dos cámaras exteriores impermeables (IP67) en 2K","Cables de 3 a 15 metros según el vehículo","Adaptador de 12 y 24 V incluido","Disco SSD de hasta 4 TB para jornadas largas"],[PP("https://www.powerplanetonline.com/es/viofo-a329ww-3canales-camara-frontal-doble-camara-strasera-camara-para-salpicadero"),"https://viofo.com/products/viofo-a329ww-3ch-4k-front-dual-2k-hdr-waterproof-rear-cameras-with-sony-starvis-2-sensor"]],
+   ["VIOFO A329SW 2CH","unos 320 €",["Delantera 4K y una cámara trasera exterior impermeable","Para furgonetas o autocaravanas en las que basta con grabar detrás"],[PP("https://www.powerplanetonline.com/es/viofo-a329sw-2ch-dashcam-4k-2k-gps-wifi-6-140-vision-nocturna-hdr")]]
   ];
   function grande(){return ans.uso==="grande";}
   var QS=[
@@ -1401,10 +1403,10 @@ var MERCH = [
       if(d==="si")cargar();else{borrarCookiesGA();if(window.gtag)location.reload();}
     });
   }
-  /* Clics en los botones de compra (Amazon, AliExpress, web oficial) con el modelo */
+  /* Clics en los botones de compra (Amazon, AliExpress, PowerPlanet, web oficial) con el modelo */
   document.addEventListener("click",function(e){
     var a=e.target.closest&&e.target.closest("a[href]");if(!a||!window.gtag)return;
-    var h=a.href;var tienda=/amzn\.to|amazon\./.test(h)?"Amazon":/aliexpress/.test(h)?"AliExpress":/viofo\.com/.test(h)?"Web VIOFO":/tienda\.dashcams/.test(h)?"Tienda merch":"";
+    var h=a.href;var tienda=/amzn\.to|amazon\./.test(h)?"Amazon":/aliexpress/.test(h)?"AliExpress":/awin1\.com|powerplanetonline/.test(h)?"PowerPlanet":/viofo\.com/.test(h)?"Web VIOFO":/tienda\.dashcams/.test(h)?"Tienda merch":"";
     if(!tienda)return;
     var modelo=a.getAttribute("data-modelo")||"";
     if(!modelo){var cont=a.closest("article,.post,section"),t=cont&&cont.querySelector("h3,h1");modelo=t?t.textContent.trim().slice(0,80):"";}
