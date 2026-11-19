@@ -715,10 +715,11 @@ var DASHCAMS = [
   function iso(f){var x=String(f||"").split(" ");if(x.length!==3||!MES[x[1]])return undefined;var m=+MES[x[1]];return x[2]+"-"+MES[x[1]]+"-"+("0"+x[0]).slice(-2)+"T12:00:00"+(m>=4&&m<=10?"+02:00":"+01:00");}
   function seo(v,perdida){
     var h1=document.querySelector("[data-view='"+v+"'] h1"),s=SEO[v]||[(h1?h1.textContent:"Dashcams España")+" | Dashcams España",SEO.inicio[1]],url="https://dashcams.es"+ruta(v);
-    var post=POSTMAP[v],img="https://dashcams.es/"+(post&&post.portada?post.portada.replace(/\.webp$/,".jpg"):"og-dashcams.png");
+    var OGIMG={"recomendaciones":["og-recomendador.png","Recomendador de dashcams: responde 7 preguntas y descubre qué dashcam comprar"],"enviar-clip":["og-envia-tu-clip.png","Envía tu clip de dashcam a Dashcams España"]};
+    var post=POSTMAP[v],ogp=OGIMG[v],img="https://dashcams.es/"+(post&&post.portada?post.portada.replace(/\.webp$/,".jpg"):ogp?ogp[0]:"og-dashcams.png");
     document.title=s[0];pon('meta[name="description"]',s[1]);pon('link[rel="canonical"]',url);
     pon('meta[property="og:title"]',s[0]);pon('meta[property="og:description"]',s[1]);pon('meta[property="og:url"]',url);
-    pon('meta[property="og:type"]',post?"article":"website");pon('meta[property="og:image"]',img);pon('meta[property="og:image:alt"]',post&&post.portadaAlt?post.portadaAlt:"Dashcams España: encuentra la dashcam ideal para ti");
+    pon('meta[property="og:type"]',post?"article":"website");pon('meta[property="og:image"]',img);pon('meta[property="og:image:alt"]',post&&post.portadaAlt?post.portadaAlt:ogp?ogp[1]:"Dashcams España: encuentra la dashcam ideal para ti");
     var d=post&&post.portada&&typeof DIM!=="undefined"&&DIM[post.portada]||[1200,630];pon('meta[property="og:image:width"]',String(d[0]));pon('meta[property="og:image:height"]',String(d[1]));
     var nr=document.querySelector('meta[name="robots"]'),no=perdida||NOINDEX[v];
     if(no){if(!nr){nr=document.createElement("meta");nr.name="robots";document.head.appendChild(nr);}nr.content="noindex, follow";}else if(nr)nr.remove();
