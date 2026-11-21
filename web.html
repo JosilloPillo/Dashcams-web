@@ -411,7 +411,7 @@ function enlace(v){return v==="inicio"?"/":"/"+(SLUG[v]||v);}
 /* ASIN = el código de 10 caracteres que aparece en la URL de Amazon después de /dp/. Para añadir un modelo: "Nombre exacto":"ASIN". Si un modelo no tiene ASIN, se enlaza a una búsqueda en Amazon con tu etiqueta. */
 var ASIN = {
 "Viofo A119 Mini 2":"B0C5J4FXXH","Viofo A119M Pro 4K":"B0FY51ZHZP","Viofo A129 Pro Duo":"B07RZP8K3Y","Viofo A229 Pro 2CH":"B0CL682MRR","Viofo A229 Pro 3CH":"B0CL7Q6RJW","Viofo A229 Ultra 4K 2CH":"B0FQJBZP7J","Viofo A329S 3CH 4K":"B0FFT2ZCBP","Viofo A329S 2CH 4K":"B0FFSZK858",
-"Vantrue N4S 3CH":"B0F59T1B4N","Vantrue N5S 4CH":"B0F8BWJHW4","Vantrue E1 Pro 4K Mini":"B0DSKXJV3H","Vantrue S1 Pro":"B0F4WK84NS",
+"Vantrue N4S 3CH":"B0F59T1B4N","Vantrue F1":"B0C1Z7B5Y1","INNOVV K6":"B0CJ8PBWSQ","INNOVV K7":"B0D2HP881P","Chigee AIO-6":"B0DWWXWY8J","Insta360 X6":"B0H5CR9LZF","Insta360 X5":"B0DZCBYCNY","DJI Osmo 360 II":"B0GL1MX4N2","DJI Osmo Action 6":"B0FM3X3DW5","GoPro Mission 1":"B0GZSQDD9V","Vantrue N5S 4CH":"B0F8BWJHW4","Vantrue E1 Pro 4K Mini":"B0DSKXJV3H","Vantrue S1 Pro":"B0F4WK84NS",
 "Thinkware U3000 Pro 4K":"B0FZW91Y7G","Thinkware Q200":"B0CRZ3SC54","Thinkware F70 Pro":"B0C8HGNZT2","BlackVue Elite 9 2CH":"B0F2JJ4NDG",
 "Nextbase 622GW":"B0F8W2FW85","Nextbase 522GW":"B07PV2RX57","Nextbase 422GW":"B07PV1Q979","Nextbase 322GW":"B07PV198QC","Nextbase Piqo 2K":"B0DD7Z338X","Nextbase iQ":"B0CT929JR8",
 "Garmin Dash Cam 57":"B0932FTP6D","DDPAI Z50 Pro":"B0F4D44JTC","DDPAI N5 Dual":"B0CYC7D8PX","DDPAI N4T Pro 3CH":"B0H74QSMBS","DDPAI N2 Dual":"B0HDRW9X69","DDPAI Mini Pro":"B0H3Z8M52C",
@@ -564,7 +564,7 @@ function btn(u,n){var t=/amazon\.|amzn\.to/.test(u)?(u.indexOf("/s?k=")>-1?"Busc
 /* ===== VÍDEOS: en tu dominio se incrustan con el reproductor de YouTube; aquí, como tarjeta con enlace =====
    Añade tu dominio a la lista si lo cambias. */
 var INCRUSTAR = /(^|\.)dashcams\.es$|\.github\.io$|\.hostingersite\.com$/.test(location.hostname);
-var DIM={"img/blog/que-es-una-dashcam/portada.webp":[1600,900],"img/blog/mejores-dashcams/portada.webp":[1600,900],"img/blog/dashcam-camion-autobus-furgoneta/portada.webp":[1600,900],"img/blog/como-circular-por-una-glorieta/portada.webp":[1600,900],"img/blog/es-legal-una-dashcam/portada.webp":[1600,900],"img/blog/ddpai-z60-pro/portada.webp":[1600,900],"img/blog/instalar/portada.webp":[768,432],"img/blog/que-dashcam-comprar/portada.webp":[1024,434],"img/blog/vantrue-n5/portada.webp":[1024,535],"img/blog/viofo-a329/portada.webp":[1024,535],"img/blog/viofo-vs1/portada.webp":[1024,535]};
+var DIM={"img/blog/dashcam-para-moto/portada.webp":[1600,900],"img/blog/que-es-una-dashcam/portada.webp":[1600,900],"img/blog/mejores-dashcams/portada.webp":[1600,900],"img/blog/dashcam-camion-autobus-furgoneta/portada.webp":[1600,900],"img/blog/como-circular-por-una-glorieta/portada.webp":[1600,900],"img/blog/es-legal-una-dashcam/portada.webp":[1600,900],"img/blog/ddpai-z60-pro/portada.webp":[1600,900],"img/blog/instalar/portada.webp":[768,432],"img/blog/que-dashcam-comprar/portada.webp":[1024,434],"img/blog/vantrue-n5/portada.webp":[1024,535],"img/blog/viofo-a329/portada.webp":[1024,535],"img/blog/viofo-vs1/portada.webp":[1024,535]};
 function dim(src){var d=DIM[src];return d?" width='"+d[0]+"' height='"+d[1]+"'":"";}
 function vid(id, t){
   if(!id)return "";
@@ -581,6 +581,101 @@ function nombreTema(k){for(var i=0;i<TEMAS.length;i++)if(TEMAS[i][0]===k)return 
 /* Destacados fijos arriba del blog: id de artículo o una herramienta {href,titulo,resumen,img} */
 var FIJADOS=["mejores-dashcams",{href:"/recomendador",titulo:"Recomendador: qué dashcam comprar en un minuto",resumen:"Responde 7 preguntas y te decimos qué dashcams encajan contigo, con su precio.",img:"og-recomendador.png",dim:[1200,630],tipo:"Herramienta"},"es-legal-una-dashcam","instalar"];
 var POSTS = [
+{id:"dashcam-para-moto", seo:["Dashcam para moto y cámaras de acción: cuál comprar en 2026","Qué dashcam para moto merece la pena, qué cámaras de acción usan los moteros (Insta360, DJI, GoPro) y si es legal llevar la cámara en el casco."], portada:"img/blog/dashcam-para-moto/portada.webp", portadaAlt:"Ilustración de una moto vista desde arriba con una cámara delante, otra detrás y una cámara 360 en un palo, junto al título «Cámaras para moto»", titulo:"Cámaras para moto: dashcams y cámaras de acción, cuál elegir", tipo:"Guía de compra", fecha:"21 nov 2026", lectura:"8 min", nota:"", amazon:"",
+ resumen:"Qué dashcam para moto merece la pena, qué cámaras de acción se ven más en ruta (Insta360, DJI, GoPro) y por qué es mejor no llevarla en el casco.",
+ cuerpo:`
+<p>Es de las preguntas que más nos llegan: «¿y para la moto qué me compro?». Hay dos tipos de cámara que encajan, y sirven para cosas distintas. Una <strong>dashcam de moto</strong> va fija, se enciende sola con el contacto y graba delante y detrás en todos los trayectos: es la que te salva si alguien te embiste. Una <strong>cámara de acción</strong> (Insta360, DJI, GoPro) no es una dashcam, pero graba con muchísima más calidad y es la que usa casi todo el mundo para grabar rutas y subir vídeos. Aquí tienes las dos, sin cámaras de marcas desconocidas que no recomendaríamos a nadie.</p>
+<p class="note">Precios orientativos revisados en noviembre de 2026. Comprueba siempre el precio y lo que incluye la caja en la tienda antes de comprar.</p>
+
+<h3>Dashcam de moto o cámara de acción: en qué se diferencian</h3>
+<ul>
+<li><strong>Dashcam de moto:</strong> se instala una vez y te olvidas. Se conecta a la batería, arranca y se apaga con el contacto, graba en bucle delante y detrás, y guarda el vídeo automáticamente si detecta un golpe. Calidad suficiente para ver qué pasó, pero no es para hacer vídeos bonitos.</li>
+<li><strong>Cámara de acción:</strong> imagen y estabilización muy superiores, y en las 360 puedes elegir el encuadre después. Pero funciona con batería (de 2 a 5 horas según el modelo), hay que acordarse de encenderla y, si no la quitas, se queda en la moto a la vista de todos.</li>
+</ul>
+<p>Si lo que quieres es <strong>tener pruebas</strong> en caso de accidente, ve a por una dashcam de moto. Si quieres <strong>grabar tus rutas</strong>, una cámara de acción. Muchos moteros llevan las dos.</p>
+
+<h3>Qué mirar en una dashcam para moto</h3>
+<ul>
+<li><strong>Todo impermeable:</strong> las cámaras y la unidad principal tienen que aguantar lluvia y polvo (IP67). Una dashcam de coche no sirve: no es estanca y no aguanta la vibración.</li>
+<li><strong>Dos cámaras:</strong> una delante y otra detrás. En moto, los alcances por detrás son de los golpes más habituales.</li>
+<li><strong>Arranque con el contacto:</strong> que se conecte a la batería y se encienda y apague sola con la llave.</li>
+<li><strong>Mando en el manillar:</strong> para guardar un vídeo al momento sin soltar el puño más de un segundo.</li>
+<li><strong>GPS y app por wifi:</strong> el GPS añade velocidad y ubicación al vídeo, y la app te deja ver y descargar los clips en el móvil.</li>
+<li><strong>Instalación:</strong> hay que desmontar asiento, depósito o carenado para pasar cables. Si no te ves con ello, mejor en un taller.</li>
+</ul>
+
+<h3>Las dashcams para moto que recomendamos</h3>
+<p>No las hemos probado todavía nosotros: las hemos elegido por especificaciones, marca y lo que dicen las pruebas de medios especializados. Cuando las probemos, les pondremos nota como al resto.</p>
+
+<h4>Vantrue F1: la más completa</h4>
+<p>Graba en <strong>4K delante y 1080p detrás</strong>, con todo el equipo (cámaras, unidad y mando) resistente al agua y al polvo IP67. Lleva GPS, wifi de 5 GHz para descargar rápido al móvil, mando con cable para el manillar, sensor de golpes y modo aparcado. Es la opción si quieres leer matrículas con más facilidad. Ronda los 300-400 € según la oferta.</p>
+<div class="compras">${compraCon("Vantrue F1 <small>4K delante + 1080p detrás</small>","Vantrue F1")}</div>
+
+<h4>INNOVV K6: la compacta y fácil de montar</h4>
+<p>INNOVV lleva más de diez años haciendo dashcams solo para moto. La K6 es la más sencilla: <strong>2K delante y 1080p detrás</strong> con sensores Sony STARVIS, IP67, y un soporte que gira en tres ejes para colocar las cámaras donde quepan. Se puede alimentar por USB o con la batería de la moto. No tiene GPS, cosa que a algunos les parece una ventaja. En Amazon ronda los 200-250 €.</p>
+<div class="compras">${compraCon("INNOVV K6 <small>2K delante + 1080p detrás</small>","INNOVV K6")}</div>
+
+<h4>INNOVV K7: la gama alta de INNOVV</h4>
+<p>Si quieres más calidad atrás, la K7 graba en <strong>2K delante y detrás</strong>, con estabilización electrónica (con ella activada baja a 1080p), GPS de 10 Hz, wifi de doble banda, modo vigilancia con sensor de golpes y tarjetas de hasta 512 GB. En la caja vienen el GPS, el micrófono y el mando. En Amazon ronda los 275 €.</p>
+<div class="compras">${compraCon("INNOVV K7 <small>2K delante + 2K detrás</small>","INNOVV K7")}</div>
+
+<h4>Si además quieres pantalla con CarPlay: Chigee AIO-6</h4>
+<p>No es una dashcam, sino una pantalla de 6" para el manillar con <strong>Apple CarPlay y Android Auto</strong>, a la que puedes añadir cámaras delante y detrás que graban en 1080p a 60 fps. Es lo más cómodo si también buscas navegador en la moto, pero es bastante más cara: la pantalla sola ronda los 560 € en Amazon y las cámaras se compran aparte. Ojo: las cámaras de la AIO-5 Lite no valen para la AIO-6.</p>
+<div class="compras">${compraCon("Chigee AIO-6 <small>Pantalla CarPlay + cámaras opcionales</small>","Chigee AIO-6")}</div>
+<p>¿Y la VIOFO MT1? Fue la primera dashcam de moto de VIOFO y es fiable, pero solo graba en 1080p y está agotada en muchas tiendas. Hoy preferimos cualquiera de las anteriores.</p>
+
+<h3>Las cámaras de acción que más se ven en moto</h3>
+<p>No son dashcams, pero son las que lleva la mayoría de moteros que graba sus rutas. Insta360 y DJI dominan ahora mismo, y GoPro ha vuelto con fuerza este año.</p>
+
+<h4>Insta360 X6: la 360 de moda</h4>
+<p>Las cámaras 360 son las favoritas de los moteros: grabas todo a tu alrededor y decides el encuadre después en el móvil. Con el <strong>palo selfie invisible</strong> (desaparece del vídeo) consigues esas tomas en tercera persona que parecen hechas con un dron. La X6, de agosto de 2026, graba en 8K a 50 fps con dos sensores de 1/1,1", aguanta unos 140 minutos de batería, es sumergible hasta 20 metros y trae 47 GB de memoria interna. Además, Insta360 ha mejorado los micrófonos para reducir el ruido del viento, con un ajuste pensado para moto. Precio oficial: 699 €, aunque en Amazon ya se ve por unos 630 €. Insta360 la vende también en un pack para moto con el palo incluido.</p>
+<div class="compras">${compraCon("Insta360 X6 <small>360°, 8K</small>","Insta360 X6")}</div>
+
+<h4>Insta360 X5: la anterior, más barata</h4>
+<p>Sigue siendo una cámara 360 excelente para moto (8K a 30 fps, sensores de 1/1,28"). Su precio oficial es de 589,99 €, pero desde que salió la X6 se encuentra por unos 440 € en Amazon. Si no necesitas lo último, es la compra lista.</p>
+<div class="compras">${compraCon("Insta360 X5 <small>360°, 8K</small>","Insta360 X5")}</div>
+
+<h4>DJI Osmo 360 II: la rival de Insta360</h4>
+<p>La segunda cámara 360 de DJI salió en septiembre de 2026: <strong>8K a 60 fps</strong>, sensores de 1/1,1", 105 GB de memoria interna y, por fin, lentes que puedes cambiar tú si se rayan (el kit cuesta 25 €), algo muy útil en moto. Cuesta 589 € (739 € el pack aventura).</p>
+<div class="compras">${compraCon("DJI Osmo 360 II <small>360°, 8K</small>","DJI Osmo 360 II")}</div>
+
+<h4>DJI Osmo Action 6: la cámara de acción clásica</h4>
+<p>Si prefieres una cámara de acción de toda la vida, sin 360, la Osmo Action 6 es de las mejores. Tiene un sensor cuadrado de 1/1,1", así que puedes sacar vídeo horizontal y vertical sin girarla, y es la primera con apertura variable, lo que ayuda mucho al atardecer y de noche. Graba en 4K hasta 120 fps y DJI anuncia hasta 4 horas de batería a 1080p. Precio oficial: 379 € el pack estándar; en Amazon y PowerPlanet ronda los 400-430 €.</p>
+<div class="compras"><div class='compra-modelo'><span class='cm-nombre'>DJI Osmo Action 6 <small>4K, sensor cuadrado</small></span><span class='botones'>${btn(amz("DJI Osmo Action 6"),"DJI Osmo Action 6")}${btn(PP("https://www.powerplanetonline.com/es/camara-deportiva-dji-osmo-action-6-standard-combo-64gb-4k-ultrahd-wifi-bt-ultrawide-estabilizacion"),"DJI Osmo Action 6")}</span></div></div>
+
+<h4>GoPro Mission 1: la de más calidad</h4>
+<p>Tras un año sin Hero nueva, en 2026 GoPro sacó la serie Mission 1, con un <strong>sensor de 1 pulgada</strong> de 50 MP: 8K a 30 fps y 4K a 120 fps en el modelo normal. Graba hasta 5 horas seguidas y puede poner sobre el vídeo la velocidad y la fuerza G del GPS, que en moto queda muy bien. Es la más cara: unos 530 € en Amazon (la Pro, unos 570 €).</p>
+<div class="compras">${compraCon("GoPro Mission 1 <small>4K-8K, sensor de 1\"</small>","GoPro Mission 1")}</div>
+
+<h3>¿Se puede llevar la cámara en el casco?</h3>
+<p>No hay ninguna norma que prohíba grabar en moto, pero el casco es otra historia. Un casco está homologado tal y como se ensayó, y pegarle un soporte puede cambiar cómo se comporta en una caída. En Baleares multaron a un motorista por llevar una GoPro en el casco, por considerar que el soporte invalidaba la homologación.</p>
+<p>Por eso el RACE recomienda montar la cámara <strong>fija en la moto</strong> (manillar, chasis o carenado) y no en el casco. Una dashcam ya va en la moto, así que este problema no lo tienes. Con una cámara de acción, ponla en el manillar, el depósito o un palo fijado a la moto. El soporte de barbilla también va pegado al casco, así que tiene el mismo problema.</p>
+<p>Y no la toques en marcha: manipular un dispositivo mientras conduces puede costarte una multa de 200 euros y 6 puntos.</p>
+
+<h3>¿Y si subo los vídeos a redes?</h3>
+<p>Para grabar tus viajes y guardarlos para ti no hay problema: según la Agencia Española de Protección de Datos, es un uso personal. Si los <strong>publicas</strong> en internet, ya se aplica la normativa de protección de datos, así que tapa matrículas y caras de gente que se pueda reconocer. Lo explicamos con más detalle en <a href="/es-legal-una-dashcam">¿Es legal una dashcam en España?</a>. Y si grabas algo que valga la pena, <a href="/envia-tu-clip">envíanos tu clip</a>.</p>
+
+<h3>Preguntas frecuentes</h3>
+<h4>¿Puedo poner una dashcam de coche en la moto?</h4>
+<p>No te lo recomendamos. Las dashcams de coche no son impermeables, no están pensadas para tanta vibración y van pegadas a un cristal que la moto no tiene.</p>
+<h4>¿Una cámara de acción sirve como dashcam?</h4>
+<p>Como apaño, sí: algunas tienen grabación en bucle y se pueden alimentar desde la moto. Pero tienes que acordarte de encenderla en cada salida, solo graba hacia un lado (salvo las 360) y no siempre guarda el vídeo sola si hay un golpe. Para tener pruebas, una dashcam de moto es más fiable.</p>
+<h4>¿Me deja sin batería la moto?</h4>
+<p>Si la conectas al contacto, se apaga cuando quitas la llave. El modo aparcado (grabar con la moto parada) sí tira de la batería, así que si la moto pasa días sin moverse, mejor desactivarlo.</p>
+<h4>¿Dónde la monto, delante o detrás?</h4>
+<p>Una dashcam de moto lleva las dos cámaras. La delantera suele ir bajo el faro o en el carenado, y la trasera junto a la matrícula o el piloto. La unidad principal va escondida bajo el asiento.</p>
+
+<h3>Fuentes</h3>
+<ul>
+<li><a href="https://www.race.es/legal-llevar-camara-casco-moto" target="_blank" rel="noopener">RACE: ¿es legal llevar cámara en el casco de la moto?</a></li>
+<li><a href="https://www.aepd.es/preguntas-frecuentes/8-videovigilancia/FAQ-0803-quiero-poner-una-camara-en-una-moto-para-grabar-mis-viajes-es-legal-esta-captacion" target="_blank" rel="noopener">AEPD: quiero poner una cámara en una moto para grabar mis viajes, ¿es legal?</a></li>
+<li><a href="https://www.diariomotor.com/esenciales/moto/multa-casco-gopro/" target="_blank" rel="noopener">Diariomotor: multa por llevar una GoPro en el casco</a></li>
+<li><a href="https://innovv.com/products/innovv-k7-dashcam" target="_blank" rel="noopener">INNOVV: ficha de la K7</a> y <a href="https://innovv.com/products/innovv-k6-dashcam-motorcycle-version" target="_blank" rel="noopener">de la K6</a></li>
+<li><a href="https://www.insta360.com/product/insta360-x6" target="_blank" rel="noopener">Insta360: ficha de la X6</a></li>
+<li><a href="https://www.dji.com/au/media-center/announcements/dji-release-osmo-action-6" target="_blank" rel="noopener">DJI: lanzamiento de la Osmo Action 6</a></li>
+<li><a href="https://gopro.com/en/gb/info/mission-1-learnmore" target="_blank" rel="noopener">GoPro: serie Mission 1</a></li>
+</ul>
+`},
 {id:"dashcam-camion-autobus-furgoneta", seo:["Dashcam para camión, autobús o furgoneta: qué mirar y cuál comprar","Qué necesita una dashcam para un vehículo grande: cámaras exteriores impermeables, cables largos, 24 V y almacenamiento para jornadas largas. Y cuál recomendamos."], portada:"img/blog/dashcam-camion-autobus-furgoneta/portada.webp", portadaAlt:"Ilustración de un camión visto desde arriba con tres cámaras y sus ángulos de grabación, junto al título «Dashcam para camión, autobús o furgoneta»", titulo:"Dashcam para camión, autobús o furgoneta: qué mirar y cuál comprar", tipo:"Guía de compra", fecha:"18 nov 2026", lectura:"6 min", nota:"", amazon:"",
  resumen:"Una dashcam de coche se queda corta en un camión o un autobús: no hay luna trasera, los ángulos muertos son enormes y la instalación es de 24 V. Te contamos qué mirar y cuál elegimos.",
  cuerpo:`
