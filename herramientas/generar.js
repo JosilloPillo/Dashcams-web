@@ -72,7 +72,7 @@ const servidor = http.createServer((req, res) => {
         html: '<!DOCTYPE html>\n' + document.documentElement.outerHTML + '\n',
         indexable: !robots || !/noindex/.test(robots.content),
         canonica: document.querySelector('link[rel="canonical"]').href,
-        fecha: (() => { try { const j = JSON.parse(document.getElementById('ld-pagina').textContent); return ((j['@graph'] || []).find(x => x.datePublished) || {}).datePublished; } catch (e) { return null; } })(),
+        fecha: (() => { try { const j = JSON.parse(document.getElementById('ld-pagina').textContent); const a = (j['@graph'] || []).find(x => x.datePublished) || {}; return a.dateModified || a.datePublished; } catch (e) { return null; } })(),
         titulo: document.title
       };
     });

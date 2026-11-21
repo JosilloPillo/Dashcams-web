@@ -555,6 +555,7 @@ function btn(u,n){var t=/amazon\.|amzn\.to/.test(u)?(u.indexOf("/s?k=")>-1?"Busc
    - video: el código de 11 caracteres del vídeo de YouTube (lo que va después de watch?v= o youtu.be/), o "" si no tiene.
    - portada: ruta de la imagen de portada (p. ej. "img/blog/mi-articulo/portada.webp") y portadaAlt: qué se ve en ella. Vacías si no tiene.
    - galería de fotos dentro del cuerpo: <div class="galeria"><figure><a href="FOTO-GRANDE"><img src="FOTO-PEQUEÑA" alt="..."></a><figcaption>Texto</figcaption></figure>...</div>
+   - actualizado (opcional): fecha de la última revisión importante, p. ej. actualizado:"21 nov 2026". Se avisa a Google y sale en el artículo.
    - nota: déjala vacía ("") si no es un análisis con puntuación.
    - amazon: un enlace amzn.to, amz("Nombre del modelo") o "" si no lleva botón.
    - compra y tienda (opcionales): enlace a otra tienda y su nombre, p. ej. compra:"https://bit.ly/...", tienda:"AliExpress".
@@ -748,7 +749,7 @@ var POSTS = [
  titulo:"¿Es legal una dashcam en España? Lo que dicen la DGT y la AEPD", tipo:"Guía", fecha:"3 nov 2026", lectura:"5 min", nota:"", amazon:"",
  resumen:"Llevar una dashcam es legal, pero con límites: dónde colocarla para no tapar la visión, qué pasa con la protección de datos, si sirve como prueba y qué puedes publicar en redes.",
  cuerpo:`
-<p>Es una de las dudas que más nos llegan. La respuesta corta: <strong>sí, en España es legal llevar una dashcam en el coche</strong>. No hay ninguna ley que la prohíba ni una norma específica que la regule, así que se aplican las normas generales de tráfico y de protección de datos. Y ahí está la letra pequeña: lo que puede darte problemas no es llevarla, sino dónde la pones y, sobre todo, qué haces con los vídeos.</p>
+<p>Es una de las dudas que más nos llegan (si todavía no tienes claro qué es exactamente, mira primero <a href="/que-es-una-dashcam">qué es una dashcam y para qué sirve</a>). La respuesta corta: <strong>sí, en España es legal llevar una dashcam en el coche</strong>. No hay ninguna ley que la prohíba ni una norma específica que la regule, así que se aplican las normas generales de tráfico y de protección de datos. Y ahí está la letra pequeña: lo que puede darte problemas no es llevarla, sino dónde la pones y, sobre todo, qué haces con los vídeos.</p>
 <p class="note">Esto es información general, no asesoramiento legal. Si tienes un caso concreto, consulta con un abogado o con el servicio jurídico de tu seguro o tu club de automovilistas.</p>
 
 <h3>1. Dónde colocarla: lo que dice la DGT</h3>
@@ -795,6 +796,7 @@ var POSTS = [
 <p>Puedes, pero si llevas pasajeros es mejor desactivar el micrófono o avisarles. Y si vas a enseñar el vídeo a alguien, quita el audio que no haga falta.</p>
 <h4>¿Y si viajo al extranjero?</h4>
 <p>Cada país tiene sus normas. En algunos, como Portugal o Austria, las dashcams están mucho más restringidas. Infórmate antes de cruzar la frontera.</p>
+<p>¿Te interesa la normativa de tráfico? También explicamos, con la respuesta por escrito de la DGT, <a href="/como-circular-por-una-glorieta">cómo se circula por una glorieta</a>.</p>
 
 <h3>Fuentes</h3>
 <ul>
@@ -803,7 +805,7 @@ var POSTS = [
 </ul>
 `},
 {id:"mejores-dashcams", portada:"img/blog/mejores-dashcams/portada.webp", portadaAlt:"Podio con tres dashcams, la ganadora en el primer puesto bajo un foco, junto al título «Mejores dashcams 2026»", seo:["Mejores dashcams 2026: cuál comprar según tu uso","Las mejores dashcams de 2026 por categorías: calidad-precio, gama alta, taxi y VTC, económica, discreta, con 4G y para camiones. Elegidas entre más de 60 modelos."],
- titulo:"Mejores dashcams 2026: cuál comprar según tu uso", tipo:"Guía de compra", fecha:"3 nov 2026", lectura:"6 min", nota:"", amazon:"",
+ titulo:"Mejores dashcams 2026: cuál comprar según tu uso", tipo:"Guía de compra", fecha:"3 nov 2026", actualizado:"21 nov 2026", lectura:"6 min", nota:"", amazon:"",
  resumen:"Nuestra selección por categorías: la mejor en general, la de mejor calidad-precio, para taxi y VTC, la más barata que merece la pena, la más discreta, la que vigila el coche por 4G y la de camiones y autobuses.",
  cuerpo:`
 <p>«¿Qué dashcam me compro?» es de las preguntas que más nos llegan. La respuesta corta es que depende de para qué la quieras, así que aquí van nuestras favoritas de 2026 separadas por uso. Las hemos elegido entre los más de 60 modelos de nuestro <a href="/recomendador">comparador</a>, que solo incluye cámaras con al menos 4 estrellas en las tiendas y que se pueden comprar ahora mismo en España. Las que hemos probado nosotros en el canal llevan su nota y el enlace a la reseña completa.</p>
@@ -858,7 +860,7 @@ var POSTS = [
 <p>${compra("VIOFO A329WW 3CH",PP("https://www.powerplanetonline.com/es/viofo-a329ww-3canales-camara-frontal-doble-camara-strasera-camara-para-salpicadero"))}</p>
 
 <h3>¿Ninguna te convence?</h3>
-<p>Usa el <a href="/recomendador">recomendador</a>: respondes 7 preguntas (uso, presupuesto, cámaras, dónde aparcas…) y te propone los modelos que mejor encajan entre los más de 60 del comparador. Y si quieres entender qué mirar antes de comprar, tienes la guía <a href="/que-dashcam-comprar">¿Qué dashcam comprar?</a>.</p>
+<p>Usa el <a href="/recomendador">recomendador</a>: respondes 7 preguntas (uso, presupuesto, cámaras, dónde aparcas…) y te propone los modelos que mejor encajan entre los más de 60 del comparador. Y si quieres saber qué opinamos de cada marca, lo tienes en <a href="/que-dashcam-comprar">Marcas de dashcams: cuáles merecen la pena</a>. ¿Es tu primera dashcam? Empieza por <a href="/que-es-una-dashcam">qué es una dashcam y cómo funciona</a>.</p>
 
 <h3>Preguntas frecuentes</h3>
 <h4>¿Cuánto hay que gastarse en una dashcam?</h4>
@@ -909,7 +911,7 @@ var POSTS = [
 <h4>Aspectos a mejorar</h4>
 <ul><li>Reparto de resoluciones: la trasera se queda corta con 1080p y la interior a 2K es excesiva.</li><li>No tiene botón físico para guardar clips a mano. El control por voz funciona muy bien y se puede comprar un botón aparte, pero podrían usar cualquiera de sus cuatro botones para esto.</li><li>La app no permite girar la imagen de la cámara trasera, algo que facilitaría mucho la instalación y que seguramente se arreglaría con una actualización.</li></ul>
 `},
-{id:"a329", seo:["Viofo A329: análisis de la dashcam 4K a 60 fps","Análisis de la Viofo A329 de doble cámara: 4K a 60 fps, GPS, control por voz, modo aparcado y filtro polarizador. Nota final: 9,2 de 10."], producto:"Viofo A329", marca:"VIOFO", video:"eFf-2xmAF4M", portada:"img/blog/viofo-a329/portada.webp", portadaAlt:"Viofo A329 instalada en el parabrisas con el texto «Necesitas una»", titulo:"Viofo A329: esto sí es calidad", tipo:"Análisis", fecha:"1 jun 2025", lectura:"3 min", nota:"9,2", amazon:"https://amzn.to/4krPWgq",
+{id:"a329", seo:["Viofo A329: análisis de la dashcam 4K a 60 fps","Análisis de la Viofo A329 de doble cámara: 4K a 60 fps, GPS, control por voz, modo aparcado y filtro polarizador. Nota final: 9,2 de 10."], producto:"Viofo A329", marca:"VIOFO", video:"eFf-2xmAF4M", portada:"img/blog/viofo-a329/portada.webp", portadaAlt:"Viofo A329 instalada en el parabrisas con el texto «Necesitas una»", titulo:"Viofo A329: esto sí es calidad", tipo:"Análisis", fecha:"1 jun 2025", actualizado:"21 nov 2026", lectura:"3 min", nota:"9,2", amazon:"https://amzn.to/4krPWgq",
  resumen:"La dashcam de doble cámara de Viofo graba en 4K a 60 fps delante, con GPS, control por voz, modo aparcado y filtro polarizador incluido. Es para quien quiere la máxima calidad, no para quien busca algo básico y económico.",
  cuerpo:`
 <p class="note"><strong>Actualizado en noviembre de 2026:</strong> la A329 sigue a la venta por unos 400 €, pero ya está su sucesora, la <strong>Viofo A329S 2CH</strong>, por unos 380 €: también graba en 4K a 60 fps delante, la trasera pasa a 2K con sensor STARVIS 2 y tiene un modo aparcado de bajo consumo. Es la que recomendamos ahora en <a href="/mejores-dashcams">Mejores dashcams 2026</a>. La reseña original, de junio de 2025, sigue debajo.</p>
@@ -935,7 +937,7 @@ var POSTS = [
 <h3>Puntuación Dashcams España</h3>
 <ul><li>Puntuación base: 8.5</li><li>Bonus del Admin: +0.7 puntos (calidad de imagen top)</li><li>Nota final: 9.2</li></ul>
 `},
-{id:"n5", seo:["Vantrue N5: análisis de la dashcam con 4 cámaras","Probamos la Vantrue N5 durante tres meses: 2,7K delante, Full HD detrás y dos cámaras interiores con infrarrojos. Nota final: 9,1 de 10."], producto:"Vantrue N5", marca:"VANTRUE", video:"Yx7RTv3QhK0", portada:"img/blog/vantrue-n5/portada.webp", portadaAlt:"Caja y accesorios de la Vantrue N5 sobre el capó de un coche, con el texto «Vantrue Nexus 5»", titulo:"La dashcam definitiva: análisis completo de la Vantrue N5 con 4 cámaras", tipo:"Análisis", fecha:"8 mar 2025", lectura:"2 min", nota:"9,1", amazon:"https://amzn.to/4kw4I5Y",
+{id:"n5", seo:["Vantrue N5: análisis de la dashcam con 4 cámaras","Probamos la Vantrue N5 durante tres meses: 2,7K delante, Full HD detrás y dos cámaras interiores con infrarrojos. Nota final: 9,1 de 10."], producto:"Vantrue N5", marca:"VANTRUE", video:"Yx7RTv3QhK0", portada:"img/blog/vantrue-n5/portada.webp", portadaAlt:"Caja y accesorios de la Vantrue N5 sobre el capó de un coche, con el texto «Vantrue Nexus 5»", titulo:"La dashcam definitiva: análisis completo de la Vantrue N5 con 4 cámaras", tipo:"Análisis", fecha:"8 mar 2025", actualizado:"21 nov 2026", lectura:"2 min", nota:"9,1", amazon:"https://amzn.to/4kw4I5Y",
  resumen:"Cuatro cámaras (2,7K delante, Full HD detrás y dos interiores con infrarrojos), probadas durante tres meses. Pensada para quien transporta pasajeros; ahora ronda los 250 €. Pega: en algunos casos la tarjeta SD pide formateo.",
  cuerpo:`
 <p class="note"><strong>Actualizado en noviembre de 2026:</strong> la Vantrue N5 sigue a la venta y ha bajado mucho: ahora ronda los 250 € en Amazon (cuando la probamos costaba unos 400 €). Ya existe su sucesora, la <strong>Vantrue N5S</strong>, por unos 285 €, que mejora la cámara trasera (2,5K). La reseña original, de marzo de 2025, sigue debajo.</p>
@@ -962,11 +964,11 @@ var POSTS = [
 <h3>Puntuación Dashcams España</h3>
 <ul><li>Puntuación base: 8.1</li><li>Bonus del Admin: +1 punto (simplemente brutal)</li><li>Nota final: 9.1</li></ul>
 `},
-{id:"que-comprar", tema:"compra", seo:["Marcas de dashcams: cuáles merecen la pena en 2026 | Dashcams España","Opinión sincera de las marcas de dashcams: Viofo, Vantrue, 70mai, DDPAI, Redtiger, Garmin, BlackVue, Kawa o Azdome. Cuáles merecen la pena y qué no comprar."], portada:"img/blog/que-dashcam-comprar/portada.webp", portadaAlt:"Varias dashcams de distintos modelos montadas en el parabrisas de un coche, con una carretera de otoño al fondo", titulo:"Marcas de dashcams: cuáles merecen la pena y cuáles evitar", tipo:"Guía de compra", fecha:"12 feb 2025", lectura:"6 min", nota:"", amazon:"",
+{id:"que-comprar", tema:"compra", seo:["Marcas de dashcams: cuáles merecen la pena en 2026 | Dashcams España","Opinión sincera de las marcas de dashcams: Viofo, Vantrue, 70mai, DDPAI, Redtiger, Garmin, BlackVue, Kawa o Azdome. Cuáles merecen la pena y qué no comprar."], portada:"img/blog/que-dashcam-comprar/portada.webp", portadaAlt:"Varias dashcams de distintos modelos montadas en el parabrisas de un coche, con una carretera de otoño al fondo", titulo:"Marcas de dashcams: cuáles merecen la pena y cuáles evitar", tipo:"Guía de compra", fecha:"12 feb 2025", actualizado:"21 nov 2026", lectura:"6 min", nota:"", amazon:"",
  resumen:"Mi opinión, marca por marca, después de probar varias dashcams y ver cientos de vídeos de seguidores: de Viofo y Vantrue a 70mai, DDPAI o Kawa, y qué no comprar nunca.",
  cuerpo:`
 <p class="note">Actualizado en noviembre de 2026. Si buscas un modelo concreto, mira <a href="/mejores-dashcams">Mejores dashcams 2026</a> o usa el <a href="/recomendador">Recomendador</a>: respondes 7 preguntas y te decimos cuál encaja contigo.</p>
-<p>Soy José, el de Dashcams España. He probado unas cuantas dashcams para el canal y recibo un montón de vídeos y opiniones de seguidores grabados con todo tipo de cámaras. Aquí va lo que pienso de cada marca, sin rodeos: de las que recomiendo sin dudar a las que no compraría.</p>
+<p>Soy José, el de Dashcams España. He probado unas cuantas dashcams para el canal y recibo un montón de vídeos y opiniones de seguidores grabados con todo tipo de cámaras. Aquí va lo que pienso de cada marca, sin rodeos: de las que recomiendo sin dudar a las que no compraría. Si es tu primera dashcam, antes te conviene leer <a href="/que-es-una-dashcam">qué es una dashcam y cómo funciona</a>.</p>
 <p class="note">Precios orientativos revisados en noviembre de 2026. Comprueba siempre el precio en la tienda.</p>
 
 <h3>Las que recomiendo sin dudar</h3>
@@ -1005,7 +1007,7 @@ var POSTS = [
 </ul>
 <p><span class="botones"><a class="buy" href="/mejores-dashcams">Ver las mejores dashcams de 2026</a><a class="btn2" href="/recomendador" style="white-space:nowrap;text-decoration:none">Ir al recomendador</a></span></p>
 `},
-{id:"vs1", seo:["Viofo VS1: análisis de la dashcam 2K compacta | Dashcams España","Análisis de la Viofo VS1, dashcam compacta 2K con GPS y sensor de colisión (nota: 8,37 de 10). Ya está agotada: te decimos qué alternativa elegir."], producto:"Viofo VS1", marca:"VIOFO", video:"3Qisdn7hP0w", portada:"img/blog/viofo-vs1/portada.webp", portadaAlt:"Viofo VS1 instalada en el parabrisas con el texto «Viofo VS1»", titulo:"Reseña de la dashcam Viofo VS1: lo que debes saber", tipo:"Análisis", fecha:"8 may 2024", lectura:"2 min", nota:"8,37", amazon:"",
+{id:"vs1", seo:["Viofo VS1: análisis de la dashcam 2K compacta | Dashcams España","Análisis de la Viofo VS1, dashcam compacta 2K con GPS y sensor de colisión (nota: 8,37 de 10). Ya está agotada: te decimos qué alternativa elegir."], producto:"Viofo VS1", marca:"VIOFO", video:"3Qisdn7hP0w", portada:"img/blog/viofo-vs1/portada.webp", portadaAlt:"Viofo VS1 instalada en el parabrisas con el texto «Viofo VS1»", titulo:"Reseña de la dashcam Viofo VS1: lo que debes saber", tipo:"Análisis", fecha:"8 may 2024", actualizado:"21 nov 2026", lectura:"2 min", nota:"8,37", amazon:"",
  resumen:"Una dashcam compacta que graba en 2K a 30 fps, con GPS y sensor de colisión, que de día lee matrículas hasta 15 metros. Ya está agotada: al principio te decimos qué alternativa elegir.",
  cuerpo:`
 <p class="note"><strong>Actualizado en noviembre de 2026:</strong> la Viofo VS1 está agotada en la web de VIOFO y no se vende en Amazon España. Si buscas algo igual de pequeño, la <strong>Viofo A119 Mini 2</strong> graba en 2K con sensor Sony STARVIS 2, tiene GPS, WiFi de 5 GHz y control por voz, y cuesta unos 125 €. La reseña original, de mayo de 2024, sigue debajo.</p>
@@ -1025,7 +1027,7 @@ var POSTS = [
 <h3>Puntuación Dashcams España</h3>
 <ul><li>Puntuación base: 7.57</li><li>Bonus del Admin: +0.8 puntos (calidad-precio)</li><li>Nota final: 8.37</li></ul>
 `},
-{id:"que-es", tema:"uso", seo:["¿Qué es una dashcam y para qué sirve? | Dashcams España","Qué es una dashcam, para qué sirve y cómo funciona: grabación en bucle, sensor de golpes, GPS y modo aparcado. Si es legal en España y cuánto cuesta una buena."], portada:"img/blog/que-es-una-dashcam/portada.webp", portadaAlt:"Ilustración de un parabrisas visto desde dentro con una dashcam detrás del retrovisor grabando la carretera, junto al título «¿Qué es una dashcam?»", titulo:"¿Qué es una dashcam y por qué deberías tener una?", tipo:"Guía", fecha:"8 may 2024", lectura:"4 min", nota:"", amazon:"",
+{id:"que-es", tema:"uso", seo:["¿Qué es una dashcam y para qué sirve? | Dashcams España","Qué es una dashcam, para qué sirve y cómo funciona: grabación en bucle, sensor de golpes, GPS y modo aparcado. Si es legal en España y cuánto cuesta una buena."], portada:"img/blog/que-es-una-dashcam/portada.webp", portadaAlt:"Ilustración de un parabrisas visto desde dentro con una dashcam detrás del retrovisor grabando la carretera, junto al título «¿Qué es una dashcam?»", titulo:"¿Qué es una dashcam y por qué deberías tener una?", tipo:"Guía", fecha:"8 may 2024", actualizado:"21 nov 2026", lectura:"4 min", nota:"", amazon:"",
  resumen:"Qué es una dashcam, para qué sirve y cómo funciona: grabación en bucle, sensor de golpes, GPS y modo aparcado. Y si es legal en España y cuánto cuesta una que merezca la pena.",
  cuerpo:`
 <p class="note">Actualizado en noviembre de 2026.</p>
@@ -1050,7 +1052,7 @@ var POSTS = [
 </ul>
 
 <h3>¿Cuánto cuesta una que merezca la pena?</h3>
-<p>Hay dashcams desde 20 €, pero en este mercado se vende mucha porquería. Una buena empieza en unos 55 € con cámara trasera incluida, y las de gama alta, con 4K y varias cámaras, rondan los 250-400 €. Tienes nuestras favoritas por uso en <a href="/mejores-dashcams">Mejores dashcams 2026</a>, o responde 7 preguntas en el <a href="/recomendador">Recomendador</a> y te decimos cuál encaja contigo.</p>
+<p>Hay dashcams desde 20 €, pero en este mercado se vende mucha porquería. Una buena empieza en unos 55 € con cámara trasera incluida, y las de gama alta, con 4K y varias cámaras, rondan los 250-400 €. Tienes nuestras favoritas por uso en <a href="/mejores-dashcams">Mejores dashcams 2026</a> y nuestra opinión de cada marca en <a href="/que-dashcam-comprar">Marcas de dashcams</a>, o responde 7 preguntas en el <a href="/recomendador">Recomendador</a> y te decimos cuál encaja contigo.</p>
 
 <h3>Preguntas frecuentes</h3>
 <h4>¿Es legal llevar una dashcam en España?</h4>
@@ -1066,10 +1068,10 @@ var POSTS = [
 <h4>¿Y en un camión o una furgoneta?</h4>
 <p>Necesitas una pensada para vehículos grandes, con cámaras exteriores, cables largos y que funcione a 24 V. Lo tienes en <a href="/dashcam-camion-autobus-furgoneta">Dashcam para camión, autobús o furgoneta</a>.</p>
 `},
-{id:"instalar", tema:"uso", seo:["Cómo instalar una dashcam en el coche paso a paso","Paso a paso para instalar una dashcam: conectarla al mechero, colocarla tras el retrovisor y esconder el cable por el techo y las puertas."], video:"ljR2ncPnakI", portada:"img/blog/instalar/portada.webp", portadaAlt:"Dashcam instalada en el parabrisas de un coche, vista desde fuera", titulo:"Guía completa: cómo instalar una dashcam fácilmente en tu coche", tipo:"Tutorial", fecha:"8 may 2024", lectura:"3 min", nota:"", amazon:"",
+{id:"instalar", tema:"uso", seo:["Cómo instalar una dashcam en el coche paso a paso","Paso a paso para instalar una dashcam: conectarla al mechero, colocarla tras el retrovisor y esconder el cable por el techo y las puertas."], video:"ljR2ncPnakI", portada:"img/blog/instalar/portada.webp", portadaAlt:"Dashcam instalada en el parabrisas de un coche, vista desde fuera", titulo:"Guía completa: cómo instalar una dashcam fácilmente en tu coche", tipo:"Tutorial", fecha:"8 may 2024", actualizado:"21 nov 2026", lectura:"3 min", nota:"", amazon:"",
  resumen:"Paso a paso: elegir la fuente de energía (el mechero), colocarla detrás del retrovisor, limpiar el cristal, pasar el cable y esconderlo por el techo y las puertas.",
  cuerpo:`
-<p>¿Quieres saber cómo instalar una dashcam en tu coche de forma rápida y sencilla? En el vídeo de este artículo te explico paso a paso cómo montar tu cámara sin complicaciones: los mejores lugares para colocarla, la conexión a la fuente de alimentación y la configuración inicial.</p>
+<p>¿Quieres saber cómo instalar una dashcam en tu coche de forma rápida y sencilla? (Si aún no tienes una, mira <a href="/que-es-una-dashcam">qué es una dashcam</a> y nuestras <a href="/mejores-dashcams">mejores dashcams de 2026</a>). En el vídeo de este artículo te explico paso a paso cómo montar tu cámara sin complicaciones: los mejores lugares para colocarla, la conexión a la fuente de alimentación y la configuración inicial.</p>
 <h3>Seleccionar la fuente de energía</h3>
 <p>Descarta conectar directamente a los fusibles si quieres una instalación más sencilla y opta por el cable al mechero del coche. Si tienes dos tomas, elige la trasera si la delantera está ocupada, por ejemplo cargando el móvil durante la conducción.</p>
 <p class="note">Si quieres que grabe con el coche aparcado (el llamado modo aparcado), conectarla al mechero no sirve, porque se apaga con el coche. Para eso hace falta el kit de cableado a los fusibles de tu modelo. Si no te ves con ello, que lo haga un taller.</p>
@@ -1109,7 +1111,7 @@ var POSTS = [
   POSTS.forEach(function(p){
     var bus=(p.titulo+" "+p.resumen+" "+(p.tipo||"")+" "+nombreTema(temaDe(p))).toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g,"").replace(/'/g," ");
     l+="<li class='post' data-tema='"+temaDe(p)+"' data-busca='"+bus+"'>"+(p.portada?"<a class='pimg' href='"+enlace(p.id)+"' tabindex='-1' aria-hidden='true'><img src='"+p.portada+"' alt=''"+dim(p.portada)+" loading='lazy' decoding='async'></a>":"")+"<h3><a href='"+enlace(p.id)+"'>"+p.titulo+"</a></h3><p class='meta'>"+nombreTema(temaDe(p))+", "+p.fecha+", "+p.lectura+" de lectura"+(p.nota?". Nota final: "+p.nota:"")+"</p><p>"+p.resumen+"</p></li>";
-    a+="<section id='"+p.id+"' data-view='"+p.id+"'><div class='wrap art'><p class='migas'><a href='/'>Inicio</a> › <a href='/blog'>Blog</a></p><h1>"+p.titulo+"</h1><p class='meta'>"+p.tipo+", por "+(p.autor||"Jose Barranco")+", "+p.fecha+", "+p.lectura+" de lectura</p>"+(p.portada?"<img class='portada' src='"+p.portada+"' alt='"+(p.portadaAlt||"").replace(/'/g,"&#39;")+"'"+dim(p.portada)+" fetchpriority='high'>":"")+p.cuerpo+(p.video&&!p.redes?"<h3>"+(p.tipo==="Análisis"?"El vídeo del análisis":"El vídeo paso a paso")+"</h3>"+vid(p.video,p.titulo):"")+(p.amazon?"<p>"+btn(p.amazon,p.producto||p.titulo)+"</p>":"")+(p.compra?"<p><a class='buy' href='"+p.compra+"' target='_blank' rel='sponsored noopener'>Ver en "+(p.tienda||"la tienda")+"</a></p>":"")+"<a class='clipband' href='/envia-tu-clip'><span class='cb-rec' aria-hidden='true'><i></i>REC</span><span class='cb-txt'><strong>¿Tienes un clip?</strong> Si has grabado algo con tu dashcam, envíanoslo y podría salir en el canal.</span><span class='cb-btn'>Envía tu clip <span aria-hidden='true'>→</span></span></a></div></section>";
+    a+="<section id='"+p.id+"' data-view='"+p.id+"'><div class='wrap art'><p class='migas'><a href='/'>Inicio</a> › <a href='/blog'>Blog</a></p><h1>"+p.titulo+"</h1><p class='meta'>"+p.tipo+", por "+(p.autor||"Jose Barranco")+", "+p.fecha+", "+p.lectura+" de lectura"+(p.actualizado?". Actualizado el "+p.actualizado:"")+"</p>"+(p.portada?"<img class='portada' src='"+p.portada+"' alt='"+(p.portadaAlt||"").replace(/'/g,"&#39;")+"'"+dim(p.portada)+" fetchpriority='high'>":"")+p.cuerpo+(p.video&&!p.redes?"<h3>"+(p.tipo==="Análisis"?"El vídeo del análisis":"El vídeo paso a paso")+"</h3>"+vid(p.video,p.titulo):"")+(p.amazon?"<p>"+btn(p.amazon,p.producto||p.titulo)+"</p>":"")+(p.compra?"<p><a class='buy' href='"+p.compra+"' target='_blank' rel='sponsored noopener'>Ver en "+(p.tienda||"la tienda")+"</a></p>":"")+"<a class='clipband' href='/envia-tu-clip'><span class='cb-rec' aria-hidden='true'><i></i>REC</span><span class='cb-txt'><strong>¿Tienes un clip?</strong> Si has grabado algo con tu dashcam, envíanoslo y podría salir en el canal.</span><span class='cb-btn'>Envía tu clip <span aria-hidden='true'>→</span></span></a></div></section>";
   });
   ul.innerHTML=l; box.outerHTML=a;
 })();
@@ -1564,7 +1566,7 @@ var DASHCAMS = [
     }
     if(post){
       var autor={"@type":"Person","name":post.autor||"Jose Barranco","url":B+"/sobre-nosotros"},fecha=iso(post.fecha);
-      var art={"@type":"BlogPosting","headline":post.titulo,"description":s[1],"datePublished":fecha,"author":autor,"publisher":{"@id":B+"/#org"},"mainEntityOfPage":url,"inLanguage":"es-ES"};
+      var art={"@type":"BlogPosting","headline":post.titulo,"description":s[1],"datePublished":fecha,"dateModified":iso(post.actualizado)||fecha,"author":autor,"publisher":{"@id":B+"/#org"},"mainEntityOfPage":url,"inLanguage":"es-ES"};
       if(post.portada)art.image=img;
       if(post.video)art.video={"@type":"VideoObject","name":post.titulo,"description":s[1],"thumbnailUrl":"https://i.ytimg.com/vi/"+post.video+"/hqdefault.jpg","uploadDate":fecha,"embedUrl":"https://www.youtube-nocookie.com/embed/"+post.video,"contentUrl":"https://www.youtube.com/watch?v="+post.video};
       g.push(art);
