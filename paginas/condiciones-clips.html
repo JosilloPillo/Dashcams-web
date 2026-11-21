@@ -348,7 +348,7 @@ var SLUG = {"recomendaciones":"recomendador","que-comprar":"que-dashcam-comprar"
 function enlace(v){return v==="inicio"?"/":"/"+(SLUG[v]||v);}
 /* ASIN = el código de 10 caracteres que aparece en la URL de Amazon después de /dp/. Para añadir un modelo: "Nombre exacto":"ASIN". Si un modelo no tiene ASIN, se enlaza a una búsqueda en Amazon con tu etiqueta. */
 var ASIN = {
-"Viofo A119 Mini 2":"B0C5J4FXXH","Viofo A119M Pro 4K":"B0FY51ZHZP","Viofo A129 Pro Duo":"B07RZP8K3Y","Viofo A229 Pro 2CH":"B0CL682MRR","Viofo A229 Pro 3CH":"B0CL7Q6RJW","Viofo A229 Ultra 4K 2CH":"B0FQJBZP7J","Viofo A329S 3CH 4K":"B0FFT2ZCBP",
+"Viofo A119 Mini 2":"B0C5J4FXXH","Viofo A119M Pro 4K":"B0FY51ZHZP","Viofo A129 Pro Duo":"B07RZP8K3Y","Viofo A229 Pro 2CH":"B0CL682MRR","Viofo A229 Pro 3CH":"B0CL7Q6RJW","Viofo A229 Ultra 4K 2CH":"B0FQJBZP7J","Viofo A329S 3CH 4K":"B0FFT2ZCBP","Viofo A329S 2CH 4K":"B0FFSZK858",
 "Vantrue N4S 3CH":"B0F59T1B4N","Vantrue N5S 4CH":"B0F8BWJHW4","Vantrue E1 Pro 4K Mini":"B0DSKXJV3H","Vantrue S1 Pro":"B0F4WK84NS",
 "Thinkware U3000 Pro 4K":"B0FZW91Y7G","Thinkware Q200":"B0CRZ3SC54","Thinkware F70 Pro":"B0C8HGNZT2","BlackVue Elite 9 2CH":"B0F2JJ4NDG",
 "Nextbase 622GW":"B0F8W2FW85","Nextbase 522GW":"B07PV2RX57","Nextbase 422GW":"B07PV1Q979","Nextbase 322GW":"B07PV198QC","Nextbase Piqo 2K":"B0DD7Z338X","Nextbase iQ":"B0CT929JR8",
@@ -395,9 +395,9 @@ var WEB = {"VIOFO VS1":"https://viofo.com/products/viofo-vs1-mini-2k-hdr-with-so
 function amz(n){if(!ASIN[n]&&AE[n])return AE[n];if(!ASIN[n]&&WEB[n])return WEB[n];return ASIN[n]?"https://www.amazon.es/dp/"+ASIN[n]+"?tag="+TAG:"https://www.amazon.es/s?k="+encodeURIComponent(n)+"&tag="+TAG;}
 
 /* ===== PRECIOS orientativos en euros (redondeados; el precio real es siempre el de Amazon) ===== */
-var PR={"70mai Dash Cam M300":"40–80 €","70mai A810S 4K":"unos 260 €","AZDOME M300S 4K+1080P":"unos 120 €","VANTRUE N4 Pro":"unos 340 €","VIOFO A229 Plus 2K":"unos 240 €","VIOFO A329 2CH":"unos 400 €","VANTRUE N5":"unos 350 €","VIOFO VS1":"unos 120 € (web oficial)",
-"Viofo A119 Mini 2":"unos 170 €","Viofo A119M Pro 4K":"unos 200 €","Viofo A129 Pro Duo":"unos 220 €","Viofo A229 Pro 2CH":"unos 300 €","Viofo A229 Pro 3CH":"unos 330 €","Viofo A229 Ultra 4K 2CH":"unos 440 €","Viofo A329S 3CH 4K":"unos 500 €",
-"Vantrue N4S 3CH":"unos 260 €","Vantrue N5S 4CH":"unos 400 €","Vantrue E1 Pro 4K Mini":"unos 170 €","Vantrue S1 Pro":"unos 120 €",
+var PR={"70mai Dash Cam M300":"40–80 €","70mai A810S 4K":"unos 260 €","AZDOME M300S 4K+1080P":"unos 120 €","VANTRUE N4 Pro":"unos 340 €","VIOFO A229 Plus 2K":"unos 240 €","VIOFO A329 2CH":"unos 400 €","VANTRUE N5":"unos 250 €","VIOFO VS1":"unos 120 € (web oficial)",
+"Viofo A119 Mini 2":"unos 125 €","Viofo A119M Pro 4K":"unos 200 €","Viofo A129 Pro Duo":"unos 220 €","Viofo A229 Pro 2CH":"unos 300 €","Viofo A229 Pro 3CH":"unos 330 €","Viofo A229 Ultra 4K 2CH":"unos 440 €","Viofo A329S 3CH 4K":"unos 500 €","Viofo A329S 2CH 4K":"unos 380 €",
+"Vantrue N4S 3CH":"unos 260 €","Vantrue N5S 4CH":"unos 285 €","Vantrue E1 Pro 4K Mini":"unos 170 €","Vantrue S1 Pro":"unos 120 €",
 "Thinkware U3000 Pro 4K":"unos 600 €","Thinkware Q200":"unos 140 €","Thinkware F70 Pro":"unos 105 €",
 "BlackVue DR970X-2CH LTE Plus":"unos 950 €","BlackVue DR770X-2CH II":"unos 660 € (con tarjeta de 512 GB)","BlackVue DR590X-1CH":"unos 310 €","BlackVue Elite 9 2CH":"410–460 €",
 "Nextbase 622GW":"unos 255 €","Nextbase 522GW":"unos 205 €","Nextbase 422GW":"115–170 €","Nextbase 322GW":"unos 140 €","Nextbase 222X":"unos 175 €","Nextbase Piqo 2K":"unos 125 €","Nextbase iQ":"450–650 €",
@@ -445,6 +445,7 @@ var VAL={
 "Viofo A229 Pro 3CH":[4.1,38,"A",1,1,0],
 "Viofo A229 Ultra 4K 2CH":[4.4,20,"A",1,1,0],
 "Viofo A329S 3CH 4K":[4.4,50,"A",1,1,0],
+"Viofo A329S 2CH 4K":[4.3,49,"A",1,1,0],
 "Viofo A139 3CH":[4.2,453,"A",1,0,0],
 "Thinkware Q200":[4,45,"A",1,null,0],
 "Thinkware F70 Pro":[4.1,395,"A",1,null,0],
@@ -534,18 +535,18 @@ var POSTS = [
  resumen:"La dashcam de doble cámara de Viofo graba en 4K a 60 fps delante, con GPS, control por voz, modo aparcado y filtro polarizador incluido. Es para quien quiere la máxima calidad, no para quien busca algo básico y económico.",
  cuerpo:""},
 {id:"n5", seo:["Vantrue N5: análisis de la dashcam con 4 cámaras","Probamos la Vantrue N5 durante tres meses: 2,7K delante, Full HD detrás y dos cámaras interiores con infrarrojos. Nota final: 9,1 de 10."], producto:"Vantrue N5", marca:"VANTRUE", video:"Yx7RTv3QhK0", portada:"img/blog/vantrue-n5/portada.webp", portadaAlt:"Caja y accesorios de la Vantrue N5 sobre el capó de un coche, con el texto «Vantrue Nexus 5»", titulo:"La dashcam definitiva: análisis completo de la Vantrue N5 con 4 cámaras", tipo:"Análisis", fecha:"8 mar 2025", lectura:"2 min", nota:"9,1", amazon:"https://amzn.to/4kw4I5Y",
- resumen:"Cuatro cámaras (2,7K delante, Full HD detrás y dos interiores con infrarrojos), probadas durante tres meses. Pensada para quien transporta pasajeros y cuesta alrededor de 400 €. Pega: en algunos casos la tarjeta SD pide formateo.",
+ resumen:"Cuatro cámaras (2,7K delante, Full HD detrás y dos interiores con infrarrojos), probadas durante tres meses. Pensada para quien transporta pasajeros; ahora ronda los 250 €. Pega: en algunos casos la tarjeta SD pide formateo.",
  cuerpo:""},
 {id:"que-comprar", tema:"compra", seo:["¿Qué dashcam comprar? Precio, calidad y marcas | Dashcams España","Guía para elegir dashcam por marcas: económicas como Xiaomi Yi, 70mai, Kawa o Azdome y de gama alta como Viofo, Vantrue o Garmin."], portada:"img/blog/que-dashcam-comprar/portada.webp", portadaAlt:"Varias dashcams de distintos modelos montadas en el parabrisas de un coche, con una carretera de otoño al fondo", titulo:"¿Qué dashcam comprar? Precio, calidad y funcionalidades", tipo:"Recomendaciones", fecha:"12 feb 2025", lectura:"4 min", nota:"", amazon:"",
  resumen:"Repaso por marcas, de las económicas (Xiaomi Yi, 70mai, Kawa y Azdome) a las de gama alta (Viofo, Vantrue, Garmin y BlackVue), con precios orientativos y una sección sobre qué no comprar.",
  cuerpo:""},
-{id:"vs1", seo:["Viofo VS1: análisis de la dashcam 2K compacta | Dashcams España","Dashcam compacta 2K a 30 fps por unos 100 €: de día lee matrículas hasta 15 metros, con GPS y sensor de colisión. Nota: 8,37 de 10."], producto:"Viofo VS1", marca:"VIOFO", video:"3Qisdn7hP0w", portada:"img/blog/viofo-vs1/portada.webp", portadaAlt:"Viofo VS1 instalada en el parabrisas con el texto «Viofo VS1»", titulo:"Reseña de la dashcam Viofo VS1: lo que debes saber", tipo:"Análisis", fecha:"8 may 2024", lectura:"2 min", nota:"8,37", amazon:amz("VIOFO VS1"),
- resumen:"Una dashcam compacta que graba en 2K a 30 fps por unos 100 €. De día lee matrículas hasta 15 metros, e incluye GPS y sensor de colisión. El modo aparcado exige conectarla a los fusibles.",
+{id:"vs1", seo:["Viofo VS1: análisis de la dashcam 2K compacta | Dashcams España","Análisis de la Viofo VS1, dashcam compacta 2K con GPS y sensor de colisión (nota: 8,37 de 10). Ya está agotada: te decimos qué alternativa elegir."], producto:"Viofo VS1", marca:"VIOFO", video:"3Qisdn7hP0w", portada:"img/blog/viofo-vs1/portada.webp", portadaAlt:"Viofo VS1 instalada en el parabrisas con el texto «Viofo VS1»", titulo:"Reseña de la dashcam Viofo VS1: lo que debes saber", tipo:"Análisis", fecha:"8 may 2024", lectura:"2 min", nota:"8,37", amazon:"",
+ resumen:"Una dashcam compacta que graba en 2K a 30 fps, con GPS y sensor de colisión, que de día lee matrículas hasta 15 metros. Ya está agotada: al principio te decimos qué alternativa elegir.",
  cuerpo:""},
 {id:"que-es", tema:"uso", seo:["¿Qué es una dashcam y para qué sirve? | Dashcams España","Qué es una dashcam y para qué sirve: graba lo que pasa en la carretera y aporta pruebas en reclamaciones y ante el seguro."], titulo:"¿Qué es una dashcam y por qué deberías tener una?", tipo:"Guía con vídeo", fecha:"8 may 2024", lectura:"1 min", nota:"", amazon:"",
  resumen:"Qué es una dashcam y para qué sirve: registra lo que pasa en la carretera, aporta pruebas en reclamaciones y con el seguro, y contribuye a la seguridad vial.",
  cuerpo:""},
-{id:"instalar", tema:"uso", seo:["Cómo instalar una dashcam en el coche paso a paso","Paso a paso para instalar una dashcam: conectarla al mechero, colocarla tras el retrovisor y esconder el cable por el techo y las puertas."], video:"ljR2ncPnakI", portada:"img/blog/instalar/portada.webp", portadaAlt:"Dashcam instalada en el parabrisas de un coche, vista desde fuera", titulo:"Guía completa: cómo instalar una dashcam fácilmente en tu coche", tipo:"Tutorial", fecha:"8 may 2024", lectura:"1 min", nota:"", amazon:"",
+{id:"instalar", tema:"uso", seo:["Cómo instalar una dashcam en el coche paso a paso","Paso a paso para instalar una dashcam: conectarla al mechero, colocarla tras el retrovisor y esconder el cable por el techo y las puertas."], video:"ljR2ncPnakI", portada:"img/blog/instalar/portada.webp", portadaAlt:"Dashcam instalada en el parabrisas de un coche, vista desde fuera", titulo:"Guía completa: cómo instalar una dashcam fácilmente en tu coche", tipo:"Tutorial", fecha:"8 may 2024", lectura:"3 min", nota:"", amazon:"",
  resumen:"Paso a paso: elegir la fuente de energía (el mechero), colocarla detrás del retrovisor, limpiar el cristal, pasar el cable y esconderlo por el techo y las puertas.",
  cuerpo:""}
 ];
@@ -700,9 +701,7 @@ var DASHCAMS = [
   {name:"VIOFO A329 2CH", tag:"", link:"https://amzn.to/4krPWgq", review:"/viofo-a329",
    specs:{"Resolución":"4K a 60 fps (delantera)","Cámara trasera":"Sí","GPS":"Sí","WiFi":"Sí (app oficial)","Modo aparcado":"Sí (conexión a fusibles)","Opinión del canal":"9,2 / 10"}},
   {name:"VANTRUE N5", tag:"", link:"https://amzn.to/4kw4I5Y", review:"/vantrue-n5",
-   specs:{"Resolución":"2,7K (1944p) delantera; Full HD trasera e interiores","Cámara trasera":"Sí (y 2 interiores con infrarrojos)","GPS":"Sí (se puede desactivar)","WiFi":"Sí (app oficial)","Modo aparcado":"Sí (con kit a fusibles)","Opinión del canal":"9,1 / 10"}},
-  {name:"VIOFO VS1", tag:"", link:"", review:"/viofo-vs1",
-   specs:{"Resolución":"2K a 30 fps","Cámara trasera":"—","GPS":"Sí","WiFi":"—","Modo aparcado":"Sí (requiere conexión a fusibles)","Opinión del canal":"8,37 / 10"}}
+   specs:{"Resolución":"2,7K (1944p) delantera; Full HD trasera e interiores","Cámara trasera":"Sí (y 2 interiores con infrarrojos)","GPS":"Sí (se puede desactivar)","WiFi":"Sí (app oficial)","Modo aparcado":"Sí (con kit a fusibles)","Opinión del canal":"9,1 / 10"}}
 ];
 /* ===== Fin del bloque editable ===== */
 
@@ -827,10 +826,9 @@ var DASHCAMS = [
 ["VANTRUE N4 Pro","4K delantera + 1080p interior y trasera","Sí (trasera e interior)","158° delantera, 160° interior, 165° trasera","Sí","Sí","Sí","Sí (24 h, con kit de cableado)","","Hasta 512 GB","","","https://amzn.to/43eW8SS"],
 ["VIOFO A229 Plus 2K","2K delantera (60 fps sin HDR) + 2K trasera","Sí (2K)","140° delantera, 160° trasera","Sí","Sí (5 GHz)","Sí","Sí, con kit de cableado aparte","Sí","Hasta 512 GB","","","https://amzn.to/4k7rHUT"],
 ["VIOFO A329 2CH","4K a 60 fps (delantera)","Sí","","Sí","Sí","Sí","Sí (conexión a fusibles)","Sí (delantera)","","9,2 / 10","/viofo-a329","https://amzn.to/4krPWgq"],
-["VANTRUE N5","2,7K (1944p) delantera + Full HD trasera e interiores","Sí (y 2 interiores con infrarrojos)","158° / 160° / 160° / 165°","Sí","Sí","Sí","Sí (24 h)","","Hasta 512 GB","9,1 / 10","/vantrue-n5","https://amzn.to/4kw4I5Y"],
-["VIOFO VS1","2K a 30 fps","","","Sí","","Sí","Sí (con kit a fusibles)","","","8,37 / 10","/viofo-vs1",amz("VIOFO VS1")]
+["VANTRUE N5","2,7K (1944p) delantera + Full HD trasera e interiores","Sí (y 2 interiores con infrarrojos)","158° / 160° / 160° / 165°","Sí","Sí","Sí","Sí (24 h)","","Hasta 512 GB","9,1 / 10","/vantrue-n5","https://amzn.to/4kw4I5Y"]
   ];
-  var RA=[[1,2,1,0,1,1,0,0,1],[3,3,1,1,1,1,0,1,0],[2,3,2,1,1,1,1,0,0],[2,1,1,0,1,.5,1,0,1],[3,3,3,1,1,1,1,0,0],[3,2,2,1,1,1,1,1,0],[4,3,2,1,1,1,1,1,0],[4,2,3,1,1,1,1,0,0],[2,2,1,1,0,1,1,0,.5]];
+  var RA=[[1,2,1,0,1,1,0,0,1],[3,3,1,1,1,1,0,1,0],[2,3,2,1,1,1,1,0,0],[2,1,1,0,1,.5,1,0,1],[3,3,3,1,1,1,1,0,0],[3,2,2,1,1,1,1,1,0],[4,3,2,1,1,1,1,1,0],[4,2,3,1,1,1,1,0,0]];
   /* Base ampliada: [nombre, gama, res(1=1080p,2=2K,3=4K), cámaras(1,2,3), GPS, WiFi, aparcado, voz, pantalla, discreta, ángulo, tarjeta, texto trasera, nota resolución, reseña del blog (opcional, p. ej. "/ddpai-z60-pro")]; 1=sí, .5=opcional, 0=no, null=sin confirmar */
   var NEW=[
 ["Viofo A119 Mini 2",2,2,1,1,1,1,1,1,1,"140°","","",""],
@@ -840,6 +838,7 @@ var DASHCAMS = [
 ["Viofo A229 Pro 3CH",3,3,3,1,1,1,1,null,0,"140° / 160° / 150° interior","Hasta 512 GB",""," (trasera 2K, interior Full HD)"],
 ["Viofo A229 Ultra 4K 2CH",4,3,2,1,1,1,1,null,0,"","Hasta 512 GB",""," (trasera también 4K)"],
 ["Viofo A329S 3CH 4K",4,3,3,1,1,1,1,null,0,"210° interior","Hasta 512 GB",""," (trasera e interior 2K)"],
+["Viofo A329S 2CH 4K",4,3,2,1,1,1,1,null,0,"","Hasta 512 GB o SSD de 4 TB",""," (a 60 fps; trasera 2K)"],
 ["Vantrue N4S 3CH",3,2,3,1,1,1,1,1,0,"158° delantera","Hasta 1 TB",""," (delantera hasta 2,7K)"],
 ["Vantrue N5S 4CH",4,2,3,1,1,1,1,null,0,"158° / 160° / 160° / 165°","Hasta 1 TB",""," (en concreto 2,7K delantera; trasera 1440p e interiores 1080p)"],
 ["Vantrue E1 Pro 4K Mini",2,3,1,1,1,1,1,1,1,"158°","Hasta 1 TB","",""],
