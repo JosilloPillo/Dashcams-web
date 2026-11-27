@@ -631,7 +631,9 @@ var POSTS = [
   });
   function estado(){var e=(location.search.match(/[?&]alta=([a-z]+)/)||[])[1],p=document.querySelector("#newsletter .bol-estado");
   if(e&&p){p.hidden=false;p.textContent=e==="ok"?"¡Listo! Ya estás apuntado a la newsletter. Gracias por apoyar el canal.":e==="caducado"?"El enlace de confirmación ha caducado o no es válido. Vuelve a apuntarte abajo.":"Algo ha fallado al confirmar el alta. Prueba otra vez o escríbenos a info@dashcams.es.";}}
-  if(document.readyState==="loading")document.addEventListener("DOMContentLoaded",estado);else estado();
+  function trampa(){[].forEach.call(document.querySelectorAll("form.boletin"),function(f){if(f.querySelector("input[name=web]"))return;var h=document.createElement("input");h.type="text";h.name="web";h.tabIndex=-1;h.autocomplete="off";h.className="sr";h.setAttribute("aria-hidden","true");f.appendChild(h);});}
+  function listo(){estado();trampa();}
+  if(document.readyState==="loading")document.addEventListener("DOMContentLoaded",listo);else listo();
 })();
 /* Blog: filtro por tema, buscador y "Ver más". Funciona igual en la página generada y en la dinámica. */
 (function(){
@@ -1222,7 +1224,7 @@ html[data-tema="escudo"] .clipband:hover .cb-btn{filter:none;box-shadow:0 14px 2
   }
   window.elegirMotivo=function(v){var f=document.querySelector('#contacto form');if(!f)return;var r=f.querySelector('input[name="Motivo"][value="'+v+'"]');if(r){r.checked=true;bloques(f);}};
   if(window.MOTIVO_PEND)window.elegirMotivo(window.MOTIVO_PEND);
-  [].forEach.call(document.querySelectorAll("form.form:not(#clipform)"),function(f){
+  [].forEach.call(document.querySelectorAll("form.form:not(#clipform):not(.boletin)"),function(f){
     if(f.querySelector("[data-si]")){bloques(f);f.addEventListener("change",function(e){if(e.target.name==="Motivo")bloques(f);});}
     var hp=document.createElement("input");hp.type="text";hp.name="web";hp.tabIndex=-1;hp.autocomplete="off";hp.className="sr";hp.setAttribute("aria-hidden","true");f.appendChild(hp);
     if(DIRECTO){var n=f.querySelector(":scope > .note");if(n)n.textContent="Tu mensaje nos llegará directamente. Te responderemos lo antes posible.";}
