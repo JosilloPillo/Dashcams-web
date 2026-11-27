@@ -142,6 +142,10 @@ nav.top a.navclip:hover{text-decoration:none;filter:brightness(1.15);}
 .boletin{margin-top:1rem;padding:1.25rem 1.5rem;border-radius:6px;background:var(--surface);border:1px solid var(--line);}
 .art .boletin{margin-top:1rem;}
 .boletin .bol-txt{color:var(--muted,inherit);}
+#newsletter .bol-estado{margin:0 0 1.5rem;padding:1.1rem 1.3rem;border-radius:10px;border:2px solid #2ea043;background:rgba(46,160,67,.12);font-size:1.05rem;line-height:1.5;}
+#newsletter .bol-estado.mal{border-color:#e0262c;background:rgba(224,38,44,.10);}
+#newsletter .bol-estado strong{display:block;font-size:1.3rem;margin-bottom:.25rem;}
+#newsletter .bol-estado p{margin:.4rem 0 0;}
 .boletin.form{gap:.6rem;}.boletin p{margin:0;}
 .boletin .bol-fila{display:flex;gap:.5rem;flex-wrap:wrap;}.boletin .bol-fila input{flex:1 1 14rem;width:auto!important;}.boletin .bol-fila .buy{margin:0;}
 .boletin label.ck{font-size:.9em;}.boletin .bol-msg{font-weight:600;}.boletin .bol-msg:empty{display:none;}
@@ -590,7 +594,11 @@ var POSTS = [
     }).catch(function(){msg(f,"No se ha podido completar. Prueba otra vez.");b.disabled=false;});
   });
   function estado(){var e=(location.search.match(/[?&]alta=([a-z]+)/)||[])[1],p=document.querySelector("#newsletter .bol-estado");
-  if(e&&p){p.hidden=false;p.textContent=e==="ok"?"¡Listo! Ya estás apuntado a la newsletter. Gracias por apoyar el canal.":e==="caducado"?"El enlace de confirmación ha caducado o no es válido. Vuelve a apuntarte abajo.":"Algo ha fallado al confirmar el alta. Prueba otra vez o escríbenos a info@dashcams.es.";}}
+  if(!e||!p)return;p.hidden=false;
+  if(e==="ok"){p.className="bol-estado";p.innerHTML="<strong>✅ ¡Suscripción confirmada!</strong>Ya estás dentro de la newsletter de Dashcams España. En unos minutos te llegará un correo de bienvenida.<p>Mientras tanto: <a href='/recomendador'>prueba el Recomendador</a> o <a href='/blog'>echa un vistazo al blog</a>.</p>";
+    var f=document.querySelector("#newsletter form.boletin");if(f)f.hidden=true;document.title="¡Suscripción confirmada! | Dashcams España";}
+  else{p.className="bol-estado mal";p.innerHTML=e==="caducado"?"<strong>El enlace ha caducado</strong>El enlace de confirmación ya no es válido (dura 7 días). Vuelve a apuntarte abajo y te mandamos uno nuevo.":"<strong>No se ha podido confirmar</strong>Algo ha fallado al confirmar el alta. Prueba otra vez abajo o escríbenos a <a href='mailto:info@dashcams.es'>info@dashcams.es</a>.";}
+  window.scrollTo(0,0);if(window.gtag)gtag("event","newsletter_confirmacion",{estado:e});}
   function trampa(){[].forEach.call(document.querySelectorAll("form.boletin"),function(f){if(f.querySelector("input[name=web]"))return;var h=document.createElement("input");h.type="text";h.name="web";h.tabIndex=-1;h.autocomplete="off";h.className="sr";h.setAttribute("aria-hidden","true");f.appendChild(h);});}
   function listo(){estado();trampa();}
   if(document.readyState==="loading")document.addEventListener("DOMContentLoaded",listo);else listo();
