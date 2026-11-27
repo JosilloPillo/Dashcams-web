@@ -55,6 +55,9 @@ RewriteRule ^([a-z0-9-]+)$ paginas/$1.html [L]
 <Files "clips-config.php">
   Require all denied
 </Files>
+<Files "newsletter-config.php">
+  Require all denied
+</Files>
 <Files "web.html">
   Require all denied
 </Files>

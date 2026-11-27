@@ -139,6 +139,12 @@ nav.top a.navclip:hover{text-decoration:none;filter:brightness(1.15);}
 .cb-btn{font-size:1.05rem;}
 .cb-btn{display:inline-block;padding:.8rem 1.4rem;border-radius:4px;background:var(--accent);color:var(--on-accent);font-weight:700;white-space:nowrap;}
 .art .clipband{margin-top:2rem;}
+.boletin{margin-top:1rem;padding:1.25rem 1.5rem;border-radius:6px;background:var(--surface);border:1px solid var(--line);}
+.art .boletin{margin-top:1rem;}
+.boletin .bol-txt{color:var(--muted,inherit);}
+.boletin.form{gap:.6rem;}.boletin p{margin:0;}
+.boletin .bol-fila{display:flex;gap:.5rem;flex-wrap:wrap;}.boletin .bol-fila input{flex:1 1 14rem;width:auto!important;}.boletin .bol-fila .buy{margin:0;}
+.boletin label.ck{font-size:.9em;}.boletin .bol-msg{font-weight:600;}.boletin .bol-msg:empty{display:none;}
 .form .si>.note{margin:0 0 14px;}
 .art{max-width:46rem;}
 .art h3{margin:1.75rem 0 .5rem;}
@@ -564,9 +570,28 @@ var POSTS = [
   POSTS.forEach(function(p){
     var bus=(p.titulo+" "+p.resumen+" "+(p.tipo||"")+" "+nombreTema(temaDe(p))).toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g,"").replace(/'/g," ");
     l+="<li class='post' data-tema='"+temaDe(p)+"' data-busca='"+bus+"'>"+(p.portada?"<a class='pimg' href='"+enlace(p.id)+"' tabindex='-1' aria-hidden='true'><img src='"+p.portada+"' alt=''"+dim(p.portada)+" loading='lazy' decoding='async'></a>":"")+"<h3><a href='"+enlace(p.id)+"'>"+p.titulo+"</a></h3><p class='meta'>"+nombreTema(temaDe(p))+", "+p.fecha+", "+p.lectura+" de lectura"+(p.nota?". Nota final: "+p.nota:"")+"</p><p>"+p.resumen+"</p></li>";
-    a+="<section id='"+p.id+"' data-view='"+p.id+"'><div class='wrap art'><p class='migas'><a href='/'>Inicio</a> › <a href='/blog'>Blog</a></p><h1>"+p.titulo+"</h1><p class='meta'>"+p.tipo+", por "+(p.autor||"Jose Barranco")+", "+p.fecha+", "+p.lectura+" de lectura"+(p.actualizado?". Actualizado el "+p.actualizado:"")+"</p>"+(p.portada?"<img class='portada' src='"+p.portada+"' alt='"+(p.portadaAlt||"").replace(/'/g,"&#39;")+"'"+dim(p.portada)+" fetchpriority='high'>":"")+p.cuerpo+(p.video&&!p.redes?"<h3>"+(p.tipo==="Análisis"?"El vídeo del análisis":"El vídeo paso a paso")+"</h3>"+vid(p.video,p.titulo):"")+(p.amazon?"<p>"+btn(p.amazon,p.producto||p.titulo)+"</p>":"")+(p.compra?"<p><a class='buy' href='"+p.compra+"' target='_blank' rel='sponsored noopener'>Ver en "+(p.tienda||"la tienda")+"</a></p>":"")+"<a class='clipband' href='/envia-tu-clip'><span class='cb-rec' aria-hidden='true'><i></i>REC</span><span class='cb-txt'><strong>¿Tienes un clip?</strong> Si has grabado algo con tu dashcam, envíanoslo y podría salir en el canal.</span><span class='cb-btn'>Envía tu clip <span aria-hidden='true'>→</span></span></a></div></section>";
+    a+="<section id='"+p.id+"' data-view='"+p.id+"'><div class='wrap art'><p class='migas'><a href='/'>Inicio</a> › <a href='/blog'>Blog</a></p><h1>"+p.titulo+"</h1><p class='meta'>"+p.tipo+", por "+(p.autor||"Jose Barranco")+", "+p.fecha+", "+p.lectura+" de lectura"+(p.actualizado?". Actualizado el "+p.actualizado:"")+"</p>"+(p.portada?"<img class='portada' src='"+p.portada+"' alt='"+(p.portadaAlt||"").replace(/'/g,"&#39;")+"'"+dim(p.portada)+" fetchpriority='high'>":"")+p.cuerpo+(p.video&&!p.redes?"<h3>"+(p.tipo==="Análisis"?"El vídeo del análisis":"El vídeo paso a paso")+"</h3>"+vid(p.video,p.titulo):"")+(p.amazon?"<p>"+btn(p.amazon,p.producto||p.titulo)+"</p>":"")+(p.compra?"<p><a class='buy' href='"+p.compra+"' target='_blank' rel='sponsored noopener'>Ver en "+(p.tienda||"la tienda")+"</a></p>":"")+"<a class='clipband' href='/envia-tu-clip'><span class='cb-rec' aria-hidden='true'><i></i>REC</span><span class='cb-txt'><strong>¿Tienes un clip?</strong> Si has grabado algo con tu dashcam, envíanoslo y podría salir en el canal.</span><span class='cb-btn'>Envía tu clip <span aria-hidden='true'>→</span></span></a><form class='boletin form' action='/newsletter.php' method='post' novalidate><p class='bol-tit'><strong>Newsletter de Dashcams España</strong></p><p class='bol-txt'>Un correo al mes con lo nuevo del blog, lo mejor del canal, novedades de la app y descuentos de la tienda. Sin spam.</p><div class='bol-fila'><input name='correo' type='email' required autocomplete='email' placeholder='Tu correo electrónico' aria-label='Tu correo electrónico'><button type='submit' class='buy'>Apuntarme</button></div><label class='ck'><input type='checkbox' name='privacidad' required> <span>Acepto la <a href='/privacidad'>política de privacidad</a>.</span></label><p class='bol-msg' role='status' aria-live='polite'></p></form></div></section>";
   });
   ul.innerHTML=l; box.outerHTML=a;
+})();
+/* Newsletter: formularios de alta y mensaje tras confirmar */
+(function(){
+  function msg(f,t,ok){var m=f.querySelector(".bol-msg");if(m){m.textContent=t;m.style.color=ok?"":"#c0392b";}}
+  document.addEventListener("submit",function(ev){
+    var f=ev.target;if(!f.classList||!f.classList.contains("boletin"))return;ev.preventDefault();
+    var c=f.querySelector("input[name=correo]"),k=f.querySelector("input[name=privacidad]"),b=f.querySelector("button");
+    if(!c.value||!c.checkValidity()){msg(f,"Escribe un correo válido.");c.focus();return;}
+    if(!k.checked){msg(f,"Marca la casilla de la política de privacidad.");return;}
+    var d=new FormData(f);d.append("origen",location.pathname);b.disabled=true;msg(f,"Enviando…",true);
+    fetch("/newsletter.php",{method:"POST",body:d}).then(function(r){return r.json();}).then(function(j){
+      if(j.ok){f.querySelector(".bol-fila").hidden=true;k.parentNode.hidden=true;msg(f,"¡Casi está! Te hemos enviado un correo: abre el enlace para confirmar el alta (mira en spam si no lo ves).",true);
+        if(window.gtag)gtag("event","newsletter_alta",{origen:location.pathname});}
+      else{msg(f,j.error||"No se ha podido completar. Prueba otra vez.");b.disabled=false;}
+    }).catch(function(){msg(f,"No se ha podido completar. Prueba otra vez.");b.disabled=false;});
+  });
+  function estado(){var e=(location.search.match(/[?&]alta=([a-z]+)/)||[])[1],p=document.querySelector("#newsletter .bol-estado");
+  if(e&&p){p.hidden=false;p.textContent=e==="ok"?"¡Listo! Ya estás apuntado a la newsletter. Gracias por apoyar el canal.":e==="caducado"?"El enlace de confirmación ha caducado o no es válido. Vuelve a apuntarte abajo.":"Algo ha fallado al confirmar el alta. Prueba otra vez o escríbenos a info@dashcams.es.";}}
+  if(document.readyState==="loading")document.addEventListener("DOMContentLoaded",estado);else estado();
 })();
 /* Blog: filtro por tema, buscador y "Ver más". Funciona igual en la página generada y en la dinámica. */
 (function(){
@@ -593,6 +618,8 @@ var POSTS = [
   if(document.readyState==="loading")document.addEventListener("DOMContentLoaded",init);else init();
 })();
 </script>
+
+
 
 
 
@@ -667,6 +694,7 @@ var POSTS = [
       <li><a href="/cookies" data-cookies="config">Configurar cookies</a></li>
       <li><a href="/blog">Blog</a></li>
       <li><a href="/descargas">Descargas</a></li>
+      <li><a href="/newsletter">Newsletter</a></li>
     </ul>
   </div>
 </footer>
@@ -732,9 +760,10 @@ var DASHCAMS = [
     descargas:["Fondos de pantalla gratis | Dashcams España","Descarga gratis los fondos de pantalla de Dashcams España para el móvil y el ordenador."],
     "enviar-clip":["Envía tu clip de dashcam | Dashcams España","¿Has grabado algo con tu dashcam? Envía tu vídeo y podría salir en el canal de YouTube de Dashcams España."],
     contacto:["Contacto | Dashcams España","Escríbenos para colaboraciones, dudas sobre dashcams, reclamar el llavero de miembro o cualquier otra consulta."],
+    newsletter:["Newsletter | Dashcams España","Apúntate a la newsletter de Dashcams España: un correo al mes con lo nuevo del blog, lo mejor del canal, la app y descuentos de la tienda."],
     "sobre-nosotros":["Sobre nosotros | Dashcams España","Conoce Dashcams España: el canal de YouTube y la web de Jose Barranco sobre dashcams, carretera y seguridad vial desde 2023."],
     "condiciones-clips":["Condiciones de envío de vídeos | Dashcams España","Condiciones para enviar tus vídeos de dashcam a Dashcams España: autoría, cesión de derechos y privacidad."],
-    privacidad:["Política de privacidad | Dashcams España","Cómo trata Dashcams España los datos de los formularios de contacto y de envío de vídeos."],
+    privacidad:["Política de privacidad | Dashcams España","Cómo trata Dashcams España los datos de los formularios de contacto, de envío de vídeos y de la newsletter."],
     "aviso-legal":["Aviso legal | Dashcams España","Datos del titular, condiciones de uso y enlaces de afiliado de Dashcams España."],
     cookies:["Política de cookies | Dashcams España","Qué guarda esta web en tu navegador: Google Analytics solo si lo aceptas y ninguna cookie de publicidad."],
     "no-encontrada":["Página no encontrada | Dashcams España","La página que buscas no existe o se ha movido."]
