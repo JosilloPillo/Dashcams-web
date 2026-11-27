@@ -90,7 +90,7 @@ $enlace = base() . '/newsletter.php?confirmar=' . b64u($correo) . '&t=' . $t . '
 $texto = "¡Hola!\n\n"
     . "Alguien (esperamos que tú) ha pedido apuntarse a la newsletter de Dashcams España con este correo.\n\n"
     . "Para confirmarlo, abre este enlace (vale 7 días):\n" . $enlace . "\n\n"
-    . "Una vez al mes te contaremos lo nuevo del blog, lo mejor del canal, novedades de la app y descuentos de la tienda. "
+    . "Te escribiré dos veces al mes: el día 1, con lo nuevo del blog, lo mejor del canal, novedades de la app y descuentos de la tienda; y a mitad de mes, con mi opinión y consejos de seguridad vial sobre los clips más polémicos. "
     . "Puedes darte de baja cuando quieras desde cualquier correo.\n\n"
     . "Si no has sido tú, ignora este mensaje: sin confirmar no te apuntamos a nada.\n\n"
     . "Jose, de Dashcams España\nhttps://dashcams.es\n";
@@ -112,8 +112,9 @@ $html = '<!DOCTYPE html><html lang="es"><head><meta charset="utf-8"><meta name="
  . '<a href="' . $e . '" style="display:inline-block;padding:15px 30px;font-size:18px;font-weight:bold;color:#1f2147;text-decoration:none;border-radius:10px;">Sí, quiero apuntarme</a>'
  . '</td></tr></table>'
  . '<table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background:#f6f5fa;border-radius:10px;"><tr><td style="padding:16px 20px;font-size:15px;line-height:1.55;">'
- . '<p style="margin:0 0 8px;font-weight:bold;">Una vez al mes te llegará:</p>'
- . '<p style="margin:0;color:#55577a;">Lo mejor del canal · Nuevos artículos del blog · Primicias de la app · El calendario de vídeos · Descuentos de la tienda</p>'
+ . '<p style="margin:0 0 8px;font-weight:bold;">Dos correos al mes:</p>'
+ . '<p style="margin:0 0 6px;color:#55577a;"><strong style="color:#1f2147;">El día 1:</strong> lo mejor del canal · nuevos artículos del blog · primicias de la app · el calendario de vídeos · descuentos de la tienda</p>'
+ . '<p style="margin:0;color:#55577a;"><strong style="color:#1f2147;">A mitad de mes:</strong> mi opinión sobre los clips más polémicos y consejos de seguridad vial</p>'
  . '</td></tr></table>'
  . '<p style="margin:20px 0 0;font-size:14px;color:#6a6c8a;">El enlace vale 7 días. Si no has sido tú, ignora este correo: sin confirmar no te apuntamos a nada.</p>'
  . '<p style="margin:10px 0 0;font-size:13px;color:#6a6c8a;">¿No funciona el botón? Copia este enlace en el navegador:<br><a href="' . $e . '" style="color:#6a6c8a;word-break:break-all;">' . $e . '</a></p>'
